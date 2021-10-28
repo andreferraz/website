@@ -1,0 +1,24 @@
+# Ignore machine and cache files
+*.DS_Store
+
+# VS Code user settings
+.vscode
+
+# Dependency directories
+node_modules
+
+# Next Core
+.next
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Environment variables
+.env.*
+!.env.example
+
+# Generated sitemap
+public/sitemap.xml
+
+# Changelog
+changes
