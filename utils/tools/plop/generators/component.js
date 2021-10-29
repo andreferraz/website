@@ -52,7 +52,7 @@ const createComponent = (plop) => {
 			actions.push({
 				type: 'add',
 				templateFile: '../templates/component/styles.hbs',
-				path: './components/{{ lowerCase name }}/{{ pascalCase name }}.style.ts',
+				path: './components/{{ lowerCase name }}/{{ pascalCase name }}.styles.ts',
 			});
 
 			return actions;

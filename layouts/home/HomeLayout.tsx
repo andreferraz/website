@@ -6,6 +6,7 @@ import { Container } from 'react-bootstrap';
 import { Layout } from './HomeLayout.styles';
 import { LayoutProps } from '@/typings/LayoutProps';
 import { HomeLayoutContentProps } from './HomeLayout.types';
+import IntroSection from '@/components/intro-section';
 
 export const HomeLayout: React.FC<LayoutProps> = (props) => {
 	const content = props.route.content as HomeLayoutContentProps;
@@ -13,12 +14,8 @@ export const HomeLayout: React.FC<LayoutProps> = (props) => {
 	return (
 		<Layout {...props}>
 			<Container>
-				<h1>
-					Hello,
-					<br /> my name is <br />
-					{props.route.title}
-				</h1>
-				<pre>{JSON.stringify(content, null, '\t')}</pre>
+				<IntroSection className="d-flex align-items-center full-height" />
+				{/* <pre>{JSON.stringify(content, null, '\t')}</pre> */}
 			</Container>
 		</Layout>
 	);

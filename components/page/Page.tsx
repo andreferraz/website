@@ -22,9 +22,7 @@ export const Page = ({ route, options, menus, className, children }: Props): JSX
 			<div id="page" className={className}>
 				<Header menu={null} />
 
-				<div id="content" className="pt-4" style={{ marginTop: '100px' }}>
-					{children}
-				</div>
+				<div id="content">{children}</div>
 
 				{/* <Footer menus={menus} options={options} /> */}
 			</div>

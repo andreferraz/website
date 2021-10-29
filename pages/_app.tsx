@@ -13,7 +13,7 @@ function SiteApp({ Component, pageProps }: AppProps): JSX.Element {
 		<>
 			<ThemeProvider theme={theme}>
 				<AppProvider>
-					<Component {...pageProps} />;
+					<Component {...pageProps} />
 				</AppProvider>
 			</ThemeProvider>
 		</>

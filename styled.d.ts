@@ -6,6 +6,13 @@ declare module 'styled-components' {
 		baseRem: number;
 		colors: {
 			// Theme colors
+			blue: string;
+			lightblue: string;
+			yellow: string;
+			lightyellow: string;
+			orange: string;
+			lightorange: string;
+			gradientBlue: string;
 			white: string;
 			black: string;
 			primary: string;

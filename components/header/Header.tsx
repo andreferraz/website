@@ -21,7 +21,7 @@ import {
 	HeaderLogo,
 	HeaderContent,
 	LogoCaption,
-	AccessibilityButton,
+	SkipButton,
 } from './Header.styles';
 
 // Typing
@@ -45,51 +45,33 @@ export const Header: React.FC<Props> = ({ menu, className }) => {
 
 	return (
 		<>
-			<AccessibilityButton onClick={() => document.getElementById('content').focus()}>
-				Go to page content {/* TODO: Convert to i18n text */}
-			</AccessibilityButton>
+			<SkipButton href="#content" className="btn btn-blue text-white visually-hidden-focusable">
+				Skip to main content
+			</SkipButton>
 
-			<Component className={`${className} w-100`}>
+			<Component className={`${className} w-100 fixed-top`}>
 				<Container>
 					<HeaderContent className="d-flex align-items-center justify-content-between">
 						{/* LOGO */}
-						<div className="d-flex order-2 order-lg-1 align-items-center">
-							{isHome ? (
-								<h1 className="m-0">
-									<Link href="/">
-										<a>
-											<HeaderLogo
-												src={getAssetPath(`/images/andreferraz-logo.svg`)}
-												alt={Site.title}
-												width="44"
-												height="40"
-											/>
-										</a>
-									</Link>
-								</h1>
-							) : (
-								<div>
-									<Link href="/">
-										<a>
-											<HeaderLogo
-												src={getAssetPath(`/images/andreferraz-logo.svg`)}
-												alt={Site.title}
-												width="44"
-												height="40"
-											/>
-										</a>
-									</Link>
-								</div>
-							)}
-
-							<LogoCaption className="ml-3">
-								<strong>André Ferraz</strong> <br />
-								Software Developer
-							</LogoCaption>
+						<div>
+							<Link href="/">
+								<a className="d-inline-flex align-items-center text-reset text-decoration-none">
+									<HeaderLogo
+										src={getAssetPath(`/images/andreferraz-logo.svg`)}
+										alt={Site.title}
+										width="44"
+										height="40"
+									/>
+									<LogoCaption className="ms-3">
+										<strong>André Ferraz</strong> <br />
+										Software Developer
+									</LogoCaption>
+								</a>
+							</Link>
 						</div>
 
 						{/* NAV MENU */}
-						<div className="align-items-center justify-content-end order-1 order-lg-2 row">
+						<div className="align-items-center justify-content-end row">
 							{menu && (
 								<MenuList className="menu-list-header mb-0 justify-content-between d-none d-lg-flex mr-3">
 									{menu.items.map((menuItem, index) => (

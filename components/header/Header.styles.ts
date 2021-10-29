@@ -11,11 +11,15 @@ export const Component = styled.div`
 `;
 
 export const HeaderContent = styled.div`
-	height: 100px;
+	height: 72px;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.lg.up}) {
+		height: 100px;
+	}
 `;
 
 export const HeaderLogo = styled.img`
-	height: 40px;
+	height: 32px;
 
 	@media (min-width: ${theme.breakpoints.lg.up}px) {
 		height: 28px;
@@ -31,6 +35,11 @@ export const HeaderLogo = styled.img`
 
 export const LogoCaption = styled.div`
 	line-height: 1.2;
+
+	@media (max-width: ${({ theme }) => theme.breakpoints.sm.down}) {
+		font-size: ${rem(14)};
+		line-height: 1.3;
+	}
 `;
 
 export const MenuList = styled.ul``;
@@ -130,18 +139,14 @@ export const SidebarButton = styled.button`
 	}
 `;
 
-export const AccessibilityButton = styled.button`
+export const SkipButton = styled.a`
 	position: absolute;
-	left: 20px;
-	top: 20px;
+	left: 1.5rem;
+	top: 1.25rem;
 	z-index: -1;
 	background: white;
-	box-shadow: 0px 5px 10px #eaeaea;
-	border: none;
-	border-radius: 15px;
-	padding: 15px;
 
 	&:focus {
-		z-index: 20;
+		z-index: 1100;
 	}
 `;

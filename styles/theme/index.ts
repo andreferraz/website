@@ -16,19 +16,25 @@ gridTiers.forEach(({ name, value }, index) => {
 	breakpoints[name] = {};
 	breakpoints[name].up = `${value}px`;
 	if (index < gridTiers.length - 1) {
-		const nextBreakpoint = gridTiers[index + 1];
-		breakpoints[name].down = `${(nextBreakpoint.value - 0.02).toFixed(2)}px`;
+		breakpoints[name].down = `${(value - 0.02).toFixed(2)}px`;
 	} else {
 		breakpoints[name].down = `99999px`;
 	}
 });
 
 export const themeColors = {
-	primary: '#0073aa',
+	primary: '#4e91f8',
+	blue: '#3200d9',
+	lightblue: '#dbedff',
+	yellow: '#ffdb62',
+	lightyellow: '#fff7a3',
+	orange: '#ffc995',
+	lightorange: '#fdf2e5',
 	secondary: '#6c757d',
 	light: '#f8f9fa',
 	medium: '#adb5bd',
 	dark: '#343a40',
+	gradientBlue: 'linear-gradient(to right, #2231b9, #26b5ff)',
 };
 
 const colors = {
