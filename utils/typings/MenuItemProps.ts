@@ -3,5 +3,5 @@ import { LinkProps } from '@/typings/LinkProps';
 export interface MenuItemProps extends LinkProps {
 	additionalClass?: string;
 	titleAttr?: string;
-	subitems?: LinkProps[];
+	icon?: 'linkedin' | 'facebook' | 'pinterest' | 'github' | 'gitlab' | 'email';
 }

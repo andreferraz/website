@@ -54,6 +54,8 @@ const colors = {
 	pinterest: '#ca212a',
 	whatsapp: '#30d14d',
 	linkedin: '#0b66c2',
+	github: '#1e335e',
+	gitlab: '#f96424',
 };
 
 const baseRem = 16;

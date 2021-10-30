@@ -1,77 +1,59 @@
 // External dependencies
 import React from 'react';
-import Link from 'next/link';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 // Internal modules
-import { Component, Copyright, Logo, Menu } from './Footer.styles';
-import { Site } from '@/config/site';
-import { MenuProps } from '@/typings/MenuProps';
+import { Component } from './Footer.styles';
 import { OptionsProps } from '@/typings/OptionsProps';
+import { MenuItemProps } from '@/typings/MenuItemProps';
 import SocialButtons from '@/components/social-buttons';
-import { getAssetPath } from '@/helpers/assets';
 
 // Properties definition
 interface Props {
-	menus: MenuProps[];
+	socialMenu: MenuItemProps[];
 	options: OptionsProps;
 }
 
-export const Footer = ({ menus, options }: Props): JSX.Element => {
-	const footerMenu = menus.find(({ location }) => location === 'footer');
-	const socialMenu = menus.find(({ location }) => location === 'social');
+export const Footer = ({ socialMenu }: Props): JSX.Element => {
+	socialMenu = [
+		{
+			text: 'LinkedIn',
+			href: 'https://www.linkedin.com/in/andre-ferraz-developer/',
+			titleAttr: 'LinkedIn – Link opens in a new tab',
+			target: '_blank',
+			rel: 'noopener nofollow',
+			icon: 'linkedin',
+		},
+		{
+			text: 'GitHub',
+			href: 'https://github.com/andreferraz',
+			titleAttr: 'GitHub – Link opens in a new tab',
+			target: '_blank',
+			rel: 'noopener nofollow',
+			icon: 'github',
+		},
+		{
+			text: 'Gitlab',
+			href: 'https://github.com/andreferraz',
+			titleAttr: 'Gitlab – Link opens in a new tab',
+			target: '_blank',
+			rel: 'noopener nofollow',
+			icon: 'gitlab',
+		},
+		{
+			text: 'E-mail',
+			href: 'mailto:andre.d.f.182@hotmail.com',
+			titleAttr: 'Copy e-mail',
+			icon: 'email',
+		},
+	];
 
 	return (
-		<Component className={`d-flex justify-content-between mt-auto`}>
+		<Component className={`position-absolute bottom-0 w-100`}>
 			<Container>
-				<Row>
-					{/* LOGO */}
-					<Col xs={12} md={4} lg={3} className="mb-4">
-						<Link href="/">
-							<a title={`Return to the homepage`}>
-								<Logo
-									src={getAssetPath('/images/next-boilerplate-logo.svg')}
-									alt={Site.title}
-									title={Site.title}
-									width="100"
-								/>
-							</a>
-						</Link>
-					</Col>
-
-					{/* FOOTER LINKS */}
-					<Col xs={12} md={4} lg={6} className="mb-3">
-						{footerMenu !== undefined && (
-							<nav>
-								<Menu className="list-unstyled">
-									{footerMenu.items.map((item, index) => (
-										<li key={index} className="mb-3">
-											<Link href={item.href}>
-												<a
-													target={item.target}
-													rel={item.rel}
-													title={item.titleAttr}
-													className="d-inline-block"
-													dangerouslySetInnerHTML={{ __html: item.text }}
-												/>
-											</Link>
-										</li>
-									))}
-								</Menu>
-							</nav>
-						)}
-					</Col>
-
-					{/* SOCIAL MEDIA */}
-					<Col xs={12} md={4} lg={3} className="mb-4">
-						{socialMenu !== undefined && <SocialButtons links={socialMenu.items} />}
-					</Col>
-				</Row>
-
-				{/* COPYRIGHT */}
-				<Copyright className="text-center w-100">
-					<span dangerouslySetInnerHTML={{ __html: options.footer.copyright }} />
-				</Copyright>
+				<div className="d-flex justify-content-between mt-auto py-4">
+					{socialMenu !== undefined && <SocialButtons links={socialMenu} />}
+				</div>
 			</Container>
 		</Component>
 	);

@@ -1,13 +1,7 @@
 // External dependencies
 import React from 'react';
-import {
-	FaFacebook,
-	FaTwitter,
-	FaYoutube,
-	FaInstagram,
-	FaPinterest,
-	FaLinkedin,
-} from 'react-icons/fa';
+import { FaLinkedinIn, FaGithub, FaGitlab } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
 
 // Internal dependencies
 import { Component } from './SocialButtons.styles';
@@ -21,12 +15,10 @@ interface Props extends SocialButtonsProps {
 }
 
 const IconList = {
-	facebook: FaFacebook,
-	twitter: FaTwitter,
-	youtube: FaYoutube,
-	instagram: FaInstagram,
-	pinterest: FaPinterest,
-	linkedin: FaLinkedin,
+	linkedin: FaLinkedinIn,
+	github: FaGithub,
+	gitlab: FaGitlab,
+	email: HiOutlineMail,
 };
 
 const Icon = (text, size) => {
@@ -34,24 +26,19 @@ const Icon = (text, size) => {
 	return <SpecificIcon size={size === 'small' ? 20 : 30} />;
 };
 
-export const SocialButtons = ({
-	className = '',
-	links,
-	size = 30,
-	color = 'text-primary',
-}: Props): JSX.Element => {
+export const SocialButtons = ({ className = '', links, size = 30 }: Props): JSX.Element => {
 	return (
 		<Component className={`p-0 list-unstyled d-flex mx-n3 ${className}`}>
-			{links.map(({ text, href, target, rel }, index) => (
-				<li key={index} className="mx-3">
+			{links.map(({ text, href, target, rel, icon }, index) => (
+				<li key={index} className="me-1">
 					<a
 						href={href}
 						target={target}
 						rel={rel}
-						aria-label={`${text} social media`}
-						className={`d-block ${color}`}
+						title={text}
+						className={`d-flex justify-content-center align-content-center p-3 rounded-pill ${icon}`}
 					>
-						{Icon(text, size)}
+						{Icon(icon, size)}
 					</a>
 				</li>
 			))}

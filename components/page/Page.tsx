@@ -24,7 +24,7 @@ export const Page = ({ route, options, menus, className, children }: Props): JSX
 
 				<div id="content">{children}</div>
 
-				{/* <Footer menus={menus} options={options} /> */}
+				<Footer socialMenu={[]} options={options} />
 			</div>
 		</>
 	);

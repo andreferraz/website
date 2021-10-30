@@ -2,13 +2,7 @@ import styled, { css } from 'styled-components';
 import theme from '@/styles/theme';
 import { darken, lighten, rem } from 'polished';
 
-export const Component = styled.div`
-	position: fixed;
-	top: 0;
-	background: white;
-	//box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-	z-index: 15;
-`;
+export const Component = styled.div``;
 
 export const HeaderContent = styled.div`
 	height: 72px;
@@ -20,25 +14,15 @@ export const HeaderContent = styled.div`
 
 export const HeaderLogo = styled.img`
 	height: 32px;
-
-	@media (min-width: ${theme.breakpoints.lg.up}px) {
-		height: 28px;
-	}
-
 	width: auto;
-	transition: filter 0.1s linear;
-
-	&:hover {
-		filter: brightness(0.875);
-	}
 `;
 
 export const LogoCaption = styled.div`
-	line-height: 1.2;
+	line-height: 1.3;
+	font-size: ${rem(16)};
 
 	@media (max-width: ${({ theme }) => theme.breakpoints.sm.down}) {
 		font-size: ${rem(14)};
-		line-height: 1.3;
 	}
 `;
 
@@ -141,8 +125,9 @@ export const SidebarButton = styled.button`
 
 export const SkipButton = styled.a`
 	position: absolute;
-	left: 1.5rem;
-	top: 1.25rem;
+	left: -1rem;
+	top: 1.875rem;
+	padding-left: 1.75rem;
 	z-index: -1;
 	background: white;
 

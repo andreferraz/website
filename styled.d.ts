@@ -32,6 +32,8 @@ declare module 'styled-components' {
 			pinterest: string;
 			whatsapp: string;
 			linkedin: string;
+			github: string;
+			gitlab: string;
 		};
 		fontFamily: {
 			display: string;

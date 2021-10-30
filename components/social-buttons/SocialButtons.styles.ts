@@ -1,3 +1,66 @@
+import { darken, lighten, saturate, shade, tint } from 'polished';
 import styled from 'styled-components';
 
-export const Component = styled.ul``;
+export const Component = styled.ul`
+	a {
+		color: black;
+		background: white;
+		position: relative;
+		transition: color 0.2s linear;
+
+		svg {
+			z-index: 1;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0%;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			background: black;
+			opacity: 0;
+			transform: scale(0.6);
+			transition: transform 0.3s cubic-bezier(0.31, 1.76, 0.48, 0.81), opacity 0.2s linear;
+		}
+
+		&:hover,
+		&:focus {
+			//background: rgba(0, 0, 0, 0.1);
+			color: white;
+
+			&:before {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15);
+			outline: none;
+		}
+
+		&.linkedin {
+			&:before {
+				background: linear-gradient(45deg, #094e94, #00a4ff);
+			}
+		}
+		&.github {
+			&:before {
+				background: linear-gradient(45deg, #1c3669, #5870d8);
+			}
+		}
+		&.gitlab {
+			&:before {
+				background: linear-gradient(45deg, #ce4000, #ff976a);
+			}
+		}
+		&.email {
+			&:before {
+				background: linear-gradient(45deg, #9c632e, #f7d9ad);
+			}
+		}
+	}
+`;
