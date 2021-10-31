@@ -5,6 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 // Internal dependencies
 import { Component, Name, Title } from './IntroSection.styles';
 import { IntroSectionProps } from './IntroSection.types';
+import LinkButton from '@/components/link-button';
 
 // Types
 interface Props extends IntroSectionProps {
@@ -27,9 +28,12 @@ export const IntroSection = ({ className = '' }: Props): JSX.Element => {
 						I am a software developer, with +7 years of experience building websites for
 						multinational brands, and passionate about game development.
 					</p>
-					<a href="#website" className="btn btn-blue text-white">
-						Scroll for more
-					</a>
+					<LinkButton
+						text={`Scroll for more`}
+						href={`#websites`}
+						isHighlighted
+						className="mb-3"
+					/>
 				</Col>
 			</Row>
 		</Component>

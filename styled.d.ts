@@ -7,11 +7,11 @@ declare module 'styled-components' {
 		colors: {
 			// Theme colors
 			blue: string;
-			lightblue: string;
+			lightBlue: string;
 			yellow: string;
-			lightyellow: string;
+			lightYellow: string;
 			orange: string;
-			lightorange: string;
+			lightOrange: string;
 			gradientBlue: string;
 			white: string;
 			black: string;
