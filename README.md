@@ -1,24 +1,28 @@
-# Andre Ferraz
+# André Ferraz
 
-Hello, this is the code from my personal website, developed with **Next.js**.
+Hello, this is the code from my personal website/portfolio, developed with **Next.js**.
 
-## Technologies
+## Technologies I used
 
 -  [Next.js](https://nextjs.org/) – A React framework
--  [Bootstrap](https://getbootstrap.com/) – A CSS framework for responsive websites
+-  [Bootstrap 5](https://getbootstrap.com/) – A CSS framework for responsive websites
 -  [Styled Components](https://styled-components.com/) – A library for component based styling
 -  [Plop](https://plopjs.com/) – An awesome CLI for creating code from a custom boilerplate
 
-## Installation
+## Run it locally
 
-Install the dependencies:
+> It requires **NPM** and **Node.js** to run on your machine.
+
+Install the dependencies
 
 ```bash
 npm install
 ```
 
-For starting the local server:
+Start the local server
 
 ```bash
 npm run dev
 ```
+
+Once running, you can visit http://localhost:3000 on your browser.
