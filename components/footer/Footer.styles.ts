@@ -1,3 +1,4 @@
+import { easeOut, rem } from 'polished';
 import styled from 'styled-components';
 
 export const Component = styled.footer``;
@@ -11,7 +12,40 @@ export const Logo = styled.img`
 	}
 `;
 
-export const Copyright = styled.div``;
+export const Credits = styled.p`
+	font-size: ${rem(14)};
+	font-weight: 500;
+
+	a {
+		color: inherit;
+		display: inline-block;
+		position: relative;
+		text-decoration: none;
+
+		&:before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			bottom: 0;
+			background: black;
+			z-index: -1;
+			transform: scaleY(0.05);
+			transform-origin: bottom;
+			transition: transform 0.15s ${easeOut('cubic')};
+		}
+
+		&:hover,
+		&:focus {
+			color: white;
+
+			&:before {
+				transform: scaleY(1);
+				transition: transform 0.3s ${easeOut('back')};
+			}
+		}
+	}
+`;
 
 export const Menu = styled.ul`
 	column-count: 2;

@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
 		layout: 'home',
 		content: null,
 		seo: {
-			title: 'André Ferraz | Software Developer',
+			title: 'André Ferraz | Software Developer 👨🏻‍💻',
 		},
 	};
 	const menus = [];

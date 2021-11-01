@@ -28,7 +28,7 @@ const Icon = (text, size) => {
 
 export const SocialButtons = ({ className = '', links, size = 30 }: Props): JSX.Element => {
 	return (
-		<Component className={`p-0 list-unstyled d-flex mx-n3 ${className}`}>
+		<Component className={`p-0 list-unstyled d-flex mb-0 mx-n3 ${className}`}>
 			{links.map(({ text, href, target, rel, icon }, index) => (
 				<li key={index} className="me-1">
 					<a

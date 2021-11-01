@@ -21,7 +21,7 @@ export const LinkButton = ({
 	return (
 		<Component $isHighlighted={isHighlighted}>
 			<Link href={href}>
-				<a className={`${className} d-inline-flex align-items-center`}>
+				<a className={`${className} d-inline-flex align-items-center link-uppercase`}>
 					<span dangerouslySetInnerHTML={{ __html: text }} />
 				</a>
 			</Link>

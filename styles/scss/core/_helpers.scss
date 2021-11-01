@@ -1,5 +1,8 @@
-.unstyled-link {
+.link-uppercase {
 	text-decoration: none;
+	text-transform: uppercase;
+	font-size: rem(16);
+	letter-spacing: 0.1em;
 
 	&:hover {
 		text-decoration: none;

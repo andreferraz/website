@@ -1,0 +1,19 @@
+{
+	"project": {
+		"name": "Cada Casa Um Caso",
+		"id": "ccuc",
+		"url": "https://www.cadacasaumcaso.com.br/",
+		"author": {
+			"name": "Green Park Content",
+			"url": "https://greenparkcontent.com/"
+		}
+	},
+	"tasks": {
+		"favicons": {
+			"entry": "./public/images/favicon.png",
+			"dist": "./public/images/favicons",
+			"templateDist": "./components/favicons",
+			"templateFileName": "favicons.html"
+		}
+	}
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 // Internal modules
-import { Component } from './Footer.styles';
+import { Component, Credits } from './Footer.styles';
 import { OptionsProps } from '@/typings/OptionsProps';
 import { MenuItemProps } from '@/typings/MenuItemProps';
 import SocialButtons from '@/components/social-buttons';
@@ -51,8 +51,20 @@ export const Footer = ({ socialMenu }: Props): JSX.Element => {
 	return (
 		<Component className={`position-absolute bottom-0 w-100`}>
 			<Container>
-				<div className="d-flex justify-content-between mt-auto py-4">
+				<div className="d-flex justify-content-between align-items-center mt-auto py-5">
 					{socialMenu !== undefined && <SocialButtons links={socialMenu} />}
+					<Credits className="mb-0 link-uppercase">
+						Developed with{' '}
+						<a
+							href="https://nextjs.org/"
+							target="_blank"
+							rel="noreferrer nofollow"
+							title="Next.js – Link opens in a new tab"
+						>
+							Next.js
+						</a>{' '}
+						by André Ferraz
+					</Credits>
 				</div>
 			</Container>
 		</Component>

@@ -5,18 +5,14 @@ type LinkButtonProps = {
 	$isHighlighted: boolean;
 };
 
-const diameterSize = 3;
+const circleDiameter = 3;
 export const Component = styled.div<LinkButtonProps>`
 	a {
 		color: black;
 		position: relative;
-		height: ${diameterSize}em;
+		height: ${circleDiameter}em;
 		padding: 0 1.75em 0 1.25em;
-		text-decoration: none;
-		text-transform: uppercase;
-		font-size: ${rem(16)};
-		letter-spacing: 0.1em;
-		border-radius: ${diameterSize / 2}em;
+		border-radius: ${circleDiameter / 2}em;
 		transition: padding 0.3s ${easeOut('quart')};
 
 		&:before {
@@ -24,11 +20,11 @@ export const Component = styled.div<LinkButtonProps>`
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: ${diameterSize}em;
+			width: ${circleDiameter}em;
 			height: 100%;
 			background: ${({ theme, $isHighlighted }) =>
 				$isHighlighted ? theme.colors.lightYellow : theme.colors.lightBlue};
-			border-radius: ${diameterSize / 2}em;
+			border-radius: ${circleDiameter / 2}em;
 			transition: width 0.3s ${easeOut('quart')}, background-color 0.25s linear;
 		}
 
@@ -37,14 +33,22 @@ export const Component = styled.div<LinkButtonProps>`
 			z-index: 1;
 		}
 
-		&:hover,
-		&:focus {
+		@media (min-width: ${({ theme }) => theme.breakpoints.lg.up}) {
+			&:hover,
+			&:focus {
+				padding: 0 1.5em;
+
+				&:before {
+					width: 100%;
+				}
+			}
+		}
+
+		@media (max-width: ${({ theme }) => theme.breakpoints.lg.down}) {
 			padding: 0 1.5em;
 
 			&:before {
 				width: 100%;
-				background: ${({ theme, $isHighlighted }) =>
-					$isHighlighted ? theme.colors.lightYellow : theme.colors.lightBlue};
 			}
 		}
 
