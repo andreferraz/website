@@ -25,9 +25,9 @@ import {
 } from './Header.styles';
 
 // Typing
-import { MenuProps } from '@/typings/MenuProps';
+import { MenuItemProps } from '@/typings/MenuItemProps';
 interface Props {
-	menu: MenuProps;
+	menu: MenuItemProps[];
 	className?: string;
 }
 
@@ -53,7 +53,7 @@ export const Header: React.FC<Props> = ({ menu, className }) => {
 				<Container>
 					<HeaderContent className="d-flex align-items-center justify-content-between">
 						{/* LOGO */}
-						<div>
+						<div className="pt-3">
 							<Link href="/">
 								<a className="d-inline-flex align-items-center text-reset text-decoration-none">
 									<HeaderLogo
@@ -74,7 +74,7 @@ export const Header: React.FC<Props> = ({ menu, className }) => {
 						<div className="align-items-center justify-content-end row">
 							{menu && (
 								<MenuList className="menu-list-header mb-0 justify-content-between d-none d-lg-flex mr-3">
-									{menu.items.map((menuItem, index) => (
+									{menu.map((menuItem, index) => (
 										<ItemMenu
 											key={index}
 											className={`menu-${index} d-flex align-items-center position-relative mx-4`}

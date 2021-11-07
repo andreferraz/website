@@ -25,3 +25,9 @@ export const Name = styled.span`
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 `;
+
+export const Description = styled.p`
+	@media (min-width: ${({ theme }) => theme.breakpoints.xl.up}) {
+		font-size: ${rem(28)};
+	}
+`;

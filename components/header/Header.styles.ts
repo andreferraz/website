@@ -2,13 +2,16 @@ import styled, { css } from 'styled-components';
 import theme from '@/styles/theme';
 import { darken, lighten, rem } from 'polished';
 
-export const Component = styled.div``;
+export const Component = styled.div`
+	background: #fff;
+	box-shadow: 0px 60px 60px rgba(255, 255, 255, 1), 0px 30px 30px rgba(255, 255, 255, 1);
+`;
 
 export const HeaderContent = styled.div`
-	height: 72px;
+	height: ${({ theme }) => theme.header.height.mobile}px;
 
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg.up}) {
-		height: 100px;
+		height: ${({ theme }) => theme.header.height.desktop}px;
 	}
 `;
 

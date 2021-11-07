@@ -12,9 +12,10 @@ import SocialButtons from '@/components/social-buttons';
 interface Props {
 	socialMenu: MenuItemProps[];
 	options: OptionsProps;
+	className?: string;
 }
 
-export const Footer = ({ socialMenu }: Props): JSX.Element => {
+export const Footer = ({ className = '', socialMenu }: Props): JSX.Element => {
 	socialMenu = [
 		{
 			text: 'LinkedIn',
@@ -49,10 +50,11 @@ export const Footer = ({ socialMenu }: Props): JSX.Element => {
 	];
 
 	return (
-		<Component className={`position-absolute bottom-0 w-100`}>
+		<Component className={`${className} w-100`}>
 			<Container>
 				<div className="d-flex justify-content-between align-items-center mt-auto py-5">
-					{socialMenu !== undefined && <SocialButtons links={socialMenu} />}
+					{socialMenu !== undefined && <SocialButtons links={socialMenu} className="ms-n2" />}
+
 					<Credits className="mb-0 link-uppercase">
 						Developed with{' '}
 						<a
@@ -60,6 +62,7 @@ export const Footer = ({ socialMenu }: Props): JSX.Element => {
 							target="_blank"
 							rel="noreferrer nofollow"
 							title="Next.js – Link opens in a new tab"
+							className="link-underlined"
 						>
 							Next.js
 						</a>{' '}

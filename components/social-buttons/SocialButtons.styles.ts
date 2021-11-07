@@ -1,12 +1,11 @@
-import { darken, lighten, saturate, shade, tint } from 'polished';
+import { easeOut } from 'polished';
 import styled from 'styled-components';
 
 export const Component = styled.ul`
 	a {
 		color: black;
-		background: white;
 		position: relative;
-		transition: color 0.2s linear;
+		transition: color 0.2s linear, transform 0.2s ${easeOut('quart')};
 
 		svg {
 			z-index: 1;
@@ -23,13 +22,14 @@ export const Component = styled.ul`
 			background: black;
 			opacity: 0;
 			transform: scale(0.6);
-			transition: transform 0.3s cubic-bezier(0.31, 1.76, 0.48, 0.81), opacity 0.2s linear;
+			transition: transform 0.3s ${easeOut('back')}, opacity 0.2s linear;
 		}
 
 		&:hover,
 		&:focus {
 			//background: rgba(0, 0, 0, 0.1);
 			color: white;
+			transform: translateY(-3px);
 
 			&:before {
 				transform: scale(1);

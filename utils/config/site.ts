@@ -14,7 +14,7 @@ export class Site {
 	static baseUrl: string = siteUrl;
 
 	// ANALYTICS
-	static gmtId: string = gtmId;
+	static gtmId: string = gtmId;
 	static gaId: string = gaId;
 	static isAnalyticsEnabled: boolean = isAnalyticsEnabled;
 }

@@ -8,6 +8,7 @@ const gridTiers: Breakpoint[] = [
 	{ name: 'md', value: 768 },
 	{ name: 'lg', value: 992 },
 	{ name: 'xl', value: 1200 },
+	{ name: 'xxl', value: 1400 },
 ];
 
 // Build the breakpoints objects
@@ -99,6 +100,13 @@ const spacing = [
 	rem(baseRem * 5, baseRem), // 80px
 ];
 
+const header = {
+	height: {
+		mobile: 72, // Mobile
+		desktop: 100, // Desktop
+	},
+};
+
 const fontFamilyDisplay = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 'Segoe UI Symbol', 'Noto Color Emoji'`;
@@ -114,6 +122,7 @@ const theme: DefaultTheme = {
 	headings,
 	spacing,
 	breakpoints: breakpoints as Breakpoints,
+	header,
 };
 
 export default theme;

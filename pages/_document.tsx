@@ -41,10 +41,10 @@ class SiteDocument extends Document {
 				<NoPreloadHead />
 
 				<body>
-					{Site.gmtId && (
+					{Site.gtmId && (
 						<noscript>
 							<iframe
-								src={`https://www.googletagmanager.com/ns.html?id=${Site.gmtId}`}
+								src={`https://www.googletagmanager.com/ns.html?id=${Site.gtmId}`}
 								height="0"
 								width="0"
 								className="d-none invisible"

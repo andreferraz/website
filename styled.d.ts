@@ -73,6 +73,13 @@ declare module 'styled-components' {
 			md: { up: string; down: string };
 			lg: { up: string; down: string };
 			xl: { up: string; down: string };
+			xxl: { up: string; down: string };
+		};
+		header: {
+			height: {
+				mobile: number;
+				desktop: number;
+			};
 		};
 	}
 }
@@ -83,6 +90,7 @@ export interface Breakpoints {
 	md: { down: string; up: string };
 	lg: { down: string; up: string };
 	xl: { down: string; up: string };
+	xxl: { down: string; up: string };
 }
 
 export interface Breakpoint {

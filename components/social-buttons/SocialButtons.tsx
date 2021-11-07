@@ -35,7 +35,7 @@ export const SocialButtons = ({ className = '', links, size = 30 }: Props): JSX.
 						href={href}
 						target={target}
 						rel={rel}
-						title={text}
+						title={text + ' - Link opens in a new tab'}
 						className={`d-flex justify-content-center align-content-center p-3 rounded-pill ${icon}`}
 					>
 						{Icon(icon, size)}
