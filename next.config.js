@@ -1,4 +1,5 @@
 const path = require('path');
+const { i18n } = require('./next-i18next.config');
 
 module.exports = {
 	trailingSlash: true,
@@ -6,10 +7,7 @@ module.exports = {
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'styles/scss/core')],
 	},
-	i18n: {
-		locales: ['en', 'pt-BR'],
-		defaultLocale: 'pt-BR',
-	},
+	i18n,
 	webpack: (config, { isServer }) => {
 		if (isServer) {
 			// Generates a sitemap.xml

@@ -1,6 +1,7 @@
 // External dependencies
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 // Internal dependencies
 import { ArticleItem, Component } from './ArticlesList.styles';
@@ -12,10 +13,12 @@ interface Props extends ArticlesListProps {
 }
 
 export const ArticlesList = ({ className = '', articles }: Props): JSX.Element => {
+	const { t } = useTranslation('articles-list');
+
 	return (
 		<Component className={`${className}`}>
 			<Container>
-				<h2 className="h3 d-block mb-7">Articles</h2>
+				<h2 className="h3 d-block mb-7">{t('title')}</h2>
 				<Row>
 					<Col xs={12} xl={10}>
 						<ul className="list-unstyled">
@@ -33,7 +36,9 @@ export const ArticlesList = ({ className = '', articles }: Props): JSX.Element =
 											dangerouslySetInnerHTML={{ __html: title }}
 										/>
 									</a>
-									<small className="d-block text-muted mt-1">on {source}</small>
+									<small className="d-block text-muted mt-1">
+										{t('source', { source })}
+									</small>
 								</ArticleItem>
 							))}
 						</ul>

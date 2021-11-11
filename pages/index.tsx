@@ -1,6 +1,8 @@
 // External dependencies
 import React from 'react';
 import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import nextI18NextConfig from '../next-i18next.config.js';
 
 // Internal modules
 import HomeLayout from '@/layouts/home';
@@ -8,7 +10,7 @@ import { LayoutProps } from '@/typings/LayoutProps';
 import { RouteProps } from '@/typings/RouteProps';
 
 // Get data during buid to pass as props to the page
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
 	const route: RouteProps = {
 		title: 'André Ferraz',
 		path: '/',
@@ -26,6 +28,11 @@ export const getStaticProps: GetStaticProps = async () => {
 			route,
 			menus,
 			options,
+			...(await serverSideTranslations(
+				locale,
+				['common', 'intro-section', 'articles-list'],
+				nextI18NextConfig,
+			)),
 		},
 	};
 };

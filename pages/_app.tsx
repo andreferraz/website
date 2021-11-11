@@ -1,4 +1,6 @@
 import { AppProps } from 'next/app';
+import { appWithTranslation } from 'next-i18next';
+import nextI18NextConfig from '../next-i18next.config.js';
 
 // Global Styles
 import '@/styles/scss/index.scss';
@@ -20,4 +22,4 @@ function SiteApp({ Component, pageProps }: AppProps): JSX.Element {
 	);
 }
 
-export default SiteApp;
+export default appWithTranslation(SiteApp, nextI18NextConfig);

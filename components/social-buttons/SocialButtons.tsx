@@ -1,5 +1,6 @@
 // External dependencies
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaLinkedinIn, FaGithub, FaGitlab } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 
@@ -27,6 +28,8 @@ const Icon = (text, size) => {
 };
 
 export const SocialButtons = ({ className = '', links, size = 30 }: Props): JSX.Element => {
+	const { t } = useTranslation('common');
+
 	return (
 		<Component className={`p-0 list-unstyled d-flex mb-0 mx-n3 ${className}`}>
 			{links.map(({ text, href, target, rel, icon }, index) => (
@@ -35,7 +38,7 @@ export const SocialButtons = ({ className = '', links, size = 30 }: Props): JSX.
 						href={href}
 						target={target}
 						rel={rel}
-						title={text + ' - Link opens in a new tab'}
+						title={text + ` - ${t('link-on-new-tab')}`}
 						className={`d-flex justify-content-center align-content-center p-3 rounded-pill ${icon}`}
 					>
 						{Icon(icon, size)}
