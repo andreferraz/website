@@ -1,0 +1,25 @@
+[
+	{
+		"layout": "home",
+		"alternates": [
+			{
+				"locale": "en",
+				"path": "/",
+				"title": "André Ferraz",
+				"meta": {
+					"title": "André Ferraz | Software Developer 👨🏻‍💻",
+					"description": "Hello there! This is my website. I am a software developer, with experience building websites, and passionate about game development."
+				}
+			},
+			{
+				"locale": "pt-br",
+				"path": "/",
+				"title": "André Ferraz",
+				"meta": {
+					"title": "André Ferraz | Desenvolvedor de Software 👨🏻‍💻",
+					"description": "Olá! Este é o meu website. Eu sou um desenvolvedor de software, com experiência construindo websites, e apaixonado por desenvolvimento de games."
+				}
+			}
+		]
+	}
+]

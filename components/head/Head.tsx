@@ -1,34 +1,37 @@
 import React from 'react';
 import NextHead from 'next/head';
 import ReactHtmlParser from 'react-html-parser';
+import ReactDOMServer from 'react-dom/server';
 
 // Internal dependencies
 import { Site } from '@/config/site';
 import { SeoProps } from '@/typings/SeoProps';
 import { getAssetPath } from '@/helpers/assets';
 import Favicons from '@/components/favicons';
+import MetaTags from '@/components/meta-tags';
 
 interface Props {
 	seo: SeoProps;
 }
 
 export const Head: React.FC<Props> = ({ seo }) => {
+	const metaTags = <MetaTags seo={seo} />;
+
 	return (
 		<NextHead>
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-			{/* TITLE */}
-			{ReactHtmlParser(`<title>${seo.title}</title>`)}
+			{/* META DATA */}
+			{ReactHtmlParser(ReactDOMServer.renderToStaticMarkup(metaTags))}
 
-			<link rel="preconnect" href="//cms.next-boilerplate.com" crossOrigin="" />
-			<link rel="dns-prefetch" href="//www.googletagmanager.com" crossOrigin="" />
-			<link rel="dns-prefetch" href="//www.google-analytics.com" crossOrigin="" />
+			{/* <link rel="dns-prefetch" href="//www.googletagmanager.com" crossOrigin="" />
+			<link rel="dns-prefetch" href="//www.google-analytics.com" crossOrigin="" /> */}
 
 			{/* FAVICONS */}
 			<Favicons path={getAssetPath(`/images/favicons`)} siteName={Site.title} />
 
 			{/* YOAST METAS & SCHEMA */}
-			{seo.headHtml !== undefined && ReactHtmlParser(seo.headHtml)}
+			{/* {seo.headHtml !== undefined && ReactHtmlParser(seo.headHtml)} */}
 		</NextHead>
 	);
 };

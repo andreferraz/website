@@ -1,7 +1,7 @@
 {
 	"title": {
 		"greeting": "Hello, ",
-		"introduction": "I am "
+		"introduction": "my name is "
 	},
-	"brief": "I am a software developer, with +7 years of experience building websites for multinational brands. And passionate about game development."
+	"brief": "I'm a software developer, with +7 years of experience building websites for multinational brands. <br />And passionate about game development."
 }

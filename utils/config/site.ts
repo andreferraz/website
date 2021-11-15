@@ -10,8 +10,8 @@ export class Site {
 	// SITE INFO
 	static title: string = siteTitle;
 	// static slug: string = siteSlug; // FOR MULTISITE
-	static lang: string = siteLang;
 	static baseUrl: string = siteUrl;
+	static defaultLang: string = siteLang;
 
 	// ANALYTICS
 	static gtmId: string = gtmId;

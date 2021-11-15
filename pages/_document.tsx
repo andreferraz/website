@@ -37,7 +37,7 @@ class SiteDocument extends Document {
 
 	render(): JSX.Element {
 		return (
-			<Html lang={Site.lang.replace('_', '-')}>
+			<Html lang={Site.defaultLang.replace('_', '-')}>
 				<NoPreloadHead />
 
 				<body>

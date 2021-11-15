@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
 
 export const Component = styled.div`
 	background: #fff;
@@ -19,19 +18,8 @@ export const HeaderLogo = styled.img`
 	width: auto;
 `;
 
-export const LogoCaption = styled.div`
-	line-height: 1.3;
-	font-size: ${rem(16)};
-
-	@media (max-width: ${({ theme }) => theme.breakpoints.sm.down}) {
-		font-size: ${rem(14)};
-	}
-`;
-
 export const SkipButton = styled.button`
-	//position: absolute;
-	//left: -0.125rem;
-	//top: 2.25rem;
+	background: black;
 	border-radius: 0;
 	z-index: -1;
 

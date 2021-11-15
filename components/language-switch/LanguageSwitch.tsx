@@ -16,26 +16,28 @@ export const LanguageSwitch = ({ className = '' }: Props): JSX.Element => {
 	const router = useRouter();
 	return (
 		<Component className={`${className}`}>
-			<Link href="/" locale="en">
-				<a
-					className={`btn rounded position-relative px-2 ${
-						router.locale === 'en' ? 'active' : ''
-					}`}
-					title="English"
-				>
-					<span aria-hidden="true">En</span>
-				</a>
-			</Link>
-			<Link href="/" locale="pt-BR">
-				<a
-					className={`btn rounded position-relative px-2 ms-1 ${
-						router.locale === 'pt-BR' ? 'active' : ''
-					}`}
-					title="Português Brasileiro"
-				>
-					<span aria-hidden="true">Pt</span>
-				</a>
-			</Link>
+			<div className="d-inline-flex flex-nowrap">
+				<Link href="/" locale="en">
+					<a
+						className={`btn rounded position-relative px-2 ${
+							router.locale === 'en' ? 'active' : ''
+						}`}
+						title="English"
+					>
+						<span aria-hidden="true">En</span>
+					</a>
+				</Link>
+				<Link href="/" locale="pt-BR">
+					<a
+						className={`btn rounded position-relative px-2 ms-1 ${
+							router.locale === 'pt-BR' ? 'active' : ''
+						}`}
+						title="Português (Brasil)"
+					>
+						<span aria-hidden="true">Pt</span>
+					</a>
+				</Link>
+			</div>
 		</Component>
 	);
 };
