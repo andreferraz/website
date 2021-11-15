@@ -21,5 +21,28 @@
 				}
 			}
 		]
+	},
+	{
+		"layout": "404",
+		"alternates": [
+			{
+				"locale": "en",
+				"path": "/404/",
+				"title": "Page not found",
+				"meta": {
+					"title": "Page not found | André Ferraz",
+					"description": ""
+				}
+			},
+			{
+				"locale": "pt-br",
+				"path": "/404/",
+				"title": "Página não encontrada",
+				"meta": {
+					"title": "Página não encontrada | André Ferraz",
+					"description": ""
+				}
+			}
+		]
 	}
 ]

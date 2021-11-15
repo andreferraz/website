@@ -7,12 +7,11 @@ import nextI18NextConfig from '../next-i18next.config.js';
 // Internal modules
 import HomeLayout from '@/layouts/home';
 import { LayoutProps } from '@/typings/LayoutProps';
-import { RouteProps } from '@/typings/RouteProps';
 import { getRouteData } from '@/data/page';
 
 // Get data during buid to pass as props to the page
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	const route: RouteProps = getRouteData('/', locale);
+	const route = getRouteData('/', locale);
 	const menus = [];
 
 	return {

@@ -1,4 +1,4 @@
-import { easeOut, rem, saturate, shade } from 'polished';
+import { easeOut } from 'polished';
 import styled from 'styled-components';
 
 type LinkButtonProps = {

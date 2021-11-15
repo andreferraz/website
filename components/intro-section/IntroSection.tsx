@@ -5,8 +5,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 // Internal dependencies
 import { Component, Description, Name, Title } from './IntroSection.styles';
 import { IntroSectionProps } from './IntroSection.types';
-import { FiArrowDown } from 'react-icons/fi';
-import { CgMouse } from 'react-icons/cg';
+// import { FiArrowDown } from 'react-icons/fi';
+// import { CgMouse } from 'react-icons/cg';
 import { useTranslation } from 'react-i18next';
 // import LinkButton from '@/components/link-button';
 

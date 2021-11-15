@@ -1,40 +1,23 @@
 // External dependencies
 import React from 'react';
 import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import nextI18NextConfig from '../next-i18next.config.js';
 
 // Internal modules
 import PageNotFoundLayout from '@/layouts/page-not-found';
-import { RouteProps } from '@/typings/RouteProps';
-import { Site } from '@/config/site';
-import { PageNotFoundLayoutContentProps } from '@/layouts/page-not-found/PageNotFoundLayout.types';
 import { LayoutProps } from '@/typings/LayoutProps';
+import { getRouteData } from '@/data/page';
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	const route = getRouteData('/404/', locale);
 	const menus = [];
-	const options = null;
-	const route: RouteProps = {
-		path: '/404/',
-		title: 'Page not found',
-		layout: '404',
-		content: {
-			title: 'Page not found',
-			text: `The page you're looking for wasn't found.`,
-			cta: {
-				text: 'Go to homepage',
-				href: '/',
-			},
-		} as PageNotFoundLayoutContentProps,
-		seo: {
-			// TODO: Get from Yoast SEO configuration, from CMS
-			title: `Page not found | ${Site.title}`,
-		},
-	};
 
 	return {
 		props: {
 			route,
 			menus,
-			options,
+			...(await serverSideTranslations(locale, ['common', '404'], nextI18NextConfig)),
 		},
 	};
 };
