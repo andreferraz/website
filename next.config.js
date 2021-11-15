@@ -11,9 +11,9 @@ module.exports = {
 	webpack: (config, { isServer }) => {
 		if (isServer) {
 			// Generates a sitemap.xml
-			if (process.env.NODE_ENV !== 'development') {
-				require('./utils/helpers/sitemap')();
-			}
+			// if (process.env.NODE_ENV !== 'development') {
+			// 	require('./utils/helpers/sitemap')();
+			// }
 		}
 		return config;
 	},
