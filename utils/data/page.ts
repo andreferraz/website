@@ -8,15 +8,13 @@ export function getPageData(path: string, locale: string): PageProps {
 
 	// Find the data from a specific page, and its alternates
 	const route = data.find((route) =>
-		route.alternates.find(
-			(alternate) => alternate.path === path && locale.toLowerCase() === alternate.locale,
-		),
+		route.alternates.find((alternate) => alternate.path === path && locale === alternate.locale),
 	);
 	const page = route.alternates.find(
-		(alternate) => alternate.path === path && locale.toLowerCase() === alternate.locale,
+		(alternate) => alternate.path === path && locale === alternate.locale,
 	);
 	const alternates = route.alternates.filter(
-		(alternate) => alternate.path !== path || locale.toLowerCase() !== alternate.locale,
+		(alternate) => alternate.path !== path || locale !== alternate.locale,
 	);
 
 	const pageData: PageProps = {
@@ -42,15 +40,13 @@ export function getRouteData(path: string, locale: string): RouteProps {
 
 	// Find the data from a specific page, and its alternates
 	const route = data.find((route) =>
-		route.alternates.find(
-			(alternate) => alternate.path === path && locale.toLowerCase() === alternate.locale,
-		),
+		route.alternates.find((alternate) => alternate.path === path && locale === alternate.locale),
 	);
 	const page = route.alternates.find(
-		(alternate) => alternate.path === path && locale.toLowerCase() === alternate.locale,
+		(alternate) => alternate.path === path && locale === alternate.locale,
 	);
 	const alternates = route.alternates.filter(
-		(alternate) => alternate.path !== path || locale.toLowerCase() !== alternate.locale,
+		(alternate) => alternate.path !== path || locale !== alternate.locale,
 	);
 	const xDefault = route.alternates.find((alternate) => alternate.locale === Site.defaultLang);
 
@@ -71,7 +67,7 @@ export function getRouteData(path: string, locale: string): RouteProps {
 					const url = getPageUrl(alternate.path, alternate.locale);
 					return {
 						href: url,
-						hreflang: alternate.locale.toLocaleLowerCase(),
+						hreflang: alternate.locale,
 					};
 				}),
 				{
@@ -86,7 +82,5 @@ export function getRouteData(path: string, locale: string): RouteProps {
 }
 
 export function getPageUrl(path: string, locale: string): string {
-	return (
-		Site.baseUrl + (locale !== Site.defaultLang ? `/${locale.toLocaleLowerCase()}` : '') + path
-	);
+	return Site.baseUrl + (locale !== Site.defaultLang ? `/${locale}` : '') + path;
 }

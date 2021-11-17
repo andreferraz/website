@@ -1,1 +1,1 @@
-export type LocaleType = 'en' | 'pt-br';
+export type LocaleType = 'en' | 'pt-BR';
