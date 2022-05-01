@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 			menus,
 			...(await serverSideTranslations(
 				locale,
-				['common', 'intro-section', 'articles-list'],
+				['common', 'intro-section', 'articles-list', 'brands-list'],
 				nextI18NextConfig,
 			)),
 		},

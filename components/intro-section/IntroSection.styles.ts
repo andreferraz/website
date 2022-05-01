@@ -27,7 +27,7 @@ export const Name = styled.span`
 `;
 
 export const Description = styled.p`
-	@media (min-width: ${({ theme }) => theme.breakpoints.xl.up}) {
+	/* @media (min-width: ${({ theme }) => theme.breakpoints.xl.up}) {
 		font-size: ${rem(28)};
-	}
+	} */
 `;

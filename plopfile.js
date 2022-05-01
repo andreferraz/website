@@ -1,6 +1,6 @@
 require('colors');
 const fs = require('fs');
-const generatorsDir = './utils/tools/plop/generators';
+const generatorsDir = './tools/plop/generators';
 
 const plopConfig = (plop) => {
 	// Register a new generator for each file at the generators folder

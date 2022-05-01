@@ -31,7 +31,7 @@ export const Page = ({ route, options, className, children }: Props): JSX.Elemen
 
 				<Content id="content">{children}</Content>
 
-				<Footer socialMenu={[]} options={options} className="" />
+				<Footer socialMenu={[]} options={options} className="content-visibility-auto" />
 
 				{/* CONTAINER GUIDE (For development purposes) */}
 				{process.env.NODE_ENV === 'development' && router.query.guide && <GuideContainer />}

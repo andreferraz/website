@@ -31,7 +31,7 @@ export const IntroSection = ({ className = '' }: Props): JSX.Element => {
 					</Col>
 					<Col xs={12} lg={4} xl={5}>
 						<Description
-							className="lead mb-5 mb-lg-1 ps-xl-6"
+							className="lead mb-5 mb-lg-1 pe-xl-4"
 							dangerouslySetInnerHTML={{ __html: t('brief') }}
 						/>
 						{/* <span className="d-flex align-items-center link-uppercase mb-2 mt-5">

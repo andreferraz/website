@@ -18,7 +18,7 @@ export const ArticlesList = ({ className = '', articles }: Props): JSX.Element =
 	return (
 		<Component className={`${className}`}>
 			<Container>
-				<h2 className="h3 d-block mb-7">{t('title')}</h2>
+				<h2 className="d-block mb-7">{t('title')}</h2>
 				<Row>
 					<Col xs={12} xl={10}>
 						<ul className="list-unstyled">

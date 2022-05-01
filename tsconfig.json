@@ -22,7 +22,7 @@
 			"@/layouts/*": ["./layouts/*"],
 			"@/mappings/*": ["./utils/mappings/*"],
 			"@/styles/*": ["./styles/*"],
-			"@/tools/*": ["./utils/tools/*"],
+			"@/tools/*": ["./tools/*"],
 			"@/typings/*": ["./utils/typings/*"],
 			"@/public/*": ["./public/*"]
 		},
