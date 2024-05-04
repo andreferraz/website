@@ -27,7 +27,6 @@ export const Component = styled.ul`
 
 		&:hover,
 		&:focus {
-			//background: rgba(0, 0, 0, 0.1);
 			color: white;
 			transform: translateY(-3px);
 
@@ -44,12 +43,12 @@ export const Component = styled.ul`
 
 		&.linkedin {
 			&:before {
-				background: linear-gradient(45deg, #00386f, #00a4ff);
+				background: linear-gradient(45deg, #002d58, #00a4ff);
 			}
 		}
 		&.github {
 			&:before {
-				background: linear-gradient(45deg, #351c63, #9c67ff);
+				background: linear-gradient(45deg, #2c1754, #9963ff);
 			}
 		}
 		&.gitlab {
@@ -64,7 +63,7 @@ export const Component = styled.ul`
 		}
 		&.email {
 			&:before {
-				background: linear-gradient(45deg, #9c632e, #f7d9ad);
+				background: linear-gradient(45deg, #7e4716, #ffc470);
 			}
 		}
 	}
