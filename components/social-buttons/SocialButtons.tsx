@@ -1,7 +1,7 @@
 // External dependencies
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaLinkedinIn, FaGithub, FaGitlab } from 'react-icons/fa';
+import { FaLinkedinIn, FaGithub, FaGitlab, FaMedium } from 'react-icons/fa6';
 import { HiOutlineMail } from 'react-icons/hi';
 
 // Internal dependencies
@@ -20,6 +20,7 @@ const IconList = {
 	github: FaGithub,
 	gitlab: FaGitlab,
 	email: HiOutlineMail,
+	medium: FaMedium,
 };
 
 const Icon = (text, size) => {

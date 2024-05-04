@@ -34,10 +34,10 @@ export const HomeLayout: React.FC<LayoutProps> = (props) => {
 		'Pepsico',
 		'Reckitt Benckiser',
 		'Nestlé',
-		'Danone',
-		'Eu Yan Sang',
-		'Royal Canin',
 		'Clarins',
+		'Royal Canin',
+		'Danone',
+		'Campari',
 	];
 
 	return (

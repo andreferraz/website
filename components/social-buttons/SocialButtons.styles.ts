@@ -44,17 +44,22 @@ export const Component = styled.ul`
 
 		&.linkedin {
 			&:before {
-				background: linear-gradient(45deg, #094e94, #00a4ff);
+				background: linear-gradient(45deg, #00386f, #00a4ff);
 			}
 		}
 		&.github {
 			&:before {
-				background: linear-gradient(45deg, #1c3669, #5870d8);
+				background: linear-gradient(45deg, #351c63, #9c67ff);
 			}
 		}
 		&.gitlab {
 			&:before {
 				background: linear-gradient(45deg, #ce4000, #ff976a);
+			}
+		}
+		&.medium {
+			&:before {
+				background: linear-gradient(45deg, #000000, #787888);
 			}
 		}
 		&.email {

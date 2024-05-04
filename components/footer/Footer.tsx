@@ -23,7 +23,7 @@ export const Footer = ({ className = '', socialMenu }: Props): JSX.Element => {
 	socialMenu = [
 		{
 			text: 'LinkedIn',
-			href: 'https://www.linkedin.com/in/andre-ferraz-developer/',
+			href: 'https://www.linkedin.com/in/andreferraz-dev/',
 			target: '_blank',
 			rel: 'noopener nofollow',
 			icon: 'linkedin',
@@ -36,15 +36,15 @@ export const Footer = ({ className = '', socialMenu }: Props): JSX.Element => {
 			icon: 'github',
 		},
 		{
-			text: 'Gitlab',
-			href: 'https://github.com/andreferraz',
+			text: 'Medium',
+			href: 'https://medium.com/@andreferrazdev',
 			target: '_blank',
 			rel: 'noopener nofollow',
-			icon: 'gitlab',
+			icon: 'medium',
 		},
 		{
 			text: 'E-mail',
-			href: 'mailto:andre.d.f.182@hotmail.com',
+			href: 'mailto:hello@andreferraz.dev',
 			titleAttr: 'Copy e-mail',
 			icon: 'email',
 		},
