@@ -24,14 +24,9 @@ export const Head: React.FC<Props> = ({ seo }) => {
 			{/* META DATA */}
 			{ReactHtmlParser(ReactDOMServer.renderToStaticMarkup(metaTags))}
 
-			{/* <link rel="dns-prefetch" href="//www.googletagmanager.com" crossOrigin="" />
-			<link rel="dns-prefetch" href="//www.google-analytics.com" crossOrigin="" /> */}
-
 			{/* FAVICONS */}
 			<Favicons path={getAssetPath(`/images/favicons`)} siteName={Site.title} />
 
-			{/* YOAST METAS & SCHEMA */}
-			{/* {seo.headHtml !== undefined && ReactHtmlParser(seo.headHtml)} */}
 		</NextHead>
 	);
 };

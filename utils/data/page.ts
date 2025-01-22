@@ -1,39 +1,6 @@
 import { Site } from '@/config/site';
-import { PageProps } from '@/typings/PageProps';
 import { RouteProps } from '@/typings/RouteProps';
 import { readFileSync } from 'fs';
-
-export function getPageData(path: string, locale: string): PageProps {
-	const data = JSON.parse(readFileSync(`utils/data/pages.json`, 'utf8'));
-
-	// Find the data from a specific page, and its alternates
-	const route = data.find((route) =>
-		route.alternates.find((alternate) => alternate.path === path && locale === alternate.locale),
-	);
-	const page = route.alternates.find(
-		(alternate) => alternate.path === path && locale === alternate.locale,
-	);
-	const alternates = route.alternates.filter(
-		(alternate) => alternate.path !== path || locale !== alternate.locale,
-	);
-
-	const pageData: PageProps = {
-		title: page.title,
-		meta: {
-			title: page.meta.title,
-			description: page.meta.description,
-		},
-		path: page.path,
-		alternates: alternates.map((alternate) => {
-			return {
-				locale: alternate.locale,
-				path: alternate.path,
-			};
-		}),
-	};
-
-	return pageData;
-}
 
 export function getRouteData(path: string, locale: string): RouteProps {
 	const data = JSON.parse(readFileSync(`utils/data/pages.json`, 'utf8'));
