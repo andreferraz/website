@@ -26,7 +26,6 @@ export const Head: React.FC<Props> = ({ seo }) => {
 
 			{/* FAVICONS */}
 			<Favicons path={getAssetPath(`/images/favicons`)} siteName={Site.title} />
-
 		</NextHead>
 	);
 };
