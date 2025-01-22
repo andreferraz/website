@@ -31,13 +31,15 @@ export const HomeLayout: React.FC<LayoutProps> = (props) => {
 	];
 	const brands = [
 		'Unilever',
-		'Pepsico',
-		'Reckitt Benckiser',
-		'Nestlé',
-		'Clarins',
-		'Royal Canin',
 		'Danone',
+		'Clarins',
+		'Nestlé',
+		'Pepsico',
+		'Motorola',
 		'Campari',
+		'Reckitt Benckiser',
+		'Royal Canin',
+		'T-Mobile',
 	];
 
 	return (

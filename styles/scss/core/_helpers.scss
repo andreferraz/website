@@ -62,7 +62,7 @@
 	&:hover,
 	&:focus {
 		background-image: linear-gradient(to top, rgba(black, 1), rgba(black, 1));
-		animation: bg-fill 0.6s easing('easeOutQuint') forwards;
+		animation: bg-fill 0.5s easing('easeOutQuint') forwards;
 		color: white;
 	}
 }
@@ -84,7 +84,7 @@
 	&:focus {
 		.fancy-link-content {
 			background-image: linear-gradient(to top, rgba(black, 1), rgba(black, 1));
-			animation: bg-fill 0.6s easing('easeOutSine') forwards;
+			animation: bg-fill 0.5s easing('easeOutSine') forwards;
 			color: white;
 		}
 	}

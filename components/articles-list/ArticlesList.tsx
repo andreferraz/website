@@ -20,7 +20,7 @@ export const ArticlesList = ({ className = '', articles }: Props): JSX.Element =
 			<Container>
 				<h2 className="d-block mb-7">{t('title')}</h2>
 				<Row>
-					<Col xs={12} xl={10}>
+					<Col xs={12} xl={8}>
 						<ul className="list-unstyled">
 							{articles.map(({ id, title, url, source }) => (
 								<ArticleItem key={id} className="mb-6">
@@ -28,7 +28,7 @@ export const ArticlesList = ({ className = '', articles }: Props): JSX.Element =
 										href={url}
 										target="_blank"
 										rel="noreferrer"
-										className="fancy-link-wrapper h2 d-inline-block"
+										className="fancy-link-wrapper h3 d-inline-block"
 										title="Medium.com - Link opens in a new tab"
 									>
 										<span
