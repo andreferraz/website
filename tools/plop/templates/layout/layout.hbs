@@ -1,0 +1,24 @@
+// External dependencies
+import React from 'react';
+import { Container } from 'react-bootstrap';
+
+// Internal modules
+import { Layout } from './{{ pascalCase name }}Layout.styles';
+import { LayoutProps } from '@/typings/LayoutProps';
+import { {{ pascalCase name }}LayoutContentProps } from './{{ pascalCase name }}Layout.types';
+import Breadcrumbs from '@/components/breadcrumbs';
+
+export const {{ pascalCase name }}Layout: React.FC<LayoutProps> = (props) => {
+	const content = props.route.content as {{ pascalCase name }}LayoutContentProps;
+
+	return (
+		<Layout {...props}>
+			<Breadcrumbs items={props.route.breadcrumbs} current={props.route.title} />
+			<Container>
+				<strong>{{ titleCase name }}</strong> Layout
+				<h1>{props.route.title}</h1>
+				<pre>{JSON.stringify(content, null, '\t')}</pre>
+			</Container>
+		</Layout>
+	);
+};

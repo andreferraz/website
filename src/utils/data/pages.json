@@ -1,0 +1,48 @@
+[
+	{
+		"layout": "home",
+		"alternates": [
+			{
+				"locale": "en",
+				"path": "/",
+				"title": "André Ferraz",
+				"meta": {
+					"title": "André Ferraz | Software Engineer 👨🏻‍💻",
+					"description": "Hello there! This is my website. I am a full-stack web developer, with experience building web applications, and passionate about game development."
+				}
+			},
+			{
+				"locale": "pt-BR",
+				"path": "/",
+				"title": "André Ferraz",
+				"meta": {
+					"title": "André Ferraz | Desenvolvedor de Software 👨🏻‍💻",
+					"description": "Olá! Este é o meu website. Eu sou um desenvolvedor de software, com experiência construindo aplicações web, e apaixonado por desenvolvimento de games."
+				}
+			}
+		]
+	},
+	{
+		"layout": "404",
+		"alternates": [
+			{
+				"locale": "en",
+				"path": "/404/",
+				"title": "Page not found",
+				"meta": {
+					"title": "Page not found | André Ferraz",
+					"description": ""
+				}
+			},
+			{
+				"locale": "pt-BR",
+				"path": "/404/",
+				"title": "Página não encontrada",
+				"meta": {
+					"title": "Página não encontrada | André Ferraz",
+					"description": ""
+				}
+			}
+		]
+	}
+]

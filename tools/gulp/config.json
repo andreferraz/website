@@ -1,0 +1,18 @@
+{
+	"project": {
+		"name": "André Ferraz",
+		"url": "https://www.andreferraz.dev/",
+		"author": {
+			"name": "André Ferraz",
+			"url": "https://www.andreferraz.dev/"
+		}
+	},
+	"tasks": {
+		"favicons": {
+			"entry": "./public/images/favicon.png",
+			"dist": "./public/images/favicons",
+			"templateDist": "./components/favicons",
+			"templateFileName": "favicons.html"
+		}
+	}
+}

@@ -1,0 +1,8 @@
+{
+  "common": {
+    "credits": "Developed with {{stack}}",
+    "professional-title": "Software Engineer",
+    "link-on-new-tab": "Link opens in a new tab",
+    "skip-to-content": "Skip to main content"
+  }
+}
