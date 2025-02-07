@@ -4,5 +4,12 @@
     "professional-title": "Engenheiro de Software",
     "link-on-new-tab": "Link abre em uma nova aba",
     "skip-to-content": "Pular para conteúdo principal"
+  },
+  "intro-section": {
+    "title": {
+      "greeting": "Olá, ",
+      "introduction": "meu nome é "
+    },
+    "brief": "Eu sou um desenvolvedor web full-stack, com mais de uma década de experiência construindo websites para marcas multinacionais, e apaixonado por desenvolvimento de games."
   }
 }

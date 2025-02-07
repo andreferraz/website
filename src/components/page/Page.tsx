@@ -17,9 +17,11 @@ export const Page = ({ route, options, className, children }: PageProps) => {
       )} */}
 
       <div id="page" className={className}>
-        <Header menu={[]} />
-        {/* <div id="div">{children}</div>
-        FOOTER */}
+        <Header />
+        {
+          <div className="mt-(--header-height)">{children}</div>
+          /* FOOTER */
+        }
         {/* <Header menu={[]} />
 
 				<div id="div">{children}</div>

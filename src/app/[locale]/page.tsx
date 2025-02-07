@@ -1,5 +1,10 @@
+import Page from '@/components/page';
 import HomeLayout from '@/layouts/home';
 
 export default async function Home() {
-  return <HomeLayout />;
+  return (
+    <Page>
+      <HomeLayout />
+    </Page>
+  );
 }

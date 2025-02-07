@@ -1,16 +1,13 @@
 import React from 'react';
-//import LanguageSwitch from '@/components/language-switch';
 import Logo from '@/components/logo';
-import { MenuItemProps } from '@/utils/typings/MenuItemProps';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import LanguageSwitch from '../language-switch';
 
 interface HeaderProps {
-  menu: MenuItemProps[];
   className?: string;
 }
 
-export const Header = ({ className }: HeaderProps) => {
+export const Header = ({ className = '' }: HeaderProps) => {
   /* function handleSkipLinkClick(event) {
     event.preventDefault();
 
@@ -31,27 +28,18 @@ export const Header = ({ className }: HeaderProps) => {
   return (
     <>
       <div className={`${className} w-full fixed top-0`}>
-        <div className="container">
-          <div className="flex items-center relative">
-            {/* ACESSIBILITY BUTTON */}
-            {/* <button
+        <div className="container flex items-center relative h-(--header-height)">
+          {/* <button
              onClick={handleSkipLinkClick}
               className="btn text-white py-2 rounded-bottom position-absolute top-0 start-50 translate-middle-x visually-hidden-focusable"
             >
               {'skip-to-content'}
             </button> */}
-
-            <div className="pt-3 d-flex justify-content-between align-items-center w-100">
-              {/* LOGO */}
-              <Link
-                href="/"
-                className="d-inline-flex align-items-center text-reset text-decoration-none"
-              >
-                <Logo />
-              </Link>
-              {/* LANGUAGE SWITCHERS */}
-              {/* <LanguageSwitch /> */}
-            </div>
+          <div className="flex justify-between items-center w-full pt-3">
+            <Link href="/" className="inline-flex items-center">
+              <Logo />
+            </Link>
+            <LanguageSwitch />
           </div>
         </div>
       </div>

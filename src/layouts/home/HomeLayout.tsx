@@ -1,10 +1,9 @@
-import Page from '@/components/page';
-import { LayoutProps } from '@/utils/typings/LayoutProps';
+import IntroSection from '@/components/intro-section';
 
-export const HomeLayout = (props: LayoutProps) => {
+export const HomeLayout = () => {
   return (
-    <Page {...props}>
-      <h1>Home</h1>
-    </Page>
+    <div>
+      <IntroSection className="py-25 lg:mb-20" />
+    </div>
   );
 };

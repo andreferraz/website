@@ -1,43 +1,29 @@
-// External dependencies
-import React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+'use client';
 
-// Internal dependencies
-import { Component } from './LanguageSwitch.styles';
-import { LanguageSwitchProps } from './LanguageSwitch.types';
+import { locales, Link } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
 
-// Types
-interface Props extends LanguageSwitchProps {
-	className?: string;
+interface LanguageSwitchProps {
+  className?: string;
 }
 
-export const LanguageSwitch = ({ className = '' }: Props): JSX.Element => {
-	const router = useRouter();
-	return (
-		<Component className={`${className}`}>
-			<div className="d-inline-flex flex-nowrap">
-				<Link href="/" locale="en">
-					<a
-						className={`btn rounded position-relative px-2 ${
-							router.locale === 'en' ? 'active' : ''
-						}`}
-						title="English"
-					>
-						<span aria-hidden="true">En</span>
-					</a>
-				</Link>
-				<Link href="/" locale="pt-BR">
-					<a
-						className={`btn rounded position-relative px-2 ms-1 ${
-							router.locale === 'pt-BR' ? 'active' : ''
-						}`}
-						title="Português (Brasil)"
-					>
-						<span aria-hidden="true">Pt</span>
-					</a>
-				</Link>
-			</div>
-		</Component>
-	);
+export const LanguageSwitch = ({ className = '' }: LanguageSwitchProps) => {
+  const currentLocale = useLocale();
+
+  return (
+    <div className={`${className} d-inline-flex flex-nowrap space-x-1`}>
+      {locales.map(({ locale, label, acronym }) => (
+        <Link
+          href="/"
+          key={locale}
+          locale={locale}
+          className={`btn text-sm px-2.5 data-active:bg-black data-active:text-white`}
+          {...(locale === currentLocale ? { 'data-active': '' } : {})}
+          title={label}
+        >
+          <span aria-hidden="true">{acronym}</span>
+        </Link>
+      ))}
+    </div>
+  );
 };
