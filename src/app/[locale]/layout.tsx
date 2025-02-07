@@ -1,19 +1,14 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Onest } from 'next/font/google';
 import '../globals.css';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const onest = Onest({
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -23,11 +18,13 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
   children: React.ReactNode;
   params: { locale: string };
 }>) {
+  const { locale } = await params;
+
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
@@ -36,7 +33,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${onest.className} antialiased`}>
         <NextIntlClientProvider messages={translations}>{children}</NextIntlClientProvider>
       </body>
     </html>
