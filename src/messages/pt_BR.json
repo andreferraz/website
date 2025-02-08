@@ -10,6 +10,10 @@
       "greeting": "Olá, ",
       "introduction": "meu nome é "
     },
-    "brief": "Eu sou um desenvolvedor web full-stack, com mais de uma década de experiência construindo websites para marcas multinacionais, e apaixonado por desenvolvimento de games."
+    "brief": "Eu sou um desenvolvedor web full-stack, com mais de uma década de experiência construindo experiências web para marcas multinacionais, e apaixonado por desenvolvimento de games."
+  },
+  "brands-list": {
+    "title": "Projetos",
+    "text": "Nos últimos anos, eu trabalhei em dezenas de projetos, incluindo content hubs globais, sites institucionais e ferramentas para suporte ao consumidor, para grandes marcas como:"
   }
 }

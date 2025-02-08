@@ -27,7 +27,9 @@ export const Header = ({ className = '' }: HeaderProps) => {
 
   return (
     <>
-      <div className={`${className} w-full fixed top-0`}>
+      <div
+        className={`${className} w-full fixed top-0 bg-white shadow-[0px_60px_60px_rgba(255,255,255,1),0px_30px_30px_rgba(255,255,255,1)]`}
+      >
         <div className="container flex items-center relative h-(--header-height)">
           {/* <button
              onClick={handleSkipLinkClick}

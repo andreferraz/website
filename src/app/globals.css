@@ -30,7 +30,7 @@
 }
 
 @utility container {
-  @apply mx-auto px-5 max-w-full md:max-w-[48rem] lg:max-w-[60rem] xl:max-w-[76rem] 2xl:max-w-[82.5rem];
+  @apply mx-auto px-5 sm:px-10 max-w-full md:max-w-[48rem] lg:max-w-[62rem] xl:max-w-[80rem] 2xl:max-w-[82.5rem];
 }
 
 @layer components {
@@ -38,7 +38,7 @@
     @apply px-4 py-2.5 bg-transparent hover:bg-gray-200 rounded-lg font-semibold transition-colors;
   }
   .lead {
-    @apply text-2xl xl:text-3xl font-extralight leading-normal;
+    @apply text-2xl xl:text-[1.625rem] font-extralight leading-normal;
   }
   .bg-text-mask {
     -webkit-text-fill-color: transparent;
@@ -64,9 +64,15 @@ h6 {
 h1 {
   font-size: 3.75rem; /* 60px */
 }
+h2 {
+  font-size: 2.75rem; /* 44px */
+}
 
 @media screen and (min-width: 64rem) {
   h1 {
-    @apply text-[6rem];
+    font-size: 6rem; /* 96px */
+  }
+  h2 {
+    font-size: 3.75rem; /* 60px */
   }
 }

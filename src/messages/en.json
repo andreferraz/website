@@ -10,6 +10,10 @@
       "greeting": "Hello, ",
       "introduction": "my name is "
     },
-    "brief": "I'm a full-stack web developer, with over a decade of experience building websites for multinational brands, and passionate about game development."
+    "brief": "I'm a full-stack web developer, with over a decade of experience building webs experiences for multinational brands, and passionate about game development."
+  },
+  "brands-list": {
+    "title": "Projects",
+    "text": "Over the past few years, I have worked on dozens of projects, including global content hubs, institutional websites and customer support tools, for brands like:"
   }
 }
