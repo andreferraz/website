@@ -29,6 +29,15 @@
   --breakpoint-2xl: 96rem; /* 1536px */
 }
 
+@keyframes bg-fill {
+  from {
+    background-size: 0% 110%;
+  }
+  to {
+    background-size: 100% 110%;
+  }
+}
+
 @utility container {
   @apply mx-auto px-5 sm:px-10 max-w-full md:max-w-[48rem] lg:max-w-[62rem] xl:max-w-[80rem] 2xl:max-w-[82.5rem];
 }
@@ -40,9 +49,23 @@
   .lead {
     @apply text-2xl xl:text-[1.625rem] font-extralight leading-normal;
   }
+  .text-muted {
+    @apply text-gray-500;
+  }
   .bg-text-mask {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+  }
+  .fancy-link-wrapper {
+    @apply no-underline hover:*:animate-(--bg-fill) hover:*:text-white;
+  }
+  .fancy-link-content {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    background-repeat: no-repeat;
+    background-size: 100% 0.075em;
+    background-position: 0 100%;
+    color: #000;
+    transition: color 0.15s linear;
   }
 }
 
@@ -52,13 +75,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+*:focus-visible {
+  outline: 0.2em solid #000;
+  outline-offset: 0.2em;
+}
+
+a {
+  @apply rounded;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  @apply leading-[1] font-bold tracking-tight;
+  @apply leading-[1] font-bold tracking-tight mb-10;
 }
 
 h1 {

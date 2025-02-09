@@ -18,15 +18,15 @@ const brands = [
 ];
 
 export const ClientsList = ({ className = '' }: ClientsListProps) => {
-  const t = useTranslations('brands-list');
+  const t = useTranslations('brandsList');
 
   return (
     <div className={`${className}`}>
       <div className="container">
-        <h2 className="block mb-7">{t('title')}</h2>
+        <h2 className="block">{t('title')}</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
           <div>
-            <p className="lead mb-6">{t('text')}</p>
+            <p className="lead mb-2">{t('text')}</p>
           </div>
           <div>
             <ul className="columns-2 lg:ps-12 lg:pe-0 xl:px-10">

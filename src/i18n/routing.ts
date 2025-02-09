@@ -1,7 +1,7 @@
 import { defineRouting } from 'next-intl/routing';
 import { createNavigation } from 'next-intl/navigation';
 
-type Locale = 'en' | 'pt_BR';
+type Locale = 'en' | 'pt-BR';
 
 type LocaleInfo = {
   locale: Locale;
@@ -12,7 +12,7 @@ type LocaleInfo = {
 
 export const locales: LocaleInfo[] = [
   { locale: 'en', label: 'English', acronym: 'EN', default: true },
-  { locale: 'pt_BR', label: 'Português (Brasil)', acronym: 'PT', default: false },
+  { locale: 'pt-BR', label: 'Português Brasileiro', acronym: 'PT', default: false },
 ];
 
 export const routing = defineRouting({

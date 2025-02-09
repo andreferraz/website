@@ -35,7 +35,7 @@ export const Header = ({ className = '' }: HeaderProps) => {
              onClick={handleSkipLinkClick}
               className="btn text-white py-2 rounded-bottom position-absolute top-0 start-50 translate-middle-x visually-hidden-focusable"
             >
-              {'skip-to-content'}
+              {'skipToContent'}
             </button> */}
           <div className="flex justify-between items-center w-full pt-3">
             <Link href="/" className="inline-flex items-center">

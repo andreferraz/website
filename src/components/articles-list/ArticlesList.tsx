@@ -1,50 +1,56 @@
-// External dependencies
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
+import { ArticleProps } from '@/utils/typings/ArticleProps';
+import { useTranslations } from 'next-intl';
 
-// Internal dependencies
-import { ArticleItem, Component } from './ArticlesList.styles';
-import { ArticlesListProps } from './ArticlesList.types';
-
-// Types
-interface Props extends ArticlesListProps {
-	className?: string;
+interface ArticlesListProps {
+  className?: string;
 }
 
-export const ArticlesList = ({ className = '', articles }: Props): JSX.Element => {
-	const { t } = useTranslation('articles-list');
+const articles: ArticleProps[] = [
+  {
+    id: '1b4ab851ecde',
+    title: 'Why more programmers should know Regular Expressions?',
+    url: 'https://andreferrazdev.medium.com/why-every-programmer-should-know-regular-expressions-1b4ab851ecde',
+    date: '2021-05-1',
+    source: 'medium.com',
+  },
+  {
+    id: '77f4fb8797c',
+    title: 'A naming convention for UI components',
+    url: 'https://andreferrazdev.medium.com/a-naming-convention-for-ui-components-77f4fb8797c',
+    date: '2021-04-30',
+    source: 'medium.com',
+  },
+];
 
-	return (
-		<Component className={`${className}`}>
-			<Container>
-				<h2 className="d-block mb-7">{t('title')}</h2>
-				<Row>
-					<Col xs={12} xl={8}>
-						<ul className="list-unstyled">
-							{articles.map(({ id, title, url, source }) => (
-								<ArticleItem key={id} className="mb-6">
-									<a
-										href={url}
-										target="_blank"
-										rel="noreferrer"
-										className="fancy-link-wrapper h3 d-inline-block"
-										title="Medium.com - Link opens in a new tab"
-									>
-										<span
-											className="fancy-link-content"
-											dangerouslySetInnerHTML={{ __html: title }}
-										/>
-									</a>
-									<small className="d-block text-muted mt-1">
-										{t('source', { source })}
-									</small>
-								</ArticleItem>
-							))}
-						</ul>
-					</Col>
-				</Row>
-			</Container>
-		</Component>
-	);
+export const ArticlesList = ({ className = '' }: ArticlesListProps) => {
+  const t = useTranslations();
+
+  return (
+    <div className={`${className}`}>
+      <div className="container">
+        <h2 className="block">{t('articlesList.title', { name: '' })}</h2>
+        <ul className="xl:max-w-[80%]">
+          {articles.map(({ id, title, url, source }) => (
+            <li key={id} className="mb-6">
+              <a
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block no-underline rounded group"
+                title={`${source} - ${t('common.openExternalLink')}`}
+              >
+                <span
+                  className="font-bold text-3xl lg:text-5xl bg-gradient-to-t bg-no-repeat from-black to-black bg-left bg-[auto_0%] transition-colors group-hover:text-white group-hover:animate-[bg-fill_0.6s_cubic-bezier(0.39,0.575,0.565,1)_forwards]"
+                  dangerouslySetInnerHTML={{ __html: title }}
+                />
+              </a>
+              <span className="block font-lg text-muted mt-2">
+                {t('articlesList.source', { source })}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 };

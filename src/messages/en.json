@@ -1,19 +1,27 @@
 {
   "common": {
     "credits": "Developed with {{stack}}",
-    "professional-title": "Software Engineer",
-    "link-on-new-tab": "Link opens in a new tab",
-    "skip-to-content": "Skip to main content"
+    "professionalTitle": "Software Engineer",
+    "openExternalLink": "Link opens in a new tab",
+    "skipToContent": "Skip to main content"
   },
-  "intro-section": {
+  "languageSwitcher": {
+    "label": "Language selection",
+    "current": "(current)"
+  },
+  "introSection": {
     "title": {
       "greeting": "Hello, ",
       "introduction": "my name is "
     },
     "brief": "I'm a full-stack web developer, with over a decade of experience building webs experiences for multinational brands, and passionate about game development."
   },
-  "brands-list": {
+  "brandsList": {
     "title": "Projects",
     "text": "Over the past few years, I have worked on dozens of projects, including global content hubs, institutional websites and customer support tools, for brands like:"
+  },
+  "articlesList": {
+    "title": "Articles",
+    "source": "on {source}"
   }
 }

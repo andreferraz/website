@@ -33,7 +33,7 @@ export const Logo = ({ className = '' }: LogoProps) => {
       </div>
       <div className="ms-3">
         <strong>André Ferraz</strong> <br />
-        {t('professional-title')}
+        {t('professionalTitle')}
       </div>
     </div>
   );

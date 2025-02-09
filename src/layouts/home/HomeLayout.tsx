@@ -1,12 +1,15 @@
+import ArticlesList from '@/components/articles-list';
 import ClientsList from '@/components/clients-list';
 import IntroSection from '@/components/intro-section';
 
 export const HomeLayout = () => {
   return (
     <div>
-      <IntroSection className="py-25 lg:mb-20" />
+      <IntroSection className="pt-25 mb-25 lg:pt-35 lg:mb-35" />
 
-      <ClientsList className="mb-10 md:mb-15" />
+      <ClientsList className="mb-25" />
+
+      <ArticlesList className="mb-25" />
     </div>
   );
 };

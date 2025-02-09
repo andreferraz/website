@@ -1,7 +1,7 @@
 'use client';
 
 import { locales, Link } from '@/i18n/routing';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 interface LanguageSwitchProps {
   className?: string;
@@ -9,21 +9,31 @@ interface LanguageSwitchProps {
 
 export const LanguageSwitch = ({ className = '' }: LanguageSwitchProps) => {
   const currentLocale = useLocale();
+  const t = useTranslations('languageSwitcher');
+
+  const isCurrent = (locale: string) => locale === currentLocale;
 
   return (
-    <div className={`${className} d-inline-flex flex-nowrap space-x-1`}>
+    <ul
+      className={`${className} inline-flex flex-nowrap space-x-1 list-none`}
+      role="group"
+      aria-label={t('label')}
+    >
       {locales.map(({ locale, label, acronym }) => (
-        <Link
-          href="/"
-          key={locale}
-          locale={locale}
-          className={`btn text-sm px-2.5 data-active:bg-black data-active:text-white`}
-          {...(locale === currentLocale ? { 'data-active': '' } : {})}
-          title={label}
-        >
-          <span aria-hidden="true">{acronym}</span>
-        </Link>
+        <li key={locale}>
+          <Link
+            href="/"
+            key={locale}
+            locale={locale}
+            lang={locale}
+            className={`btn text-sm px-2.5 data-active:bg-black data-active:text-white`}
+            {...(isCurrent(locale) ? { 'data-active': '' } : {})}
+            title={label + (isCurrent(locale) ? ` ${t('current')}` : '')}
+          >
+            <span aria-hidden="true">{acronym}</span>
+          </Link>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
