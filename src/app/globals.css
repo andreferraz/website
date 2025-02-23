@@ -67,6 +67,11 @@
     color: #000;
     transition: color 0.15s linear;
   }
+  .text-with-black-stroke {
+	-webkit-text-fill-color: white; /* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 0.02em;
+	-webkit-text-stroke-color: black;
+  }
 }
 
 body {
@@ -78,10 +83,12 @@ body {
 *:focus-visible {
   outline: 0.2em solid #000;
   outline-offset: 0.2em;
+  @apply bg-yellow-100;
 }
 
 a {
-  @apply rounded;
+  border-radius: 0.25em;
+  text-underline-offset: 0.2em;
 }
 
 h1,

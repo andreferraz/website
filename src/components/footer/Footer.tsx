@@ -1,26 +1,16 @@
-// External dependencies
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { Container } from 'react-bootstrap';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
+import SocialButtons from '../social-buttons';
+import { MenuItemProps } from '@/utils/typings/MenuItemProps';
 
-// Internal modules
-import { Component, Credits } from './Footer.styles';
-import { OptionsProps } from '@/typings/OptionsProps';
-import { MenuItemProps } from '@/typings/MenuItemProps';
-import SocialButtons from '@/components/social-buttons';
-import { useTranslation } from 'react-i18next';
-
-// Properties definition
-interface Props {
-  socialMenu: MenuItemProps[];
-  options: OptionsProps;
+interface FooterProps {
   className?: string;
 }
 
-export const Footer = ({ className = '', socialMenu }: Props): JSX.Element => {
-  const { t } = useTranslation('common');
+export const Footer = ({ className = '' }: FooterProps) => {
+  const t = useTranslations('common');
 
-  socialMenu = [
+  const socialLinks: MenuItemProps[] = [
     {
       text: 'LinkedIn',
       href: 'https://www.linkedin.com/in/andreferraz-dev/',
@@ -50,39 +40,31 @@ export const Footer = ({ className = '', socialMenu }: Props): JSX.Element => {
     },
   ];
 
-  const stack = (
-    <>
-      <a
-        href="https://nextjs.org/"
-        target="_blank"
-        rel="noreferrer nofollow"
-        title={`Next.js - ${t('openExternalLink')}`}
-        className="link-underlined"
-      >
-        Next.js
-      </a>
-      <br />
-    </>
-  );
-
   return (
-    <Component className={`${className} w-100`}>
-      <Container>
-        <div className="d-flex flex-column align-items-start flex-md-row justify-content-md-between align-items-md-center mt-auto py-5">
-          {socialMenu !== undefined && (
-            <SocialButtons links={socialMenu} className="ms-n2 mb-4 mb-md-0" />
+    <footer className={`${className}`}>
+      <div className="container">
+        <div className="flex flex-col items-start md:flex-row md:justify-between md:items-center mt-auto py-5">
+          {socialLinks !== undefined && (
+            <SocialButtons links={socialLinks} className="ms-n2 mb-4 mb-md-0" />
           )}
 
-          <Credits
-            className="mb-0 link-uppercase"
-            dangerouslySetInnerHTML={{
-              __html: t('credits', {
-                stack: ReactDOMServer.renderToStaticMarkup(stack),
-              }),
-            }}
-          />
+          <p className="mb-0">
+            {t.rich('credits', {
+              stack: () => (
+                <Link
+                  href="https://nextjs.org/"
+                  target="_blank"
+                  rel="noreferrer nofollow"
+                  title={`Next.js - ${t('openExternalLink')}`}
+                  className="underline"
+                >
+                  Next.js
+                </Link>
+              ),
+            })}
+          </p>
         </div>
-      </Container>
-    </Component>
+      </div>
+    </footer>
   );
 };

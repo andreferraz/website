@@ -1,6 +1,6 @@
 {
   "common": {
-    "credits": "Developed with {{stack}}",
+    "credits": "Developed with <stack>stack</stack>",
     "professionalTitle": "Software Engineer",
     "openExternalLink": "Link opens in a new tab",
     "skipToContent": "Skip to main content"
@@ -23,5 +23,14 @@
   "articlesList": {
     "title": "Articles",
     "source": "on {source}"
+  },
+  "pageNotFound": {
+    "title": "Page not found",
+    "description": "Sorry, it looks that this page is missing. 😐",
+    "cta": "Return to homepage"
+  },
+  "meta": {
+    "title": "André Ferraz | 👨🏻‍💻 Software Engineer",
+    "description": "Hello there! This is my website. I am a full-stack web developer, with experience building web applications, and passionate about game development."
   }
 }

@@ -26,7 +26,7 @@ export const LanguageSwitch = ({ className = '' }: LanguageSwitchProps) => {
             key={locale}
             locale={locale}
             lang={locale}
-            className={`btn text-sm px-2.5 data-active:bg-black data-active:text-white`}
+            className={`btn text-sm px-2.5 data-active:bg-black! data-active:text-white`}
             {...(isCurrent(locale) ? { 'data-active': '' } : {})}
             title={label + (isCurrent(locale) ? ` ${t('current')}` : '')}
           >

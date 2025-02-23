@@ -1,34 +1,27 @@
-import React from 'react';
-import { LayoutProps } from '@/utils/typings/LayoutProps';
 import Header from '@/components/header';
+import Footer from '@/components/footer';
+import { Site } from '@/utils/config/site';
+import Script from 'next/script';
 
-export interface PageProps extends LayoutProps {
+export interface PageProps {
   className?: string;
   children?: React.ReactNode;
 }
 
-export const Page = ({ route, options, className, children }: PageProps) => {
+export const Page = ({ className, children }: PageProps) => {
   return (
     <>
-      {/* <Head seo={route.seo} /> */}
-
-      {/* {Site.isAnalyticsEnabled && (
+      {Site.isAnalyticsEnabled && (
         <Script src="https://scripts.simpleanalyticscdn.com/latest.js" data-collect-dnt="true" />
-      )} */}
+      )}
 
-      <div id="page" className={className}>
+      <div id="page" className={`${className} flex flex-col justify-between min-h-screen`}>
         <Header />
-        {
-          <div className="mt-(--header-height)">{children}</div>
-          /* FOOTER */
-        }
-        {/* <Header menu={[]} />
-
-				<div id="div">{children}</div>
-
-				<Footer socialMenu={[]} options={options} className="content-visibility-auto" /> */}
-        {/* CONTAINER GUIDE (For development purposes) */}
-        {/* {process?.env.NODE_ENV === 'development' && router.query.guide && <GuideContainer />} */}
+        <span></span> {/* For flex justify-between to work, as Header is fixed. */}
+        <div id="content" className="mt-(--header-height)">
+          {children}
+        </div>
+        <Footer />
       </div>
     </>
   );

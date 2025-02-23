@@ -1,21 +1,16 @@
-// External dependencies
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { MenuItemProps, SocialKey } from '@/utils/typings/MenuItemProps';
+import { useTranslations } from 'next-intl';
+import { IconType } from 'react-icons';
 import { FaLinkedinIn, FaGithub, FaGitlab, FaMedium } from 'react-icons/fa6';
 import { HiOutlineMail } from 'react-icons/hi';
 
-// Internal dependencies
-import { Component } from './SocialButtons.styles';
-import { SocialButtonsProps } from './SocialButtons.types';
-
-// Types
-interface Props extends SocialButtonsProps {
+interface SocialButtonsProps {
   className?: string;
   size?: number;
-  color?: string;
+  links: MenuItemProps[];
 }
 
-const IconList = {
+export const IconList: Record<SocialKey, IconType> = {
   linkedin: FaLinkedinIn,
   github: FaGithub,
   gitlab: FaGitlab,
@@ -23,29 +18,43 @@ const IconList = {
   medium: FaMedium,
 };
 
-const Icon = (text, size) => {
-  const SpecificIcon = IconList[text.toLowerCase()];
-  return <SpecificIcon size={size === 'small' ? 20 : 30} />;
+const Icon = (key: SocialKey) => {
+  const SpecificIcon = IconList[key];
+  return <SpecificIcon size={30} className="z-10" />;
 };
 
-export const SocialButtons = ({ className = '', links, size = 30 }: Props): JSX.Element => {
-  const { t } = useTranslation('common');
+const colors: Record<SocialKey, string> = {
+  linkedin: 'bg-linear-45 from-[#05417d] to-[#00a4ff]',
+  github: 'bg-linear-45 from-[#162e5d] to-[#4163ff]',
+  gitlab: 'bg-linear-45 from-[#ce4000] to-[#ff976a]',
+  email: 'bg-linear-45 from-[#9c632e] to-[#f7d9ad]',
+  medium: 'bg-linear-45 from-[#000] to-[#888]',
+};
+
+export const SocialButtons = ({ className = '', links }: SocialButtonsProps) => {
+  const t = useTranslations('common');
 
   return (
-    <Component className={`p-0 list-unstyled d-flex mb-0 mx-n3 ${className}`}>
+    <ul className={`p-0 flex mb-0 -mx-2 ${className}`}>
       {links.map(({ text, href, target, rel, icon }, index) => (
         <li key={index} className="me-1">
           <a
             href={href}
             target={target}
             rel={rel}
-            title={text + ` - ${t('openExternalLink')}`}
-            className={`d-flex justify-content-center align-content-center p-3 rounded-pill ${icon}`}
+            title={text}
+            aria-label={text + ` - ${t('openExternalLink')}`}
+            className={`${icon} flex justify-center items-center relative p-3 rounded-full! transition-colors hover:text-white group`}
           >
-            {Icon(icon, size)}
+            <span
+              className={`block ${
+                colors[icon!]
+              } opacity-0 scale-50 absolute top-0 left-0 w-full h-full rounded-full transition-[scale,opacity] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-100 group-hover:opacity-100`}
+            />
+            {icon && Icon(icon)}
           </a>
         </li>
       ))}
-    </Component>
+    </ul>
   );
 };

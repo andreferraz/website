@@ -1,7 +1,9 @@
-import { LinkProps } from '@/typings/LinkProps';
+import { LinkProps } from '@/utils/typings/LinkProps';
+
+export type SocialKey = 'linkedin' | 'github' | 'gitlab' | 'email' | 'medium';
 
 export interface MenuItemProps extends LinkProps {
-	additionalClass?: string;
-	titleAttr?: string;
-	icon?: 'linkedin' | 'facebook' | 'pinterest' | 'github' | 'gitlab' | 'email' | 'medium';
+  additionalClass?: string;
+  titleAttr?: string;
+  icon?: SocialKey;
 }

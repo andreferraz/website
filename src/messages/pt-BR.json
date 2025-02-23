@@ -1,6 +1,6 @@
 {
   "common": {
-    "credits": "Desenvolvido com {{stack}}",
+    "credits": "Desenvolvido com <stack>stack</stack>",
     "professionalTitle": "Engenheiro de Software",
     "openExternalLink": "Link abre em uma nova aba",
     "skipToContent": "Pular para conteúdo principal"
@@ -23,5 +23,14 @@
   "articlesList": {
     "title": "Artigos",
     "source": "em {source}"
+  },
+  "pageNotFound": {
+    "title": "Página não encontrada",
+    "description": "Desculpe, parece que essa página sumiu. 😐",
+    "cta": "Voltar à página inicial"
+  },
+  "meta": {
+    "title": "André Ferraz | 👨🏻‍💻 Desenvolvedor de Software",
+    "description": "Olá! Este é o meu website. Eu sou um desenvolvedor de software com experiência construindo aplicações web, e apaixonado por games."
   }
 }

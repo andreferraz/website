@@ -1,7 +1,7 @@
 import { defineRouting } from 'next-intl/routing';
 import { createNavigation } from 'next-intl/navigation';
 
-type Locale = 'en' | 'pt-BR';
+export type Locale = 'en' | 'pt-BR';
 
 type LocaleInfo = {
   locale: Locale;
