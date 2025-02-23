@@ -16,7 +16,6 @@ export const LanguageSwitch = ({ className = '' }: LanguageSwitchProps) => {
   return (
     <ul
       className={`${className} inline-flex flex-nowrap space-x-1 list-none`}
-      role="group"
       aria-label={t('label')}
     >
       {locales.map(({ locale, label, acronym }) => (
