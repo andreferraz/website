@@ -14,7 +14,7 @@
       "greeting": "Hello, ",
       "introduction": "my name is "
     },
-    "brief": "I'm a full-stack web developer, with over a decade of experience building webs experiences for multinational brands, and passionate about game development."
+    "brief": "I'm a full-stack web developer, with over a decade of experience building web experiences for multinational brands, and passionate about game development."
   },
   "brandsList": {
     "title": "Projects",
@@ -31,6 +31,6 @@
   },
   "meta": {
     "title": "André Ferraz | 👨🏻‍💻 Software Engineer",
-    "description": "Hello there! This is my website. I am a full-stack web developer, with experience building web applications, and passionate about game development."
+    "description": "Hello there! This is my website. I'm a full-stack web developer, with experience building world-class web applications, and passionate about game development."
   }
 }
