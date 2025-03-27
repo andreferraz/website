@@ -18,7 +18,7 @@
   },
   "brandsList": {
     "title": "Projects",
-    "text": "Over the past few years, I have worked on dozens of projects, including global content hubs, institutional websites and customer support tools, for brands like:"
+    "text": "Over the past years, I have worked on dozens of projects, including global content hubs, institutional websites and customer support tools, for brands like:"
   },
   "articlesList": {
     "title": "Articles",
@@ -30,7 +30,7 @@
     "cta": "Return to homepage"
   },
   "meta": {
-    "title": "André Ferraz | 👨🏻‍💻 Software Engineer",
+    "title": "André Ferraz | Software Engineer",
     "description": "Hello there! This is my website. I'm a full-stack web developer, with experience building world-class web applications, and passionate about game development."
   }
 }

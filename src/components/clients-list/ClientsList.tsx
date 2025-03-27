@@ -12,7 +12,7 @@ const brands = [
   'Pepsico',
   'Motorola',
   'Campari',
-  'Reckitt Benckiser',
+  'Reckitt',
   'Royal Canin',
   'T-Mobile',
 ];
