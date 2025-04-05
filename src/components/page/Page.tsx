@@ -12,7 +12,10 @@ export const Page = ({ className, children }: PageProps) => {
   return (
     <>
       {Site.isAnalyticsEnabled && (
-        <Script src="https://scripts.simpleanalyticscdn.com/latest.js" data-collect-dnt="true" />
+        <>
+          <Script src="https://scripts.simpleanalyticscdn.com/latest.js" data-collect-dnt="true" />
+          <Script src="https://scripts.simpleanalyticscdn.com/auto-events.js" />
+        </>
       )}
 
       <div id="page" className={`${className} flex flex-col justify-between min-h-screen`}>
