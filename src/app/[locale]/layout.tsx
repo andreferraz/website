@@ -12,10 +12,16 @@ const onest = Onest({
 });
 
 type LanguageURLs = Partial<Record<Locale | 'x-default', string>>;
+const isValidLocale = (value: string): value is Locale => routing.locales.includes(value as Locale);
 
-export async function generateMetadata(params: { params: { locale: Locale } }) {
-  const { locale } = await params.params;
-  const t = await getTranslations({ locale, namespace: 'meta' });
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+
+  const currentLocale: Locale = locale;
+  const t = await getTranslations({ locale: currentLocale, namespace: 'meta' });
 
   const isDefaultLocale = (locale: Locale) => locale === routing.defaultLocale;
 
@@ -32,7 +38,7 @@ export async function generateMetadata(params: { params: { locale: Locale } }) {
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: getLocaleURL(locale),
+      canonical: getLocaleURL(currentLocale),
       languages: languages,
     },
   };
@@ -43,11 +49,11 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as Locale)) {
+  if (!isValidLocale(locale)) {
     notFound();
   }
 
