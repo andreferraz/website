@@ -68,9 +68,9 @@
     transition: color 0.15s linear;
   }
   .text-with-black-stroke {
-	-webkit-text-fill-color: white; /* Will override color (regardless of order) */
-	-webkit-text-stroke-width: 0.02em;
-	-webkit-text-stroke-color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 0.02em;
+    -webkit-text-stroke-color: black;
   }
 }
 
@@ -83,7 +83,7 @@ body {
 *:focus-visible {
   outline: 0.2em solid #000;
   outline-offset: 0.2em;
-  @apply bg-yellow-100;
+  @apply bg-blue-100;
 }
 
 a {

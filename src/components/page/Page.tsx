@@ -21,9 +21,9 @@ export const Page = ({ className, children }: PageProps) => {
       <div id="page" className={`${className} flex flex-col justify-between min-h-screen`}>
         <Header />
         <span></span> {/* For flex justify-between to work, as Header is fixed. */}
-        <div id="content" className="mt-(--header-height)">
+        <main id="content" className="mt-(--header-height)">
           {children}
-        </div>
+        </main>
         <Footer />
       </div>
     </>
