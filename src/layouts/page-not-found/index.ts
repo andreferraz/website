@@ -1,1 +1,1 @@
-export { PageNotFoundLayout as default } from './PageNotFoundLayout';
+export { PageNotFoundLayout as default } from './PageNotFoundLayout'

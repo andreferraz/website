@@ -1,5 +1,5 @@
 export interface OptionsProps {
-	footer: {
-		copyright: string;
-	};
+  footer: {
+    copyright: string
+  }
 }

@@ -1,11 +1,11 @@
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-import { Site } from '@/utils/config/site';
-import Script from 'next/script';
+import Script from 'next/script'
+import Footer from '@/components/footer'
+import Header from '@/components/header'
+import { Site } from '@/utils/config/site'
 
 export interface PageProps {
-  className?: string;
-  children?: React.ReactNode;
+  className?: string
+  children?: React.ReactNode
 }
 
 export const Page = ({ className, children }: PageProps) => {
@@ -27,5 +27,5 @@ export const Page = ({ className, children }: PageProps) => {
         <Footer />
       </div>
     </>
-  );
-};
+  )
+}

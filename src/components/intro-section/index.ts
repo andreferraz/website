@@ -1,1 +1,1 @@
-export { IntroSection as default } from './IntroSection';
+export { IntroSection as default } from './IntroSection'

@@ -1,10 +1,10 @@
-import React from 'react';
-import Logo from '@/components/logo';
-import Link from 'next/link';
-import LanguageSwitch from '../language-switch';
-import ScreenReaderLink from '../screen-reader-link';
+import Link from 'next/link'
+import Logo from '@/components/logo'
+import LanguageSwitch from '../language-switch'
+import ScreenReaderLink from '../screen-reader-link'
+
 interface HeaderProps {
-  className?: string;
+  className?: string
 }
 
 export const Header = ({ className = '' }: HeaderProps) => {
@@ -22,5 +22,5 @@ export const Header = ({ className = '' }: HeaderProps) => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}

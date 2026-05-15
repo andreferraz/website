@@ -1,7 +1,7 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
 interface ClientsListProps {
-  className?: string;
+  className?: string
 }
 
 const brands = [
@@ -15,10 +15,10 @@ const brands = [
   'Reckitt',
   'Royal Canin',
   'T-Mobile',
-];
+]
 
 export const ClientsList = ({ className = '' }: ClientsListProps) => {
-  const t = useTranslations('brandsList');
+  const t = useTranslations('brandsList')
 
   return (
     <div className={`${className}`}>
@@ -40,5 +40,5 @@ export const ClientsList = ({ className = '' }: ClientsListProps) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

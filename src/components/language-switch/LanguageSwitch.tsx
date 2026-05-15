@@ -1,17 +1,17 @@
-'use client';
+'use client'
 
-import { locales, Link } from '@/i18n/routing';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl'
+import { Link, locales } from '@/i18n/routing'
 
 interface LanguageSwitchProps {
-  className?: string;
+  className?: string
 }
 
 export const LanguageSwitch = ({ className = '' }: LanguageSwitchProps) => {
-  const currentLocale = useLocale();
-  const t = useTranslations('languageSwitcher');
+  const currentLocale = useLocale()
+  const t = useTranslations('languageSwitcher')
 
-  const isCurrent = (locale: string) => locale === currentLocale;
+  const isCurrent = (locale: string) => locale === currentLocale
 
   return (
     <nav aria-label={t('label')}>
@@ -33,5 +33,5 @@ export const LanguageSwitch = ({ className = '' }: LanguageSwitchProps) => {
         ))}
       </ul>
     </nav>
-  );
-};
+  )
+}

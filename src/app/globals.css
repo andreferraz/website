@@ -1,6 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@config '../../tailwind.config.ts';
+@config "../../tailwind.config.ts";
 
 :root {
   --background: #ffffff;
@@ -39,7 +39,7 @@
 }
 
 @utility container {
-  @apply mx-auto px-5 sm:px-10 max-w-full md:max-w-[48rem] lg:max-w-[62rem] xl:max-w-[80rem] 2xl:max-w-[82.5rem];
+  @apply mx-auto px-5 sm:px-10 max-w-full md:max-w-3xl lg:max-w-248 xl:max-w-7xl 2xl:max-w-330;
 }
 
 @layer components {
@@ -54,6 +54,7 @@
   }
   .bg-text-mask {
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
   }
   .fancy-link-wrapper {
@@ -97,7 +98,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply leading-[1] font-bold tracking-tight mb-10;
+  @apply leading-none font-bold tracking-tight mb-10;
 }
 
 h1 {

@@ -1,8 +1,8 @@
-import { ArticleProps } from '@/utils/typings/ArticleProps';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
+import type { ArticleProps } from '@/utils/typings/ArticleProps'
 
 interface ArticlesListProps {
-  className?: string;
+  className?: string
 }
 
 const articles: ArticleProps[] = [
@@ -20,10 +20,10 @@ const articles: ArticleProps[] = [
     date: '2021-04-30',
     source: 'medium.com',
   },
-];
+]
 
 export const ArticlesList = ({ className = '' }: ArticlesListProps) => {
-  const t = useTranslations();
+  const t = useTranslations()
 
   return (
     <div className={`${className}`}>
@@ -39,10 +39,9 @@ export const ArticlesList = ({ className = '' }: ArticlesListProps) => {
                 className="inline-block no-underline rounded group"
                 title={`${source} - ${t('common.openExternalLink')}`}
               >
-                <span
-                  className="font-bold text-3xl lg:text-5xl bg-gradient-to-t bg-no-repeat from-black to-black bg-left bg-[auto_0%] transition-colors group-hover:text-white group-hover:animate-[bg-fill_0.6s_cubic-bezier(0.39,0.575,0.565,1)_forwards]"
-                  dangerouslySetInnerHTML={{ __html: title }}
-                />
+                <span className="font-bold text-3xl lg:text-5xl bg-gradient-to-t bg-no-repeat from-black to-black bg-left bg-[auto_0%] transition-colors group-hover:text-white group-hover:animate-[bg-fill_0.6s_cubic-bezier(0.39,0.575,0.565,1)_forwards]">
+                  {title}
+                </span>
               </a>
               <span className="block font-lg text-muted mt-2">
                 {t('articlesList.source', { source })}
@@ -52,5 +51,5 @@ export const ArticlesList = ({ className = '' }: ArticlesListProps) => {
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}

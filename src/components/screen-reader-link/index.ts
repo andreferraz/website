@@ -1,1 +1,1 @@
-export { ScreenReaderLink as default } from './ScreenReaderLink';
+export { ScreenReaderLink as default } from './ScreenReaderLink'

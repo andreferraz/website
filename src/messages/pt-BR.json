@@ -1,6 +1,7 @@
 {
   "common": {
-    "credits": "Desenvolvido com <stack>stack</stack>",
+    "logoAlt": "Logotipo do André",
+    "credits": "Desenvolvido com {{ stack }}",
     "professionalTitle": "Engenheiro de Software",
     "openExternalLink": "Link abre em uma nova aba",
     "skipToContent": "Pular para conteúdo principal"

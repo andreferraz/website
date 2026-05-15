@@ -1,11 +1,11 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
 interface IntroSectionProps {
-  className?: string;
+  className?: string
 }
 
 export const IntroSection = ({ className = '' }: IntroSectionProps) => {
-  const t = useTranslations('introSection');
+  const t = useTranslations('introSection')
 
   return (
     <section className={`${className}`}>
@@ -21,13 +21,10 @@ export const IntroSection = ({ className = '' }: IntroSectionProps) => {
             </h1>
           </div>
           <div className="col-span-12 lg:col-span-6 flex">
-            <p
-              className="lead self-end xl:mb-2 lg:ps-10 lg:pe-0 xl:px-10"
-              dangerouslySetInnerHTML={{ __html: t('brief') }}
-            />
+            <p className="lead self-end xl:mb-2 lg:ps-10 lg:pe-0 xl:px-10">{t('brief')}</p>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

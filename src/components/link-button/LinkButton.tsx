@@ -1,10 +1,10 @@
-import { Link } from '@/i18n/routing';
+import { Link } from '@/i18n/routing'
 
 interface LinkButtonProps {
-  className?: string;
-  children: React.ReactNode;
-  href: string;
-  isHighlighted?: boolean;
+  className?: string
+  children: React.ReactNode
+  href: string
+  isHighlighted?: boolean
 }
 
 export const LinkButton = ({
@@ -21,5 +21,5 @@ export const LinkButton = ({
     >
       <span className="flex items-center justify-center">{children}</span>
     </Link>
-  );
-};
+  )
+}

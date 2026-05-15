@@ -1,6 +1,6 @@
-import ArticlesList from '@/components/articles-list';
-import ClientsList from '@/components/clients-list';
-import IntroSection from '@/components/intro-section';
+import ArticlesList from '@/components/articles-list'
+import ClientsList from '@/components/clients-list'
+import IntroSection from '@/components/intro-section'
 
 export const HomeLayout = () => {
   return (
@@ -11,5 +11,5 @@ export const HomeLayout = () => {
 
       <ArticlesList className="mb-25" />
     </div>
-  );
-};
+  )
+}

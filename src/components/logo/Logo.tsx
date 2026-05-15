@@ -1,11 +1,11 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
 interface LogoProps {
-  className?: string;
+  className?: string
 }
 
 export const Logo = ({ className = '' }: LogoProps) => {
-  const t = useTranslations('common');
+  const t = useTranslations('common')
 
   return (
     <div className={`${className} relative inline-flex items-center`}>
@@ -16,6 +16,7 @@ export const Logo = ({ className = '' }: LogoProps) => {
           height="33"
           viewBox="0 0 256 233.725"
           className="relative z-10"
+          aria-label={t('logoAlt')}
         >
           <defs>
             <clipPath id="a">
@@ -36,5 +37,5 @@ export const Logo = ({ className = '' }: LogoProps) => {
         {t('professionalTitle')}
       </div>
     </div>
-  );
-};
+  )
+}

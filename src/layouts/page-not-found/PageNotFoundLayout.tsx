@@ -1,9 +1,9 @@
-import LinkButton from '@/components/link-button';
-import { useTranslations } from 'next-intl';
-import { FiArrowLeft } from 'react-icons/fi';
+import { useTranslations } from 'next-intl'
+import { FiArrowLeft } from 'react-icons/fi'
+import LinkButton from '@/components/link-button'
 
 export const PageNotFoundLayout = () => {
-  const t = useTranslations('pageNotFound');
+  const t = useTranslations('pageNotFound')
   return (
     <div className="container py-7 py-lg-9">
       <span className="text-[8rem] md:text-[10rem] font-bold text-with-black-stroke relative opacity-20 leading-none px-1">
@@ -19,5 +19,5 @@ export const PageNotFoundLayout = () => {
         </LinkButton>
       </p>
     </div>
-  );
-};
+  )
+}

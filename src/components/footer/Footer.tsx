@@ -1,14 +1,14 @@
-import { Link } from '@/i18n/routing';
-import { useTranslations } from 'next-intl';
-import SocialButtons from '../social-buttons';
-import { MenuItemProps } from '@/utils/typings/MenuItemProps';
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
+import type { MenuItemProps } from '@/utils/typings/MenuItemProps'
+import SocialButtons from '../social-buttons'
 
 interface FooterProps {
-  className?: string;
+  className?: string
 }
 
 export const Footer = ({ className = '' }: FooterProps) => {
-  const t = useTranslations('common');
+  const t = useTranslations('common')
 
   const socialLinks: MenuItemProps[] = [
     {
@@ -38,7 +38,7 @@ export const Footer = ({ className = '' }: FooterProps) => {
       titleAttr: 'Copy e-mail',
       icon: 'email',
     },
-  ];
+  ]
 
   return (
     <footer className={`${className}`}>
@@ -66,5 +66,5 @@ export const Footer = ({ className = '' }: FooterProps) => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}

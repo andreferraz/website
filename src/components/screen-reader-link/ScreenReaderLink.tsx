@@ -1,11 +1,11 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
 interface ScreenReaderLinkProps {
-  className?: string;
+  className?: string
 }
 
 export const ScreenReaderLink = ({ className = '' }: ScreenReaderLinkProps) => {
-  const t = useTranslations('common');
+  const t = useTranslations('common')
 
   return (
     <a
@@ -14,5 +14,5 @@ export const ScreenReaderLink = ({ className = '' }: ScreenReaderLinkProps) => {
     >
       {t('skipToContent')}
     </a>
-  );
-};
+  )
+}

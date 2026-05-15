@@ -1,1 +1,1 @@
-export { LanguageSwitch as default } from './LanguageSwitch';
+export { LanguageSwitch as default } from './LanguageSwitch'
