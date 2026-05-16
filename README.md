@@ -1,6 +1,6 @@
 # André Ferraz
 
-This is the repository for my personal portfolio website, built with Next.js.
+This is the repository for my **personal portfolio website**, built with Next.js.
 
 You can find the live version at [andreferraz.dev](https://www.andreferraz.dev).
 
@@ -47,20 +47,20 @@ You are welcome to read this repository, use it for learning, and take inspirati
 
 If you want to reuse significant parts of this project, please reach out first.
 
-# Running it locally
+## Running it locally
 
-## Prerequisites
+### Prerequisites
 
 - Node.js 20.9+
 - pnpm (version per [package.json](./package.json))
 
-## Setup
+### Setup
 
 ```bash
 pnpm install
 ```
 
-## Development
+### Development
 
 ```bash
 pnpm dev
@@ -68,21 +68,21 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Production build
+### Production
 
 ```bash
 pnpm build
 pnpm start
 ```
 
-## Check
+### Checking
 
 ```bash
 pnpm lint
 pnpm types
 ```
 
-## Format
+### Format
 
 ```bash
 pnpm format
