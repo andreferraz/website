@@ -1,7 +1,7 @@
 {
   "common": {
     "logoAlt": "Andre's logo",
-    "credits": "Developed with {{ stack }}",
+    "credits": "Developed with <stack>Next.js</stack>",
     "professionalTitle": "Software Engineer",
     "openExternalLink": "Link opens in a new tab",
     "skipToContent": "Skip to main content"
@@ -15,11 +15,11 @@
       "greeting": "Hello, ",
       "introduction": "my name is "
     },
-    "brief": "I'm a full-stack web developer, with over a decade of experience building web experiences for multinational brands, and passionate about game development."
+    "brief": "I'm a full-stack web developer, with experience building world-class digital experiences for multinational brands, and passionate about game development."
   },
   "brandsList": {
     "title": "Projects",
-    "text": "Over the past years, I have worked on dozens of projects, including global content hubs, institutional websites and customer support tools, for brands like:"
+    "text": "Over the past decade, I have worked on dozens of projects, including global content hubs, institutional websites, customer support tools, digital platforms, and more, for brands like:"
   },
   "articlesList": {
     "title": "Articles",

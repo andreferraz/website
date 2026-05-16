@@ -1,7 +1,7 @@
 {
   "common": {
     "logoAlt": "Logotipo do André",
-    "credits": "Desenvolvido com {{ stack }}",
+    "credits": "Desenvolvido com <stack>Next.js</stack>",
     "professionalTitle": "Engenheiro de Software",
     "openExternalLink": "Link abre em uma nova aba",
     "skipToContent": "Pular para conteúdo principal"
@@ -15,11 +15,11 @@
       "greeting": "Olá, ",
       "introduction": "meu nome é "
     },
-    "brief": "Eu sou um desenvolvedor web full-stack, com mais de uma década de experiência construindo experiências web para marcas multinacionais, e apaixonado por desenvolvimento de games."
+    "brief": "Eu sou um desenvolvedor web full-stack, com experiência construindo projetos digitais de nível mundial para marcas multinacionais, e apaixonado por desenvolvimento de games."
   },
   "brandsList": {
     "title": "Projetos",
-    "text": "Nos últimos anos, eu trabalhei em dezenas de projetos, incluindo content hubs globais, sites institucionais e ferramentas para suporte ao consumidor, para grandes marcas como:"
+    "text": "Na última década, eu trabalhei em dezenas de projetos, incluindo content hubs globais, websites institucionais, ferramentas para suporte ao consumidor, plataformas digitais, entre outros, para marcas como:"
   },
   "articlesList": {
     "title": "Artigos",

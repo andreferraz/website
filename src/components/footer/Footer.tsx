@@ -50,7 +50,7 @@ export const Footer = ({ className = '' }: FooterProps) => {
 
           <p className="mb-0">
             {t.rich('credits', {
-              stack: () => (
+              stack: (stack) => (
                 <Link
                   href="https://nextjs.org/"
                   target="_blank"
@@ -58,7 +58,7 @@ export const Footer = ({ className = '' }: FooterProps) => {
                   title={`Next.js - ${t('openExternalLink')}`}
                   className="underline"
                 >
-                  Next.js
+                  {stack}
                 </Link>
               ),
             })}
