@@ -62,7 +62,7 @@ export default async function RootLayout({
 
   return (
     /* biome-ignore lint: lang is handled by next-intl */
-    <html suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${onest.className} antialiased`}>
         <NextIntlClientProvider messages={translations}>
           <ThemeProvider>{children}</ThemeProvider>
