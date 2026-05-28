@@ -41,6 +41,7 @@ export const ThemeToggle = () => {
         onClick={handleToggle}
         className="btn text-sm px-2.5 cursor-pointer"
         aria-pressed={mounted ? isDark : undefined}
+        aria-label={label}
         data-tooltip-id="theme-toggle-tooltip"
         data-tooltip-content={label}
       >
