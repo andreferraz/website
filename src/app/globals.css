@@ -5,13 +5,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --surface: #f0f0f0;
-  --border: #e5e5e5;
-  --muted: #717171;
-  --focus-outline: #000000;
-  --header-shadow: rgba(255, 255, 255, 1);
   --header-height: 5rem; /* 80px */
 }
 
@@ -21,24 +14,11 @@
   }
 }
 
-/* Browser preference fallback — applies before JS sets .dark */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --surface: #1f1f1f;
-    --border: #333333;
-    --muted: #a0a0a0;
-    --focus-outline: #ffffff;
-    --header-shadow: rgba(10, 10, 10, 1);
-  }
-}
-
 /* Explicit theme overrides set by JS toggle (higher specificity wins over media query) */
 html:not(.dark) {
   --background: #ffffff;
   --foreground: #171717;
-  --surface: #f0f0f0;
+  --surface: oklch(92% 0.004 286.32);
   --border: #e5e5e5;
   --muted: #717171;
   --focus-outline: #000000;
@@ -48,7 +28,7 @@ html:not(.dark) {
 html.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --surface: #1f1f1f;
+  --surface: oklch(27.4% 0.006 286.033);
   --border: #333333;
   --muted: #a0a0a0;
   --focus-outline: #ffffff;
@@ -107,6 +87,9 @@ html.dark {
     -webkit-text-stroke-width: 0.02em;
     -webkit-text-stroke-color: black;
   }
+}
+.react-tooltip {
+  @apply text-sm! rounded! bg-(--surface)! text-(--foreground)! px-1! py-0.5! opacity-100!;
 }
 
 body {

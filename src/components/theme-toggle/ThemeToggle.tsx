@@ -1,11 +1,14 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 import { useEffect, useMemo, useState } from 'react'
 import { RiMoonLine, RiSunLine } from 'react-icons/ri'
+import { Tooltip } from 'react-tooltip'
 
 export const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false)
+  const t = useTranslations('themeToggle')
   const { resolvedTheme, setTheme, systemTheme } = useTheme()
 
   useEffect(() => {
@@ -14,8 +17,9 @@ export const ThemeToggle = () => {
 
   const isDark = mounted && resolvedTheme === 'dark'
   const label = useMemo(
-    () => (mounted ? `Switch to ${isDark ? 'light' : 'dark'} theme` : 'Toggle theme'),
-    [isDark, mounted],
+    () =>
+      mounted ? t('switchToTheme', { mode: isDark ? t('light') : t('dark') }) : t('toggleTheme'),
+    [isDark, mounted, t],
   )
 
   const handleToggle = () => {
@@ -31,19 +35,22 @@ export const ThemeToggle = () => {
   }
 
   return (
-    <button
-      type="button"
-      onClick={handleToggle}
-      className="btn text-sm px-2.5"
-      aria-label={label}
-      aria-pressed={mounted ? isDark : undefined}
-      title={label}
-    >
-      {isDark ? (
-        <RiSunLine size={20} aria-hidden="true" />
-      ) : (
-        <RiMoonLine size={20} aria-hidden="true" />
-      )}
-    </button>
+    <>
+      <button
+        type="button"
+        onClick={handleToggle}
+        className="btn text-sm px-2.5 cursor-pointer"
+        aria-pressed={mounted ? isDark : undefined}
+        data-tooltip-id="theme-toggle-tooltip"
+        data-tooltip-content={label}
+      >
+        {isDark ? (
+          <RiSunLine size={20} aria-hidden="true" />
+        ) : (
+          <RiMoonLine size={20} aria-hidden="true" />
+        )}
+      </button>
+      <Tooltip id="theme-toggle-tooltip" place="bottom" />
+    </>
   )
 }

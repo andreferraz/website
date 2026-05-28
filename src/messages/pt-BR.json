@@ -10,6 +10,12 @@
     "label": "Seleção de idioma",
     "current": "(atual)"
   },
+  "themeToggle": {
+    "toggleTheme": "Alternar modo",
+    "switchToTheme": "Trocar para o modo {mode}",
+    "light": "claro",
+    "dark": "escuro"
+  },
   "introSection": {
     "title": {
       "greeting": "Olá, ",
