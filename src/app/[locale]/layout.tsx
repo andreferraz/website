@@ -61,7 +61,6 @@ export default async function RootLayout({
   const translations = await getMessages()
 
   return (
-    /* biome-ignore lint: lang is handled by next-intl */
     <html lang={locale} suppressHydrationWarning>
       <body className={`${onest.className} antialiased`}>
         <NextIntlClientProvider messages={translations}>

@@ -50,7 +50,7 @@ export const ThemeToggle = () => {
           <RiMoonLine size={20} aria-hidden="true" />
         )}
       </button>
-      <Tooltip id="theme-toggle-tooltip" place="bottom" />
+      <Tooltip id="theme-toggle-tooltip" place="bottom" className="sr-only lg:not-sr-only" />
     </>
   )
 }
