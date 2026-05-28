@@ -15,7 +15,7 @@ export const IntroSection = ({ className = '' }: IntroSectionProps) => {
             <h1 className="self-end lg:mb-0! *:block *:max-sm:text-[14vw] *:max-sm:leading-[14vw] *:lg:max-xl:text-7xl">
               <span>{t('title.greeting')}</span>
               <span>{t('title.introduction')}</span>
-              <span className="bg-text-mask bg-linear-to-r from-blue-700 to-cyan-500">
+              <span className="bg-text-mask bg-linear-to-r from-indigo-700 to-blue-500 saturate-75 dark:from-indigo-300 dark:to-blue-200">
                 André Ferraz
               </span>
             </h1>

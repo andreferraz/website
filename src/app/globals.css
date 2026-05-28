@@ -2,9 +2,16 @@
 
 @config "../../tailwind.config.ts";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --surface: #f0f0f0;
+  --border: #e5e5e5;
+  --muted: #717171;
+  --focus-outline: #000000;
+  --header-shadow: rgba(255, 255, 255, 1);
   --header-height: 5rem; /* 80px */
 }
 
@@ -14,12 +21,39 @@
   }
 }
 
-/* @media (prefers-color-scheme: dark) {
+/* Browser preference fallback — applies before JS sets .dark */
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --surface: #1f1f1f;
+    --border: #333333;
+    --muted: #a0a0a0;
+    --focus-outline: #ffffff;
+    --header-shadow: rgba(10, 10, 10, 1);
   }
-} */
+}
+
+/* Explicit theme overrides set by JS toggle (higher specificity wins over media query) */
+html:not(.dark) {
+  --background: #ffffff;
+  --foreground: #171717;
+  --surface: #f0f0f0;
+  --border: #e5e5e5;
+  --muted: #717171;
+  --focus-outline: #000000;
+  --header-shadow: rgba(255, 255, 255, 1);
+}
+
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --surface: #1f1f1f;
+  --border: #333333;
+  --muted: #a0a0a0;
+  --focus-outline: #ffffff;
+  --header-shadow: rgba(10, 10, 10, 1);
+}
 
 @theme {
   --breakpoint-sm: 32rem; /* 512px */
@@ -44,13 +78,13 @@
 
 @layer components {
   .btn {
-    @apply px-4 py-2.5 bg-transparent hover:bg-gray-200 rounded-lg font-semibold transition-colors;
+    @apply px-4 py-2.5 bg-transparent hover:bg-(--surface) rounded-lg font-semibold transition-colors cursor-pointer;
   }
   .lead {
     @apply text-2xl xl:text-[1.625rem] font-extralight leading-normal;
   }
   .text-muted {
-    @apply text-gray-500;
+    color: var(--muted);
   }
   .bg-text-mask {
     -webkit-text-fill-color: transparent;
@@ -61,11 +95,11 @@
     @apply no-underline hover:*:animate-(--bg-fill) hover:*:text-white;
   }
   .fancy-link-content {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    background-image: linear-gradient(to top, var(--foreground), var(--foreground));
     background-repeat: no-repeat;
     background-size: 100% 0.075em;
     background-position: 0 100%;
-    color: #000;
+    color: var(--foreground);
     transition: color 0.15s linear;
   }
   .text-with-black-stroke {
@@ -82,12 +116,12 @@ body {
 }
 
 *:focus-visible {
-  outline: 0.2em solid #000;
+  outline: 0.2em solid var(--focus-outline);
   outline-offset: 0.2em;
-  @apply bg-blue-100;
+  @apply bg-blue-100 dark:bg-amber-100 dark:text-black transition-none;
 }
 
-a {
+a:not(.btn) {
   border-radius: 0.25em;
   text-underline-offset: 0.2em;
 }

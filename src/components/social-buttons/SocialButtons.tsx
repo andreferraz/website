@@ -24,11 +24,11 @@ const Icon = (key: SocialKey) => {
 }
 
 const colors: Record<SocialKey, string> = {
-  linkedin: 'bg-linear-45 from-[#05417d] to-[#00a4ff]',
-  github: 'bg-linear-45 from-[#162e5d] to-[#4163ff]',
-  gitlab: 'bg-linear-45 from-[#ce4000] to-[#ff976a]',
-  email: 'bg-linear-45 from-[#9c632e] to-[#f7d9ad]',
-  medium: 'bg-linear-45 from-[#000] to-[#888]',
+  linkedin: 'bg-linear-45 from-[#05417d] to-[#00a4ff] dark:from-[#1554a5] dark:to-[#7ecfff]',
+  github: 'bg-linear-45 from-[#162e5d] to-[#4163ff] dark:from-[#444dcf] dark:to-[#a3b9ff]',
+  gitlab: 'bg-linear-45 from-[#ce4000] to-[#ff976a] dark:from-[#e86a2c] dark:to-[#ffb78c]',
+  email: 'bg-linear-45 from-[#9c632e] to-[#f7d9ad] dark:from-[#9c704c] dark:to-[#fff4e4]',
+  medium: 'bg-linear-45 from-[#000] to-[#888] dark:from-[#a1a1a1] dark:to-[#fff]',
 }
 
 export const SocialButtons = ({ className = '', links }: SocialButtonsProps) => {
@@ -44,7 +44,7 @@ export const SocialButtons = ({ className = '', links }: SocialButtonsProps) => 
             rel={rel}
             title={text}
             aria-label={`${text} - ${t('openExternalLink')}`}
-            className={`${icon} flex justify-center items-center relative p-3 rounded-full! transition-colors hover:text-white group`}
+            className={`${icon} flex justify-center items-center relative p-3 rounded-full! transition-colors hover:text-white dark:hover:text-black group`}
           >
             <span
               className={`block ${

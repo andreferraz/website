@@ -39,7 +39,7 @@ export const ArticlesList = ({ className = '' }: ArticlesListProps) => {
                 className="inline-block no-underline rounded group"
                 title={`${source} - ${t('common.openExternalLink')}`}
               >
-                <span className="font-bold text-3xl lg:text-5xl bg-gradient-to-t bg-no-repeat from-black to-black bg-left bg-[auto_0%] transition-colors group-hover:text-white group-hover:animate-[bg-fill_0.6s_cubic-bezier(0.39,0.575,0.565,1)_forwards]">
+                <span className="font-bold text-3xl lg:text-5xl bg-gradient-to-t bg-no-repeat from-(--foreground) to-(--foreground) bg-left bg-[auto_0%] transition-colors group-hover:text-(--background) group-hover:animate-[bg-fill_0.6s_cubic-bezier(0.39,0.575,0.565,1)_forwards]">
                   {title}
                 </span>
               </a>

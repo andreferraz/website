@@ -3,6 +3,7 @@ import '../globals.css'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
+import { ThemeProvider } from '@/components/theme-provider'
 import { type Locale, locales, routing } from '@/i18n/routing'
 import { Site } from '@/utils/config/site'
 
@@ -60,9 +61,12 @@ export default async function RootLayout({
   const translations = await getMessages()
 
   return (
-    <html lang="en">
+    /* biome-ignore lint: lang is handled by next-intl */
+    <html suppressHydrationWarning>
       <body className={`${onest.className} antialiased`}>
-        <NextIntlClientProvider messages={translations}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={translations}>
+          <ThemeProvider>{children}</ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
