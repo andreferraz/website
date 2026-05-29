@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["oklch"]
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "html.format.maxPreserveNewLines": 1,
+  "html.format.wrapAttributes": "preserve",
+  "cSpell.words": ["oklch", "andreferraz"]
 }
