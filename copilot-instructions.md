@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project is a personal portfolio site built with Next.js App Router and localized with `next-intl`.
+This project is a personal portfolio website built with Next.js App Router and localized with `next-intl`.
 
 Treat the codebase as a content-first, server-first frontend application:
 
@@ -17,6 +17,7 @@ Treat the codebase as a content-first, server-first frontend application:
 - UI: React 19.
 - Styling: Tailwind CSS 4.
 - Internationalization: `next-intl` with locale-aware routing in `src/i18n`.
+- Themes: Tailwind dark mode with `class` strategy, and `next-themes` for client theme toggling.
 - Icons: `react-icons`.
 - Path aliases: use `@/*` for imports from `src`.
 - Linting: ESLint 9 with `next/core-web-vitals` and `next/typescript`.
@@ -44,6 +45,7 @@ Follow these rules:
 - Do not duplicate markup patterns when an existing component can be extended with props.
 - Keep public APIs minimal; add props only when they support a real reuse case.
 - Match the existing code style in the surrounding file.
+- Consider accessibility and good UX practices when building components and layouts, especially for interactive elements, focus states, and semantic HTML.
 
 ### TypeScript Rules
 
@@ -68,6 +70,7 @@ Follow these rules:
 - Reuse existing spacing, sizing, and layout patterns before adding new ones.
 - Keep class lists readable; extract a wrapper component only when the same structure is repeated.
 - Do not introduce a parallel styling system such as Styled Components, CSS Modules, or inline style-heavy patterns unless the repo is explicitly migrated.
+- Consider accessibility and theming when applying styles
 
 ### Imports and Exports
 
