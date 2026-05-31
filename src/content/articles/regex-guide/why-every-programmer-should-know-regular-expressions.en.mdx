@@ -1,0 +1,40 @@
+Regular expressions (regex) are a powerful pattern-matching tool available in virtually every programming language. Yet many developers avoid them, intimidated by their terse syntax.
+
+## What are Regular Expressions?
+
+A regular expression is a sequence of characters that defines a search pattern. For example:
+
+```js
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+emailRegex.test('user@example.com') // true
+```
+
+## Why learn them?
+
+### 1. Input validation
+
+Regex lets you validate form inputs — emails, phone numbers, postal codes — without heavy libraries.
+
+```js
+const phoneRegex = /^\+?[1-9]\d{1,14}$/
+```
+
+### 2. Text search and replace
+
+Need to rename all occurrences of a variable across a file? Regex-powered find-and-replace in your editor handles it instantly.
+
+### 3. Parsing structured text
+
+Log files, CSV records, custom DSLs — regex makes extracting structured data from plain text straightforward.
+
+```js
+const logLine = '2024-01-15 ERROR Something went wrong'
+const match = logLine.match(/^(\d{4}-\d{2}-\d{2}) (\w+) (.+)$/)
+// match[1] = '2024-01-15', match[2] = 'ERROR', match[3] = 'Something went wrong'
+```
+
+## Getting started
+
+The best way to learn regex is to practice interactively. Tools like [regex101.com](https://regex101.com) let you build and test patterns with real-time explanations.
+
+Start small: learn the basics (`\d`, `\w`, `\s`, `+`, `*`, `?`) and build from there.

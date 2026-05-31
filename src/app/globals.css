@@ -71,21 +71,13 @@ html.dark {
     background-clip: text;
     -webkit-background-clip: text;
   }
-  .fancy-link-wrapper {
-    @apply no-underline hover:*:animate-(--bg-fill) hover:*:text-white;
-  }
-  .fancy-link-content {
-    background-image: linear-gradient(to top, var(--foreground), var(--foreground));
-    background-repeat: no-repeat;
-    background-size: 100% 0.075em;
-    background-position: 0 100%;
-    color: var(--foreground);
-    transition: color 0.15s linear;
-  }
   .text-with-black-stroke {
     -webkit-text-fill-color: white; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 0.02em;
     -webkit-text-stroke-color: black;
+  }
+  .animated-link-hover-fill {
+    @apply bg-linear-to-t bg-no-repeat from-(--foreground) to-(--foreground) bg-left bg-size-[auto_0%] transition-colors group-hover:text-(--background) group-hover:animate-[bg-fill_0.6s_cubic-bezier(0.39,0.575,0.565,1)_forwards];
   }
 }
 .react-tooltip {
@@ -132,4 +124,42 @@ h2 {
   h2 {
     font-size: 3.75rem; /* 60px */
   }
+}
+
+/* rehype-pretty-code: dual light/dark theme via CSS vars */
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+html.dark code[data-theme*=" "],
+html.dark code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+/* Code block container */
+pre {
+  overflow-x: auto;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+pre [data-line] {
+  padding: 0 1rem;
+}
+
+pre [data-highlighted-line] {
+  background-color: color-mix(in srgb, var(--foreground) 8%, transparent);
+}
+
+/* Inline code */
+:not(pre) > code {
+  font-size: 0.875em;
+  padding: 0.15em 0.35em;
+  border-radius: 0.25em;
+  background-color: var(--surface);
 }

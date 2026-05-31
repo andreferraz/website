@@ -1,0 +1,42 @@
+Nomear componentes UI de forma consistente é um daqueles problemas que parecem triviais até que sua biblioteca de componentes cresça além de uma dúzia de arquivos.
+
+## O padrão CEV
+
+**Contexto — Elemento — Variante** (CEV) é um esquema de nomenclatura simples em três partes:
+
+- **Contexto**: o domínio ou feature ao qual o componente pertence (`Auth`, `Cart`, `Article`)
+- **Elemento**: a peça concreta da UI (`Button`, `Card`, `Input`)
+- **Variante**: um modificador opcional que diferencia componentes similares (`Primary`, `Ghost`, `Compact`)
+
+```
+AuthLoginButton
+CartItemCard
+ArticleTagBadge
+ArticleTagBadgeCompact
+```
+
+## Por que funciona
+
+### Previsibilidade
+
+Dado um contexto e um elemento, você consegue adivinhar o nome do componente antes de procurá-lo. `CartSummaryCard`? Provavelmente existe. `CartSummaryCardMini`? Também faz sentido.
+
+### Agrupamento alfabético
+
+Os arquivos se ordenam naturalmente no seu editor: todos os componentes `Auth*` juntos, todos os componentes `Cart*` juntos.
+
+```
+AuthLoginButton.tsx
+AuthRegisterForm.tsx
+CartEmptyState.tsx
+CartItemCard.tsx
+CartSummaryCard.tsx
+```
+
+### Escala com o time
+
+À medida que o time cresce, novos colaboradores conseguem seguir o padrão sem um documento de style guide. Os nomes são autodocumentados.
+
+## Quando dispensar o contexto
+
+Para primitivos verdadeiramente genéricos e sem contexto — `Button`, `Input`, `Modal` — dispense o prefixo de contexto. CEV é um guia, não uma regra.
