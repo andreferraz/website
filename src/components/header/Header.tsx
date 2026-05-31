@@ -1,14 +1,16 @@
 import Link from 'next/link'
 import Logo from '@/components/logo'
+import type { Locale } from '@/i18n/routing'
 import LanguageSwitch from '../language-switch'
 import ScreenReaderLink from '../screen-reader-link'
 import { ThemeToggle } from '../theme-toggle'
 
 interface HeaderProps {
   className?: string
+  alternates?: Partial<Record<Locale, string>>
 }
 
-export const Header = ({ className = '' }: HeaderProps) => {
+export const Header = ({ className = '', alternates }: HeaderProps) => {
   return (
     <header
       className={`${className} w-full fixed top-0 z-10 bg-(--background) shadow-[0px_60px_60px_var(--header-shadow),0px_30px_30px_var(--header-shadow)]`}
@@ -20,7 +22,7 @@ export const Header = ({ className = '' }: HeaderProps) => {
             <Logo />
           </Link>
           <div className="flex items-center gap-4">
-            <LanguageSwitch />
+            <LanguageSwitch alternates={alternates} />
             <ThemeToggle />
           </div>
         </div>

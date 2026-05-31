@@ -1,0 +1,42 @@
+Naming UI components consistently is one of those problems that feels trivial until your component library grows past a dozen files.
+
+## The CEV pattern
+
+**Context — Element — Variant** (CEV) is a simple three-part naming scheme:
+
+- **Context**: the domain or feature the component belongs to (`Auth`, `Cart`, `Article`)
+- **Element**: the concrete UI piece (`Button`, `Card`, `Input`)
+- **Variant**: an optional modifier that differentiates similar components (`Primary`, `Ghost`, `Compact`)
+
+```
+AuthLoginButton
+CartItemCard
+ArticleTagBadge
+ArticleTagBadgeCompact
+```
+
+## Why it works
+
+### Predictability
+
+Given a context and an element, you can guess the component name before looking it up. `CartSummaryCard`? Probably exists. `CartSummaryCardMini`? Also makes sense.
+
+### Alphabetical grouping
+
+Files sort naturally in your editor: all `Auth*` components together, all `Cart*` components together.
+
+```
+AuthLoginButton.tsx
+AuthRegisterForm.tsx
+CartEmptyState.tsx
+CartItemCard.tsx
+CartSummaryCard.tsx
+```
+
+### Scales with your team
+
+As the team grows, new contributors can follow the pattern without a style guide document. The names are self-documenting.
+
+## When to drop the context
+
+For truly generic, context-free primitives — `Button`, `Input`, `Modal` — skip the context prefix. CEV is a guide, not a rule.

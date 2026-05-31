@@ -6,6 +6,7 @@ import { getMessages, getTranslations } from 'next-intl/server'
 import { ThemeProvider } from '@/components/theme-provider'
 import { type Locale, locales, routing } from '@/i18n/routing'
 import { Site } from '@/utils/config/site'
+import { isValidLocale } from '@/utils/helpers/i18n'
 
 const onest = Onest({
   subsets: ['latin'],
@@ -13,7 +14,6 @@ const onest = Onest({
 })
 
 type LanguageURLs = Partial<Record<Locale | 'x-default', string>>
-const isValidLocale = (value: string): value is Locale => routing.locales.includes(value as Locale)
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

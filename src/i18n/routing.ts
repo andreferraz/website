@@ -19,6 +19,16 @@ export const routing = defineRouting({
   locales: locales.map((i) => i.locale),
   defaultLocale: locales.find((i) => i.default)?.locale || 'en',
   localePrefix: 'as-needed',
+  pathnames: {
+    '/articles': {
+      en: '/articles',
+      'pt-BR': '/artigos',
+    },
+    '/articles/[slug]': {
+      en: '/articles/[slug]',
+      'pt-BR': '/artigos/[slug]',
+    },
+  },
 })
 
 export const { Link, redirect, usePathname, useRouter, getPathname } = createNavigation(routing)

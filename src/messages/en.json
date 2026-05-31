@@ -29,7 +29,23 @@
   },
   "articlesList": {
     "title": "Articles",
+    "viewAll": "View all articles"
+  },
+  "publicationsList": {
+    "title": "Publications",
     "source": "on {source}"
+  },
+  "articles": {
+    "title": "Articles",
+    "empty": "No articles yet.",
+    "readingTime": "{minutes} min read",
+    "tagsLabel": "Tags",
+    "metaTitle": "Articles | André Ferraz",
+    "metaDescription": "Articles and thoughts on software engineering, frontend development, and more."
+  },
+  "article": {
+    "readingTime": "{minutes} min read",
+    "tagsLabel": "Tags"
   },
   "pageNotFound": {
     "title": "Page not found",

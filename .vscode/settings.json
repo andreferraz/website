@@ -3,5 +3,19 @@
   "editor.defaultFormatter": "biomejs.biome",
   "html.format.maxPreserveNewLines": 1,
   "html.format.wrapAttributes": "preserve",
-  "cSpell.words": ["oklch", "andreferraz"]
+  "cSpell.words": [
+	"andreferraz",
+	"Campari",
+	"Canin",
+	"Clarins",
+	"extralight",
+	"Nestlé",
+	"oklch",
+	"onest",
+	"Reckitt",
+	"rehype",
+	"rgba",
+	"shiki",
+	"srgb"
+]
 }
