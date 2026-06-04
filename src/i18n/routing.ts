@@ -21,4 +21,7 @@ export const routing = defineRouting({
   localePrefix: 'as-needed',
 })
 
+export const isValidLocale = (value: string): value is Locale =>
+  routing.locales.includes(value as Locale)
+
 export const { Link, redirect, usePathname, useRouter, getPathname } = createNavigation(routing)

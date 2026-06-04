@@ -2,7 +2,7 @@ import { Onest } from 'next/font/google'
 import '../globals.css'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, getTranslations } from 'next-intl/server'
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { ThemeProvider } from '@/components/theme-provider'
 import { type Locale, locales, routing } from '@/i18n/routing'
 import { Site } from '@/utils/config/site'
@@ -14,6 +14,10 @@ const onest = Onest({
 
 type LanguageURLs = Partial<Record<Locale | 'x-default', string>>
 const isValidLocale = (value: string): value is Locale => routing.locales.includes(value as Locale)
+
+export function generateStaticParams() {
+  return locales.map(({ locale }) => ({ locale }))
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -57,6 +61,9 @@ export default async function RootLayout({
   if (!isValidLocale(locale)) {
     notFound()
   }
+
+  const currentLocale: Locale = locale
+  setRequestLocale(currentLocale)
 
   const translations = await getMessages()
 
