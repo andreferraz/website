@@ -1,42 +1,106 @@
-Naming UI components consistently is one of those problems that feels trivial until your component library grows past a dozen files.
+Naming things in software development always had its challenges. Back in 2021, I was working on a team partially composed by non-English speakers, so picking the right names for components, variables and functions, was a bit more difficult.
+
+To help us with that, we came up with **<abbr title="Context, Element, Variant">C.E.V.</abbr>**, an intuitive and structured **pattern for naming UI components**.
+
+I've published an [article on Medium](https://andreferrazdev.medium.com/a-naming-convention-for-ui-components-77f4fb8797c) explaining the pattern back then, which surprisingly got quite popular, still being viewed 5 years later.
+
+That inspired me to write about it again here, now with revised rules and some updates.
 
 ## The CEV pattern
 
-**Context — Element — Variant** (CEV) is a simple three-part naming scheme:
+CEV stands for **<span className="text-accent-red">Context</span>**, **<span className="text-accent-blue">Element</span>** and **<span className="text-accent-green">Variant</span>**.
 
-- **Context**: the domain or feature the component belongs to (`Auth`, `Cart`, `Article`)
-- **Element**: the concrete UI piece (`Button`, `Card`, `Input`)
-- **Variant**: an optional modifier that differentiates similar components (`Primary`, `Ghost`, `Compact`)
+We call each of these a **token** of the component's name (_do not confuse with LLM tokens_ 😉).
 
-```
-AuthLoginButton
-CartItemCard
-ArticleTagBadge
-ArticleTagBadgeCompact
-```
+| Token | Description | Examples |
+| --- | --- | --- |
+| **<span className="text-accent-red">Context</span>** | The domain or feature the component belongs to | `Auth`, `Cart`, `Article`, `App` |
+| **<span className="text-accent-blue">Element</span>** | The concrete UI piece(s) | `Button`, `Card`, `Input`, `Links` |
+| **<span className="text-accent-green">Variant</span>** | An optional modifier that differentiates similar components | `Featured`, `Compact`, `Stacked`, `Inverted` |
 
-## Why it works
+### Examples
 
-### Predictability
+Here is a non-extensive list of examples to better illustrate it.
 
-Given a context and an element, you can guess the component name before looking it up. `CartSummaryCard`? Probably exists. `CartSummaryCardMini`? Also makes sense.
+| Component | Context | Element | Variant |
+| --- | --- | --- | --- |
+| <span className="text-accent-red">Article</span> <span className="text-accent-blue">Card</span> | Article | Card | - |
+| <span className="text-accent-red">Article</span> <span className="text-accent-blue">Card</span> <span className="text-accent-green">Compact</span> | Article | Card | Compact |
+| <span className="text-accent-red">Articles</span> <span className="text-accent-blue">List</span> | Articles | List | - |
+| <span className="text-accent-red">Product</span> <span className="text-accent-blue">Details</span> | Product | Details | - |
+| <span className="text-accent-red">Members</span> <span className="text-accent-blue">Carousel</span> | Members | Carousel | - |
+| <span className="text-accent-red">Questions</span> <span className="text-accent-blue">Accordion</span> | Questions | Accordion | - |
+| <span className="text-accent-red">Text</span> <span className="text-accent-blue">Blocks</span> <span className="text-accent-green">Stacked</span> | Text | Blocks | Stacked |
+| <span className="text-accent-red">Navigation</span> <span className="text-accent-blue">Menu</span> | Navigation | Menu | - |
+| <span className="text-accent-red">Flexible</span> <span className="text-accent-blue">Content</span> | Flexible | Content | - |
+| <span className="text-accent-red">Page</span> <span className="text-accent-blue">Hero</span> <span className="text-accent-green">Advanced</span> | Page | Hero | Advanced |
+| <span className="text-accent-red">Home</span> <span className="text-accent-blue">Hero</span> | Home | Hero | - |
 
-### Alphabetical grouping
 
-Files sort naturally in your editor: all `Auth*` components together, all `Cart*` components together.
+## Specifications
 
-```
-AuthLoginButton.tsx
-AuthRegisterForm.tsx
-CartEmptyState.tsx
-CartItemCard.tsx
-CartSummaryCard.tsx
-```
+Just with the examples above you may already have a good sense of the pattern. But if you want to use it, you may need some more specific rules to adopt it.
 
-### Scales with your team
+Here is a breakdown for each token usage.
 
-As the team grows, new contributors can follow the pattern without a style guide document. The names are self-documenting.
+### <span className="text-accent-red">Context</span>
 
-## When to drop the context
+The context can be the name of a parent element or page where this belongs, the type of content that will be instantiated, or anything that helps you understand what is the scope of this component.
 
-For truly generic, context-free primitives — `Button`, `Input`, `Modal` — skip the context prefix. CEV is a guide, not a rule.
+**Question answered:**
+
+What scope or behavior does this component belong to or respect?
+
+**Typical forms:**
+
+- Singular noun: `Article`, `Product`, `Member`, `Site`, `Checkout`
+- Plural noun (for collection-oriented elements): `Articles`, `Products`, `Questions`, `Users`, `Comments`
+- Occasional adjective-like context when it denotes behavior: `Flexible`, `Collapsable`, `Modular`
+
+**Naming rules:**
+
+- Context **SHOULD** describe business or content domain scope.
+- Context **MAY** describe behavior when behavior defines the component's functional role.
+- Context **SHOULD** be plural when the component scope is collection-oriented.
+- Context **SHOULD NOT** encode purely visual style.
+
+### <span className="text-accent-blue">Element</span>
+
+The element name should make clear what to expect from this component in the UI.
+
+**Question answered**:
+
+What type of UI element is it?
+
+**Typical forms:**
+
+- Singular noun: `List`, `Card`, `Form`, `Section`, `Block`, `Carousel`, `Accordion`, `Hero`, `Menu`, `Field`
+- Plural noun (when the element represents a grouped set): `Tabs`, `Steps`, `Links`, `Fields`, `Buttons`
+
+**Naming rules:**
+
+- Element **MUST** describe UI role or structure.
+- Element **SHOULD** be specific enough for search.
+- Element **MUST NOT** be a vague placeholder like `Thing`, `Component`, `Object` unless that is a real domain term.
+
+### <span className="text-accent-green">Variant</span>
+
+The variant is optional, and should be used when the variation is significant enough to be worth a separate component, but you still want it to be close to its siblings.
+
+**Question answered**:
+
+Is this a meaningful variation of a base component?
+
+**Typical forms:**
+
+- Size adjective: `Compact`, `Large`
+- Emphasis or prominence adjective: `Featured`, `Highlighted`
+- Layout or orientation adjective: `Stacked`, `Inverted`
+- Capability or complexity adjective: `Advanced`, `Minimal`
+
+**Naming rules:**
+
+- Variant **MAY** be used when an existing component does not suffice.
+- Variant **MUST** come after `Element`.
+- Variant **SHOULD NOT** be used for temporary implementation details.
+- Variant **SHOULD NOT** be a noun, since it can be confused with an element.
