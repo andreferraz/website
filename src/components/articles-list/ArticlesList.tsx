@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl'
+import { RiArrowRightLine } from 'react-icons/ri'
 import LinkButton from '@/components/link-button'
 import { Link } from '@/i18n/routing'
 import type { ArticleMetaWithReadingTime } from '@/utils/typings/ArticleMeta'
@@ -30,7 +31,7 @@ export const ArticlesList = ({ className = '', articles }: ArticlesListProps) =>
           ))}
         </ul>
         <LinkButton href="/articles" variant="highlight" className="mt-4">
-          {t('viewAll')}
+          {t('viewAll')} <RiArrowRightLine size="1.5em" />
         </LinkButton>
       </div>
     </div>
