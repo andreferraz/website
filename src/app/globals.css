@@ -33,12 +33,12 @@ html:not(.dark) {
   --muted: #717171;
   --focus-outline: #000000;
   --header-shadow: rgba(255, 255, 255, 1);
-  --accent-red: #c62828;
-  --accent-green: #2e7d32;
-  --accent-blue: #1565c0;
-  --accent-yellow: #9e6c00;
-  --accent-orange: #c25300;
-  --accent-purple: #7b1fa2;
+  --foreground-red: #c62828;
+  --foreground-green: #2e7d32;
+  --foreground-blue: #1565c0;
+  --foreground-yellow: #9e6c00;
+  --foreground-orange: #c25300;
+  --foreground-purple: #7b1fa2;
 }
 
 html.dark {
@@ -49,12 +49,12 @@ html.dark {
   --muted: #a0a0a0;
   --focus-outline: #ffffff;
   --header-shadow: rgba(10, 10, 10, 1);
-  --accent-red: #ff8282;
-  --accent-green: #67d88a;
-  --accent-blue: #98c5ff;
-  --accent-yellow: #f9e2a0;
-  --accent-orange: #ff9b54;
-  --accent-purple: #c796ff;
+  --foreground-red: #ff8282;
+  --foreground-green: #67d88a;
+  --foreground-blue: #98c5ff;
+  --foreground-yellow: #f9e2a0;
+  --foreground-orange: #ff9b54;
+  --foreground-purple: #c796ff;
 }
 
 @theme {
@@ -101,23 +101,23 @@ html.dark {
   .animated-link-hover-fill {
     @apply bg-linear-to-t bg-no-repeat from-(--foreground) to-(--foreground) bg-left bg-size-[auto_0%] transition-colors group-hover:text-(--background) group-hover:animate-[bg-fill_0.6s_cubic-bezier(0.39,0.575,0.565,1)_forwards];
   }
-  .text-accent-red {
-    color: var(--accent-red);
+  .text-fg-red {
+    color: var(--foreground-red);
   }
-  .text-accent-green {
-    color: var(--accent-green);
+  .text-fg-green {
+    color: var(--foreground-green);
   }
-  .text-accent-blue {
-    color: var(--accent-blue);
+  .text-fg-blue {
+    color: var(--foreground-blue);
   }
-  .text-accent-yellow {
-    color: var(--accent-yellow);
+  .text-fg-yellow {
+    color: var(--foreground-yellow);
   }
-  .text-accent-orange {
-    color: var(--accent-orange);
+  .text-fg-orange {
+    color: var(--foreground-orange);
   }
-  .text-accent-purple {
-    color: var(--accent-purple);
+  .text-fg-purple {
+    color: var(--foreground-purple);
   }
 }
 .react-tooltip {

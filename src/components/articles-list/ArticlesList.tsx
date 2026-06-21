@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl'
+import LinkButton from '@/components/link-button'
 import { Link } from '@/i18n/routing'
 import type { ArticleMetaWithReadingTime } from '@/utils/typings/ArticleMeta'
 
@@ -21,16 +22,16 @@ export const ArticlesList = ({ className = '', articles }: ArticlesListProps) =>
                 href={{ pathname: '/articles/[slug]', params: { slug } }}
                 className="inline-block no-underline rounded group"
               >
-                <span className="font-bold text-3xl lg:text-5xl animated-link-hover-fill">
+                <span className="font-bold text-3xl/9 lg:text-5xl/15 animated-link-hover-fill">
                   {title}
                 </span>
               </Link>
             </li>
           ))}
         </ul>
-        <Link href="/articles" className="btn inline-flex items-center gap-2 mt-4">
+        <LinkButton href="/articles" variant="highlight" className="mt-4">
           {t('viewAll')}
-        </Link>
+        </LinkButton>
       </div>
     </div>
   )
