@@ -20,8 +20,6 @@ export const HomeLayout = async ({ locale }: HomeLayoutProps) => {
       <ClientsList className="mb-25" />
 
       <ArticlesList className="mb-25" articles={previewArticles} />
-
-      <PublicationsList className="mb-25" />
     </div>
   )
 }

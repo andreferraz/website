@@ -8,15 +8,15 @@ That inspired me to write about it again here, now with revised rules and some u
 
 ## The CEV pattern
 
-CEV stands for **<span className="text-accent-red">Context</span>**, **<span className="text-accent-blue">Element</span>** and **<span className="text-accent-green">Variant</span>**.
+CEV stands for **<span className="text-fg-red">Context</span>**, **<span className="text-fg-blue">Element</span>** and **<span className="text-fg-green">Variant</span>**.
 
 We call each of these a **token** of the component's name (_do not confuse with LLM tokens_ 😉).
 
 | Token | Description | Examples |
 | --- | --- | --- |
-| **<span className="text-accent-red">Context</span>** | The domain or feature the component belongs to | `Auth`, `Cart`, `Article`, `App` |
-| **<span className="text-accent-blue">Element</span>** | The concrete UI piece(s) | `Button`, `Card`, `Input`, `Links` |
-| **<span className="text-accent-green">Variant</span>** | An optional modifier that differentiates similar components | `Featured`, `Compact`, `Stacked`, `Inverted` |
+| **<span className="text-fg-red">Context</span>** | The domain or feature the component belongs to | `Auth`, `Cart`, `Article`, `App` |
+| **<span className="text-fg-blue">Element</span>** | The concrete UI piece(s) | `Button`, `Card`, `Input`, `Links` |
+| **<span className="text-fg-green">Variant</span>** | An optional modifier that differentiates similar components | `Featured`, `Compact`, `Stacked`, `Inverted` |
 
 ### Examples
 
@@ -24,17 +24,17 @@ Here is a non-extensive list of examples to better illustrate it.
 
 | Component | Context | Element | Variant |
 | --- | --- | --- | --- |
-| <span className="text-accent-red">Article</span> <span className="text-accent-blue">Card</span> | Article | Card | - |
-| <span className="text-accent-red">Article</span> <span className="text-accent-blue">Card</span> <span className="text-accent-green">Compact</span> | Article | Card | Compact |
-| <span className="text-accent-red">Articles</span> <span className="text-accent-blue">List</span> | Articles | List | - |
-| <span className="text-accent-red">Product</span> <span className="text-accent-blue">Details</span> | Product | Details | - |
-| <span className="text-accent-red">Members</span> <span className="text-accent-blue">Carousel</span> | Members | Carousel | - |
-| <span className="text-accent-red">Questions</span> <span className="text-accent-blue">Accordion</span> | Questions | Accordion | - |
-| <span className="text-accent-red">Text</span> <span className="text-accent-blue">Blocks</span> <span className="text-accent-green">Stacked</span> | Text | Blocks | Stacked |
-| <span className="text-accent-red">Navigation</span> <span className="text-accent-blue">Menu</span> | Navigation | Menu | - |
-| <span className="text-accent-red">Flexible</span> <span className="text-accent-blue">Content</span> | Flexible | Content | - |
-| <span className="text-accent-red">Page</span> <span className="text-accent-blue">Hero</span> <span className="text-accent-green">Advanced</span> | Page | Hero | Advanced |
-| <span className="text-accent-red">Home</span> <span className="text-accent-blue">Hero</span> | Home | Hero | - |
+| <span className="text-fg-red">Article</span> <span className="text-fg-blue">Card</span> | Article | Card | - |
+| <span className="text-fg-red">Article</span> <span className="text-fg-blue">Card</span> <span className="text-fg-green">Compact</span> | Article | Card | Compact |
+| <span className="text-fg-red">Articles</span> <span className="text-fg-blue">List</span> | Articles | List | - |
+| <span className="text-fg-red">Product</span> <span className="text-fg-blue">Details</span> | Product | Details | - |
+| <span className="text-fg-red">Members</span> <span className="text-fg-blue">Carousel</span> | Members | Carousel | - |
+| <span className="text-fg-red">Questions</span> <span className="text-fg-blue">Accordion</span> | Questions | Accordion | - |
+| <span className="text-fg-red">Text</span> <span className="text-fg-blue">Blocks</span> <span className="text-fg-green">Stacked</span> | Text | Blocks | Stacked |
+| <span className="text-fg-red">Navigation</span> <span className="text-fg-blue">Menu</span> | Navigation | Menu | - |
+| <span className="text-fg-red">Flexible</span> <span className="text-fg-blue">Content</span> | Flexible | Content | - |
+| <span className="text-fg-red">Page</span> <span className="text-fg-blue">Hero</span> <span className="text-fg-green">Advanced</span> | Page | Hero | Advanced |
+| <span className="text-fg-red">Home</span> <span className="text-fg-blue">Hero</span> | Home | Hero | - |
 
 
 ## Specifications
@@ -43,7 +43,7 @@ Just with the examples above you may already have a good sense of the pattern. B
 
 Here is a breakdown for each token usage.
 
-### <span className="text-accent-red">Context</span>
+### <span className="text-fg-red">Context</span>
 
 The context can be the name of a parent element or page where this belongs, the type of content that will be instantiated, or anything that helps you understand what is the scope of this component.
 
@@ -64,7 +64,7 @@ What scope or behavior does this component belong to or respect?
 - Context **SHOULD** be plural when the component scope is collection-oriented.
 - Context **SHOULD NOT** encode purely visual style.
 
-### <span className="text-accent-blue">Element</span>
+### <span className="text-fg-blue">Element</span>
 
 The element name should make clear what to expect from this component in the UI.
 
@@ -83,7 +83,7 @@ What type of UI element is it?
 - Element **SHOULD** be specific enough for search.
 - Element **MUST NOT** be a vague placeholder like `Thing`, `Component`, `Object` unless that is a real domain term.
 
-### <span className="text-accent-green">Variant</span>
+### <span className="text-fg-green">Variant</span>
 
 The variant is optional, and should be used when the variation is significant enough to be worth a separate component, but you still want it to be close to its siblings.
 
