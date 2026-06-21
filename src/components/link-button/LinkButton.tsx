@@ -28,7 +28,7 @@ export const LinkButton = ({
       {...(isHighlighted ? { 'data-highlighted': '' } : {})}
       className={variant === 'highlight' ? highlightClassName : defaultClassName}
     >
-      <span className="relative z-10 flex items-center justify-center">{children}</span>
+      <span className="relative z-10 flex items-center justify-center gap-x-1.5">{children}</span>
     </Link>
   )
 }
