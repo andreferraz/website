@@ -1,3 +1,7 @@
+.articleBody {
+  display: block;
+}
+
 .content {
   font-size: 1.125rem;
   line-height: 1.8;
@@ -8,6 +12,12 @@
 .content h4 {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
+}
+
+.content h2,
+.content h3 {
+  /* Adjusted for header height + shadow */
+  scroll-margin-top: calc(var(--header-height) + 75px);
 }
 
 .content h2 {
@@ -71,4 +81,62 @@
 
 .content th {
   font-weight: 600;
+}
+
+.tocSidebar {
+  display: none;
+}
+
+@media screen and (min-width: 80rem) {
+  .articleBody {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .tocSidebar {
+    display: block;
+    position: sticky;
+    /* Adjusted for header height + shadow + visual align with heading */
+    top: calc(var(--header-height) + 85px);
+    align-self: start;
+  }
+}
+
+.tocSticky {
+  max-height: calc(100vh - var(--header-height) - 2rem);
+  overflow-y: auto;
+}
+
+.tocTitle {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.tocList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.tocItemSub {
+  padding-left: 0.85rem;
+}
+
+.tocLink {
+  color: var(--muted);
+  text-decoration: none;
+  line-height: 1.35;
+}
+
+.tocLink:hover,
+.tocLink:focus-visible {
+  color: var(--foreground);
+  text-decoration: underline;
 }

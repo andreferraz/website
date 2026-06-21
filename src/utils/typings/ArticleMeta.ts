@@ -22,4 +22,11 @@ export interface ArticleMetaWithReadingTime extends ArticleMetaResolved {
   readingTimeMinutes: number
   dir: string
   contentFileName: string
+  headings: ArticleHeading[]
+}
+
+export interface ArticleHeading {
+  level: 2 | 3
+  text: string
+  id: string
 }

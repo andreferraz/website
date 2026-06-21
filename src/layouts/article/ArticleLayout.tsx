@@ -12,6 +12,7 @@ interface ArticleLayoutProps {
 export const ArticleLayout = ({ meta, children }: ArticleLayoutProps) => {
   const t = useTranslations('article')
   const locale = useLocale() as Locale
+  const hasHeadings = meta.headings.length > 0
 
   return (
     <article className="container py-16 lg:py-24">
@@ -41,7 +42,35 @@ export const ArticleLayout = ({ meta, children }: ArticleLayoutProps) => {
           </ul>
         )}
       </header>
-      <div className={`xl:max-w-[80%] ${styles.content}`}>{children}</div>
+      <div className={styles.articleBody}>
+        <div className={`${styles.content} ${!hasHeadings ? 'xl:max-w-[80%]' : ''}`}>
+          {children}
+        </div>
+
+        {hasHeadings && (
+          <aside className={styles.tocSidebar}>
+            <div className={`${styles.tocSticky} p-2 pt-0`}>
+              <p id="article-toc-title" className={styles.tocTitle}>
+                {t('onThisPage')}
+              </p>
+              <nav aria-labelledby="article-toc-title">
+                <ol className={styles.tocList}>
+                  {meta.headings.map((heading) => (
+                    <li
+                      key={heading.id}
+                      className={heading.level === 3 ? styles.tocItemSub : undefined}
+                    >
+                      <a href={`#${heading.id}`} className={styles.tocLink}>
+                        {heading.text}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            </div>
+          </aside>
+        )}
+      </div>
     </article>
   )
 }
