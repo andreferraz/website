@@ -45,7 +45,8 @@
   },
   "article": {
     "readingTime": "{minutes} min read",
-    "tagsLabel": "Tags"
+    "tagsLabel": "Tags",
+    "onThisPage": "On this page"
   },
   "pageNotFound": {
     "title": "Page not found",

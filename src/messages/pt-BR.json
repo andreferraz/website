@@ -45,7 +45,8 @@
   },
   "article": {
     "readingTime": "{minutes} min de leitura",
-    "tagsLabel": "Tags"
+    "tagsLabel": "Tags",
+    "onThisPage": "Nesta página"
   },
   "pageNotFound": {
     "title": "Página não encontrada",

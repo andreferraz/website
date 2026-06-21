@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { type Locale, locales as routingLocales } from '@/i18n/routing'
+import { extractHeadingsFromMdx } from '@/utils/helpers/headings'
 import type { ArticleMeta, ArticleMetaWithReadingTime } from '@/utils/typings/ArticleMeta'
 
 const CONTENT_DIR = path.join(process.cwd(), 'src', 'content', 'articles')
@@ -111,6 +112,7 @@ export async function getArticlesForLocale(locale: Locale): Promise<ArticleMetaW
       readingTimeMinutes,
       dir,
       contentFileName: mdx.fileName,
+      headings: extractHeadingsFromMdx(mdx.content),
     })
   }
 
@@ -143,6 +145,7 @@ export async function getArticleBySlug(
       readingTimeMinutes,
       dir,
       contentFileName: mdx.fileName,
+      headings: extractHeadingsFromMdx(mdx.content),
     }
   }
 
