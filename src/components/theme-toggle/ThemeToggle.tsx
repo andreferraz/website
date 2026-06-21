@@ -46,9 +46,9 @@ export const ThemeToggle = () => {
         data-tooltip-content={label}
       >
         {isDark ? (
-          <RiSunLine size={20} aria-hidden="true" />
-        ) : (
           <RiMoonLine size={20} aria-hidden="true" />
+        ) : (
+          <RiSunLine size={20} aria-hidden="true" />
         )}
       </button>
       <Tooltip id="theme-toggle-tooltip" place="bottom" className="sr-only lg:not-sr-only" />
