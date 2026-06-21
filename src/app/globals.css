@@ -33,6 +33,7 @@ html:not(.dark) {
   --muted: #717171;
   --focus-outline: #000000;
   --header-shadow: rgba(255, 255, 255, 1);
+  --cta-background: #ffee8c;
   --foreground-red: #c62828;
   --foreground-green: #2e7d32;
   --foreground-blue: #1565c0;
@@ -49,6 +50,7 @@ html.dark {
   --muted: #a0a0a0;
   --focus-outline: #ffffff;
   --header-shadow: rgba(10, 10, 10, 1);
+  --cta-background: #222fa3;
   --foreground-red: #ff8282;
   --foreground-green: #67d88a;
   --foreground-blue: #98c5ff;
