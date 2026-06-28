@@ -82,7 +82,7 @@ html.dark {
 
 @layer components {
   .btn {
-    @apply px-4 py-2.5 bg-transparent hover:bg-(--surface) rounded-lg font-semibold transition-colors cursor-pointer;
+    @apply px-4 py-2.5 bg-transparent hover:bg-(--surface) rounded-lg font-semibold transition-colors motion-reduce:transition-none cursor-pointer;
   }
   .lead {
     @apply text-2xl xl:text-[1.625rem] font-extralight leading-normal;
@@ -101,7 +101,7 @@ html.dark {
     -webkit-text-stroke-color: black;
   }
   .animated-link-hover-fill {
-    @apply bg-linear-to-t bg-no-repeat from-(--foreground) to-(--foreground) bg-left bg-size-[auto_0%] transition-colors group-hover:text-(--background) group-hover:animate-[bg-fill_0.6s_cubic-bezier(0.39,0.575,0.565,1)_forwards];
+    @apply bg-linear-to-t bg-no-repeat from-(--foreground) to-(--foreground) bg-left bg-size-[auto_0%] transition-colors group-hover:text-(--background) group-hover:animate-[bg-fill_0.6s_cubic-bezier(0.39,0.575,0.565,1)_forwards] motion-reduce:transition-none motion-reduce:group-hover:text-(--foreground) motion-reduce:group-hover:animate-none motion-reduce:group-hover:underline;
   }
   .text-fg-red {
     color: var(--foreground-red);

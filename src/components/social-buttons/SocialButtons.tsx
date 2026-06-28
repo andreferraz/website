@@ -36,9 +36,9 @@ export const SocialButtons = ({ className = '', links }: SocialButtonsProps) => 
             rel={rel}
             title={text}
             aria-label={`${text} - ${t('openExternalLink')}`}
-            className={`${icon} flex justify-center items-center relative p-3 rounded-full! transition-colors hover:text-white dark:hover:text-black group`}
+            className={`${icon} flex justify-center items-center relative p-3 rounded-full! transition-colors motion-reduce:transition-none hover:text-white dark:hover:text-black group`}
           >
-            <span className="block bg-(--foreground) opacity-0 scale-50 absolute top-0 left-0 w-full h-full rounded-full transition-[scale,opacity] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-100 group-hover:opacity-100" />
+            <span className="block bg-(--foreground) opacity-0 scale-50 absolute top-0 left-0 w-full h-full rounded-full transition-[scale,opacity] motion-reduce:transition-none duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-100 group-hover:opacity-100" />
             {icon && Icon(icon)}
           </a>
         </li>
