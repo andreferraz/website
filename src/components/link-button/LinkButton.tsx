@@ -18,9 +18,9 @@ export const LinkButton = ({
   isHighlighted = false,
   variant = 'default',
 }: LinkButtonProps) => {
-  const sharedClassName = `${className} inline-flex items-center justify-center font-bold text-sm`
+  const sharedClassName = `${className} inline-flex items-center justify-center font-bold text-xs lg:text-sm`
   const defaultClassName = `${sharedClassName} uppercase underline`
-  const highlightClassName = `${sharedClassName} relative isolate overflow-hidden rounded-full transition-[padding] ease-out motion-reduce:transition-none px-5 py-3 uppercase tracking-[0.075em] text-(--foreground) before:absolute before:left-0 before:top-0 before:h-11 before:w-11 before:rounded-4xl before:bg-(--cta-background) before:transition-all before:duration-250 before:ease-[cubic-bezier(0.33,1,0.68,1)] motion-reduce:before:transition-none hover:before:h-full hover:before:w-full hover:before:opacity-[0.65] focus-visible:before:hidden`
+  const highlightClassName = `${sharedClassName} relative isolate overflow-hidden rounded-full transition-[padding] ease-out px-5 py-3 uppercase tracking-[0.075em] text-(--foreground) before:absolute before:left-0 before:top-0 before:h-11 before:w-11 before:rounded-4xl before:bg-(--cta-background) before:transition-all before:duration-250 before:ease-[cubic-bezier(0.33,1,0.68,1)] motion-reduce:before:before:h-full motion-reduce:before:w-full motion-reduce:before:transition-none hover:before:h-full hover:before:w-full hover:before:opacity-[0.65] focus-visible:before:hidden`
 
   return (
     <Link
