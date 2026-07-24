@@ -1,10 +1,8 @@
-Naming things in software development always had its challenges. Back in 2021, I was working on a team partially composed by non-English speakers, so picking the right names for components, variables and functions, was a bit more difficult.
+Naming things in software development always had its challenges. Even today with AI taking a lot of this responsibility, a good naming pattern can help us keeping consistency and clarity in our codebase.
 
-To help us with that, we came up with **<abbr title="Context, Element, Variant">C.E.V.</abbr>**, an intuitive and structured **pattern for naming UI components**.
+In 2021, I published an [article on Medium](https://andreferrazdev.medium.com/a-naming-convention-for-ui-components-77f4fb8797c) explaining the naming pattern me and my team were using. That article got quite popular, so I wanted to bring it here as well, but now with revised rules and some updates.
 
-I've published an [article on Medium](https://andreferrazdev.medium.com/a-naming-convention-for-ui-components-77f4fb8797c) explaining the pattern back then, which surprisingly got quite popular, still being viewed 5 years later.
-
-That inspired me to write about it again here, now with revised rules and some updates.
+This is an updated documentation for the **<abbr title="Context, Element, Variant">CEV</abbr>** naming pattern, a **simple** and **intuitive** naming convention for UI components.
 
 ## The CEV pattern
 
@@ -20,22 +18,16 @@ We call each of these a **token** of the component's name (_do not confuse with 
 
 ### Examples
 
-Here is a non-extensive list of examples to better illustrate it.
+Here is a short list of examples to better illustrate it.
 
-| Component | Context | Element | Variant |
-| --- | --- | --- | --- |
-| <span className="text-fg-red">Article</span> <span className="text-fg-blue">Card</span> | Article | Card | - |
-| <span className="text-fg-red">Article</span> <span className="text-fg-blue">Card</span> <span className="text-fg-green">Compact</span> | Article | Card | Compact |
-| <span className="text-fg-red">Articles</span> <span className="text-fg-blue">List</span> | Articles | List | - |
-| <span className="text-fg-red">Product</span> <span className="text-fg-blue">Details</span> | Product | Details | - |
-| <span className="text-fg-red">Members</span> <span className="text-fg-blue">Carousel</span> | Members | Carousel | - |
-| <span className="text-fg-red">Questions</span> <span className="text-fg-blue">Accordion</span> | Questions | Accordion | - |
-| <span className="text-fg-red">Text</span> <span className="text-fg-blue">Blocks</span> <span className="text-fg-green">Stacked</span> | Text | Blocks | Stacked |
-| <span className="text-fg-red">Navigation</span> <span className="text-fg-blue">Menu</span> | Navigation | Menu | - |
-| <span className="text-fg-red">Flexible</span> <span className="text-fg-blue">Content</span> | Flexible | Content | - |
-| <span className="text-fg-red">Page</span> <span className="text-fg-blue">Hero</span> <span className="text-fg-green">Advanced</span> | Page | Hero | Advanced |
-| <span className="text-fg-red">Home</span> <span className="text-fg-blue">Hero</span> | Home | Hero | - |
-
+| Component | Notes
+| --- | --- |
+| <span className="text-fg-red">Product</span> <span className="text-fg-blue">Card</span> | Most common case: singular context and element, no variant. |
+| <span className="text-fg-red">Product</span> <span className="text-fg-blue">Card</span> <span className="text-fg-green">Compact</span> | Same as the above, but with a size/format variant. |
+| <span className="text-fg-red">Members</span> <span className="text-fg-blue">List</span> | Plural context with singular element, no variant. |
+| <span className="text-fg-red">Footer</span> <span className="text-fg-blue">Links</span> | Singular context and plural element, no variant. |
+| <span className="text-fg-red">Text</span> <span className="text-fg-blue">Blocks</span> <span className="text-fg-green">Stacked</span> | Layout variant that helps understand the structure. |
+| <span className="text-fg-red">Flexible</span> <span className="text-fg-blue">Content</span> | More broad context. |
 
 ## Specifications
 
@@ -59,10 +51,10 @@ What scope or behavior does this component belong to or respect?
 
 **Naming rules:**
 
-- Context **SHOULD** describe business or content domain scope.
-- Context **MAY** describe behavior when behavior defines the component's functional role.
-- Context **SHOULD** be plural when the component scope is collection-oriented.
-- Context **SHOULD NOT** encode purely visual style.
+- Context **<span className="uppercase">should</span>** describe business or content domain scope.
+- Context **<span className="uppercase">may</span>** describe behavior when behavior defines the component's functional role.
+- Context **<span className="uppercase">should</span>** be plural when the component scope is collection-oriented.
+- Context **<span className="uppercase">should not</span>** encode purely visual style.
 
 ### <span className="text-fg-blue">Element</span>
 
@@ -79,9 +71,10 @@ What type of UI element is it?
 
 **Naming rules:**
 
-- Element **MUST** describe UI role or structure.
-- Element **SHOULD** be specific enough for search.
-- Element **MUST NOT** be a vague placeholder like `Thing`, `Component`, `Object` unless that is a real domain term.
+- Element **<span className="uppercase">must</span>** describe UI role or structure.
+- Element **<span className="uppercase">should</span>** be specific enough for search.
+- Element **<span className="uppercase">should</span>** be plural when it represents a grouped set.
+- Element **<span className="uppercase">must not</span>** be a vague placeholder like `Thing`, `Component`, `Object` unless that is a real domain term.
 
 ### <span className="text-fg-green">Variant</span>
 
@@ -100,7 +93,59 @@ Is this a meaningful variation of a base component?
 
 **Naming rules:**
 
-- Variant **MAY** be used when an existing component does not suffice.
-- Variant **MUST** come after `Element`.
-- Variant **SHOULD NOT** be used for temporary implementation details.
-- Variant **SHOULD NOT** be a noun, since it can be confused with an element.
+- Variant **<span className="uppercase">may</span>** be used when an existing component does not suffice.
+- Variant **<span className="uppercase">must</span>** come after `Element`.
+- Variant **<span className="uppercase">should not</span>** be used for temporary implementation details.
+- Variant **<span className="uppercase">should not</span>** be a noun, since it can be confused with an element.
+
+## Edge cases
+
+Although the rules above may work for most cases, I've been working with this pattern for time enough to know that we might want a bit of flexibility here and there.
+
+Whether to follow or not these depends on your team and project context.
+
+### Omitting <span className="text-fg-red">context</span>
+
+In some cases, the component may be obvious or commonly global, and requiring only the <span className="text-fg-blue">element</span> name may be enough.
+
+**Examples**:
+
+- `Header`
+- `Footer`
+- `Sidebar`
+
+**Recommendation**:
+
+- **<span className="uppercase">allowed</span>** when the element is used once across the app and its meaning is clear.
+- **<span className="uppercase">discouraged</span>** in large monorepos where names can become unclear.
+
+Teams may prefer to use a stricter rule that always requires <span className="text-fg-red">context</span> to **avoid ambiguity**, always adding context like in `SiteHeader`, `AppFooter` or `LayoutSidebar`.
+
+### Multi-word tokens
+
+Sometimes one word is too broad. In those cases, a multi-word token can make the component name clearer and easier to find.
+
+**Examples**:
+
+- `ArticleFaqAccordion`: `FaqAccordion` may be too broad in a large codebase.
+- `OrderHistoryTable`: `HistoryTable` can become too generic outside order-related features.
+- `UserProfileForm`: `ProfileForm` may conflict with team, organization, or company profile flows.
+
+Multi-word tokens may be more common in the <span className="text-fg-red">context</span>, but it can also be the <span className="text-fg-blue">element</span> or even the <span className="text-fg-green">variant</span>.
+
+Alternately, multi-word tokens can be fully avoided with grouping or nesting components if your project structure allows it, like `Article/FaqAccordion`, `Order/HistoryTable` or `User/ProfileForm`.
+
+Deciding whether to use it or not depends on your project structure and team preferences.
+
+**Recommendation**:
+
+- **<span className="uppercase">allowed</span>** when improving meaning, when a single word would hide important domain meaning.
+- **<span className="uppercase">discouraged</span>** when a single word may be enough, and the extra words do not add valuable context.
+
+## Final notes
+
+A naming pattern should exist to help, not to make it harder. If a rule adds more friction than value in your context, adapt it. What matters the most is that your project (and maybe team) uses a consistent and understandable convention.
+
+There's no one-size-fits-all solution with naming conventions, the goal with the CEV pattern is to make components easy to **find**, **sort**, and **understand** from the name alone.
+
+If you like this pattern, or have been using it already, reach out. I would love to know your story.

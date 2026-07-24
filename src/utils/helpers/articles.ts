@@ -5,7 +5,7 @@ import { extractHeadingsFromMdx } from '@/utils/helpers/headings'
 import type { ArticleMeta, ArticleMetaWithReadingTime } from '@/utils/typings/ArticleMeta'
 
 const CONTENT_DIR = path.join(process.cwd(), 'src', 'content', 'articles')
-const WORDS_PER_MINUTE = 200
+const WORDS_PER_MINUTE = 150
 const META_FILE_SUFFIX = '.meta.ts'
 const MDX_FILE_SUFFIX = '.mdx'
 const KNOWN_LOCALES = new Set(routingLocales.map(({ locale }) => locale))
