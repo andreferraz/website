@@ -3,7 +3,7 @@
 import * as Accordion from '@radix-ui/react-accordion'
 import { useMemo, useState } from 'react'
 import { HiChevronDown } from 'react-icons/hi'
-import { PiEmptyBold } from 'react-icons/pi'
+import { PiCheckCircleBold, PiEmptyBold, PiProhibitBold, PiWarningCircleBold } from 'react-icons/pi'
 import styles from './NamingPlaygroundInteractive.module.css'
 
 const contextOptions = [
@@ -233,7 +233,7 @@ function TokenOptionsSection({
 
   const radioLabelClassName =
     'block w-full rounded-md px-2.5 py-1.5 text-left cursor-pointer transition-colors peer-focus-visible:outline peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--focus-outline) peer-checked:font-semibold'
-  const tokenLabelClassName = `${radioLabelClassName} hover:bg-(--surface) peer-checked:bg-(--foreground) peer-checked:text-(--background) peer-checked:shadow-[0_8px_24px_rgba(0,0,0,0.16)] peer-checked:hover:bg-(--foreground) peer-checked:hover:text-(--background) peer-checked:hover:shadow-[0_8px_24px_rgba(0,0,0,0.16)]`
+  const tokenLabelClassName = `${radioLabelClassName} hover:bg-(--surface) peer-checked:bg-(--foreground) peer-checked:text-(--background) peer-checked:hover:bg-(--foreground) peer-checked:hover:text-(--background)`
   const emptyLabelClassName = `${radioLabelClassName} text-muted hover:bg-(--surface) peer-checked:bg-(--surface) peer-checked:text-(--foreground) py-3`
   const emptyOptionId = `${groupName}-none`
 
@@ -298,7 +298,7 @@ function getValidationMessage(context: string, element: string, variant: string)
     return {
       status: 'error',
       message:
-        'The name must have an element in it. Pick a concrete UI piece like Card, List, Button, or Form.',
+        'The name must have an Element in it. Pick a concrete UI piece like Card, List, Button, or Form.',
     }
   }
 
@@ -306,15 +306,14 @@ function getValidationMessage(context: string, element: string, variant: string)
     return {
       status: 'warning',
       message:
-        'This is valid, although context is usually recommended to make the component scope clearer.',
+        'Valid for global component, although Context is usually recommended for a clearer scope.',
     }
   }
 
   if (!context && variant) {
     return {
-      status: 'warning',
-      message:
-        'This is valid, but variant without context can become ambiguous in larger codebases.',
+      status: 'error',
+      message: 'Variant without Context is discouraged to avoid breaking the naming convention.',
     }
   }
 
@@ -327,7 +326,7 @@ function getValidationMessage(context: string, element: string, variant: string)
 
   return {
     status: 'ok',
-    message: 'Great combination. It is clear, valid, and follows Context + Element + Variant.',
+    message: 'Good combination. Variant is not required, but can be added for more specificity.',
   }
 }
 
@@ -407,12 +406,24 @@ export const NamingPlaygroundInteractive = () => {
               </div>
               {!componentNameTokens.length ? (
                 <div>
-                  <p className="mb-2! text-sm">
-                    Click the buttons below to build a component name ↓
-                  </p>
+                  <p className="mb-2! text-sm">Click the options below to build a component name</p>
                 </div>
               ) : null}
-              <p className={`text-sm text-muted my-1!`}>{validation.message}</p>
+              <p className="text-sm text-muted my-1! flex items-center justify-center gap-1.5">
+                {validation.status === 'ok' && (
+                  <PiCheckCircleBold aria-hidden="true" className="size-4 shrink-0 text-fg-green" />
+                )}
+                {validation.status === 'warning' && (
+                  <PiWarningCircleBold
+                    aria-hidden="true"
+                    className="size-4 shrink-0 text-fg-yellow"
+                  />
+                )}
+                {validation.status === 'error' && (
+                  <PiProhibitBold aria-hidden="true" className="size-4 shrink-0 text-fg-red" />
+                )}
+                {validation.message}
+              </p>
             </div>
 
             <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
