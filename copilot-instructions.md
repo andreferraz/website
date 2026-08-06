@@ -20,6 +20,7 @@ Treat the codebase as a content-first, server-first frontend application:
 - Themes: Tailwind dark mode with `class` strategy, and `next-themes` for client theme toggling.
 - Icons: `react-icons`.
 - Path aliases: use `@/*` for imports from `src`.
+- Package manager: use `pnpm` for installs and scripts; prefer `pnpm` over `npm` or `yarn`.
 - Linting: ESLint 9 with `next/core-web-vitals` and `next/typescript`.
 
 ## State Management
@@ -40,7 +41,6 @@ Follow these rules:
 ### General Rules
 
 - Keep implementations small, explicit, and easy to scan.
-- Prefer composition over inheritance and avoid premature abstractions.
 - Reuse existing components, layouts, and utility types before creating new ones.
 - Do not duplicate markup patterns when an existing component can be extended with props.
 - Keep public APIs minimal; add props only when they support a real reuse case.
@@ -62,7 +62,6 @@ Follow these rules:
 - Place reusable page sections in `src/layouts` or `src/components`, not inside route files.
 - Use `next-intl` routing helpers from `src/i18n/routing` instead of raw locale string handling when navigation is involved.
 - Do not add client components where a server component is sufficient.
-- Avoid unnecessary React imports when the file does not need them.
 
 ### Styling Rules
 
@@ -77,7 +76,6 @@ Follow these rules:
 - Prefer `@/` imports over deep relative paths for code inside `src`.
 - Use local barrel exports through `index.ts` where the folder already follows that pattern.
 - Preserve the existing default-export convention for main component and layout entry points.
-- Keep imports grouped clearly: framework, external packages, internal modules.
 
 ### Naming Conventions
 
@@ -85,7 +83,7 @@ Follow these rules:
 - Use `kebab-case` for component and layout folder names such as `language-switch` and `page-not-found`.
 - Use `index.ts` as the barrel file for component and layout directories.
 - Use `page.tsx`, `layout.tsx`, and `not-found.tsx` only for Next.js route conventions.
-- Use CEV (`<Context><Element!><Variant?>`) naming for components and layouts, with clear domain context and concrete UI element names.
+- Use CEV (`<Context><Element!><Variant?>`) naming pattern for components and layouts, with clear domain context and concrete UI element names.
 - Use descriptive names; avoid generic names such as `utils.ts`, `helpers.ts`, or `data.ts` unless the scope is genuinely broad.
 - Name props interfaces with the component name plus `Props` when exported or reused.
 
@@ -100,16 +98,6 @@ Use the existing structure as the default architectural boundary:
 - `src/messages`: Translation dictionaries by locale.
 - `src/utils`: Static configuration and shared typings.
 - `public`: Static assets.
-- `tools/plop`: Code generators and templates.
-
-Follow these placement rules:
-
-- Put route-specific composition in `src/app` only when it is tied to the route contract.
-- Put reusable visual building blocks in `src/components`.
-- Put page assemblies that combine multiple components in `src/layouts`.
-- Put constants and site metadata in `src/utils/config`.
-- Put shared domain or UI types in `src/utils/typings` only when they are reused across modules.
-- Keep translations in `src/messages`; always use message keys and do not hardcode user-facing copy when a message key is appropriate;
 
 ## Linting and Quality Rules
 
