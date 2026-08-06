@@ -1,6 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
 import { HiOutlineLink } from 'react-icons/hi'
-import CitationQuote from '@/components/citation-quote'
 import { getHeadingId, getNodeText } from '@/utils/helpers/headings'
 
 interface HeadingProps {
@@ -29,7 +28,6 @@ function HeadingAnchor({ level, id, children }: HeadingProps & { level: 2 | 3 })
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    CitationQuote,
     h2: ({ id, children }: HeadingProps) => (
       <HeadingAnchor level={2} id={id}>
         {children}
