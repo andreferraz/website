@@ -381,7 +381,7 @@ export const NamingPlaygroundInteractive = () => {
     <Accordion.Root type="single" collapsible className="my-8">
       <Accordion.Item value="cev-examples" className="rounded-xl bg-(--surface-soft) px-4 sm:px-5">
         <Accordion.Header>
-          <Accordion.Trigger className="group flex w-full items-center justify-between gap-3 py-4 text-left cursor-pointer">
+          <Accordion.Trigger className="group flex w-[calc(100%+var(--spacing)*5*2)] items-center justify-between gap-3 py-4 text-left -mx-5 px-4 cursor-pointer rounded-xl">
             <span className="text-base font-semibold">Explore more examples</span>
             <HiChevronDown
               aria-hidden="true"
