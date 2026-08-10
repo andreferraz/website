@@ -15,7 +15,7 @@ export const Logo = ({ className = '' }: LogoProps) => {
           width="36"
           height="33"
           viewBox="0 0 256 233.725"
-          className="relative z-10 fill-current"
+          className="relative fill-current"
           aria-label={t('logoAlt')}
         >
           <defs>

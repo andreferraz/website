@@ -256,7 +256,7 @@ function TokenOptionsSection({
           />
           <label htmlFor={emptyOptionId} className={emptyLabelClassName}>
             <span className="inline-flex items-center gap-2">
-              <PiEmptyBold aria-hidden="true" className="size-4" />
+              <PiEmptyBold aria-hidden="true" className="size-5" />
               <span className="sr-only">{emptyOptionLabel}</span>
             </span>
           </label>
@@ -331,6 +331,7 @@ function getValidationMessage(context: string, element: string, variant: string)
 }
 
 export const NamingPlaygroundInteractive = () => {
+  const [accordionValue, setAccordionValue] = useState('')
   const [context, setContext] = useState('')
   const [element, setElement] = useState('')
   const [variant, setVariant] = useState('')
@@ -378,14 +379,14 @@ export const NamingPlaygroundInteractive = () => {
   )
 
   return (
-    <Accordion.Root type="single" collapsible className="my-8">
+    <Accordion.Root type="single" collapsible value={accordionValue} onValueChange={setAccordionValue} className="my-8">
       <Accordion.Item value="cev-examples" className="rounded-xl bg-(--surface-soft) px-4 sm:px-5">
         <Accordion.Header>
           <Accordion.Trigger className="group flex w-[calc(100%+var(--spacing)*5*2)] items-center justify-between gap-3 py-4 text-left -mx-5 px-4 cursor-pointer rounded-xl">
             <span className="text-base font-semibold">Explore more examples</span>
             <HiChevronDown
               aria-hidden="true"
-              className="size-4 text-muted transition-transform duration-200 group-data-[state=open]:rotate-180"
+              className="size-5 text-muted transition-transform duration-200 group-data-[state=open]:rotate-180"
             />
           </Accordion.Trigger>
         </Accordion.Header>
@@ -396,7 +397,7 @@ export const NamingPlaygroundInteractive = () => {
               Here is an interactive list with common examples for component names.
             </p>
 
-            <div className="flex justify-center flex-col mb-6 bg-(--background) rounded-lg text-center px-3 py-2 min-h-36">
+            <div className={`sticky ${accordionValue ? 'top-[calc(var(--header-height))]' : 'top-0'} z-20 flex justify-center flex-col mb-0 bg-(--background) rounded-lg text-center px-3 py-2 min-h-36`}>
               <div className="mb-2! flex flex-wrap items-center justify-center gap-2 text-4xl font-bold tracking-tight break-all">
                 {componentNameTokens.map((token) => (
                   <div key={token} className="inline-flex">
@@ -409,18 +410,21 @@ export const NamingPlaygroundInteractive = () => {
                   <p className="mb-2! text-sm">Click the options below to build a component name</p>
                 </div>
               ) : null}
-              <p className="text-sm text-muted my-1! flex items-center justify-center gap-1.5">
+              <p className="text-sm text-muted my-1!">
                 {validation.status === 'ok' && (
-                  <PiCheckCircleBold aria-hidden="true" className="size-4 shrink-0 text-fg-green" />
+                  <PiCheckCircleBold
+                    aria-hidden="true"
+                    className="inline size-5 mr-1.5 text-fg-green"
+                  />
                 )}
                 {validation.status === 'warning' && (
                   <PiWarningCircleBold
                     aria-hidden="true"
-                    className="size-4 shrink-0 text-fg-yellow"
+                    className="inline size-5 mr-1.5 text-fg-yellow"
                   />
                 )}
                 {validation.status === 'error' && (
-                  <PiProhibitBold aria-hidden="true" className="size-4 shrink-0 text-fg-red" />
+                  <PiProhibitBold aria-hidden="true" className="inline size-5 mr-1.5 text-fg-red" />
                 )}
                 {validation.message}
               </p>
