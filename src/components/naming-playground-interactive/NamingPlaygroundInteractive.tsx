@@ -6,138 +6,138 @@ import { HiChevronDown } from 'react-icons/hi'
 import { PiCheckCircleBold, PiEmptyBold, PiProhibitBold, PiWarningCircleBold } from 'react-icons/pi'
 import styles from './NamingPlaygroundInteractive.module.css'
 
-const contextOptions = [
-  'Account',
-  'Admin',
+const contextOptions: TokenOption[] = [
+  ['Account', 'Accounts'],
+  ['Admin', 'Admins'],
   'Analytics',
-  'App',
-  'Article',
+  ['App', 'Apps'],
+  ['Article', 'Articles'],
   'Auth',
   'Billing',
-  'Blog',
-  'Brand',
-  'Cart',
-  'Catalog',
+  ['Blog', 'Blogs'],
+  ['Brand', 'Brands'],
+  ['Cart', 'Carts'],
+  ['Catalog', 'Catalogs'],
   'Checkout',
-  'Client',
-  'Comment',
-  'Community',
-  'Company',
-  'Contact',
+  ['Client', 'Clients'],
+  ['Comment', 'Comments'],
+  ['Community', 'Communities'],
+  ['Company', 'Companies'],
+  ['Contact', 'Contacts'],
   'Content',
-  'Dashboard',
-  'Design',
+  ['Dashboard', 'Dashboards'],
+  ['Design', 'Designs'],
   'Docs',
-  'Email',
-  'Event',
-  'Faq',
+  ['Email', 'Emails'],
+  ['Event', 'Events'],
+  ['Faq', 'Faqs'],
   'Feedback',
   'Footer',
-  'Form',
+  ['Form', 'Forms'],
   'Help',
   'Home',
-  'Invoice',
+  ['Invoice', 'Invoices'],
   'KnowledgeBase',
   'Landing',
   'Marketing',
-  'Member',
-  'Menu',
+  ['Member', 'Members'],
+  ['Menu', 'Menus'],
   'Navigation',
-  'Notification',
+  ['Notification', 'Notifications'],
   'Onboarding',
-  'Order',
-  'Page',
-  'Payment',
-  'Plan',
+  ['Order', 'Orders'],
+  ['Page', 'Pages'],
+  ['Payment', 'Payments'],
+  ['Plan', 'Plans'],
   'Pricing',
-  'Product',
-  'Profile',
-  'Project',
-  'Publication',
-  'Report',
+  ['Product', 'Products'],
+  ['Profile', 'Profiles'],
+  ['Project', 'Projects'],
+  ['Publication', 'Publications'],
+  ['Report', 'Reports'],
   'Search',
   'Security',
   'Settings',
-  'Site',
+  ['Site', 'Sites'],
   'Social',
-  'Subscription',
+  ['Subscription', 'Subscriptions'],
   'Support',
-  'System',
-  'Team',
-  'User',
-  'Workspace',
+  ['System', 'Systems'],
+  ['Team', 'Teams'],
+  ['User', 'Users'],
+  ['Workspace', 'Workspaces'],
 ]
 
-const elementOptions = [
-  'Accordion',
-  'Alert',
-  'Avatar',
-  'Badge',
-  'Banner',
-  'Breadcrumb',
-  'Button',
-  'Calendar',
-  'Card',
-  'Carousel',
-  'Chart',
-  'Checkbox',
-  'CodeBlock',
-  'Combobox',
-  'Command',
-  'Counter',
-  'Dialog',
-  'Divider',
-  'Drawer',
-  'Dropdown',
+const elementOptions: TokenOption[] = [
+  ['Accordion', 'Accordions'],
+  ['Alert', 'Alerts'],
+  ['Avatar', 'Avatars'],
+  ['Badge', 'Badges'],
+  ['Banner', 'Banners'],
+  ['Breadcrumb', 'Breadcrumbs'],
+  ['Button', 'Buttons'],
+  ['Calendar', 'Calendars'],
+  ['Card', 'Cards'],
+  ['Carousel', 'Carousels'],
+  ['Chart', 'Charts'],
+  ['Checkbox', 'Checkboxes'],
+  ['CodeBlock', 'CodeBlocks'],
+  ['Combobox', 'Comboboxes'],
+  ['Command', 'Commands'],
+  ['Counter', 'Counters'],
+  ['Dialog', 'Dialogs'],
+  ['Divider', 'Dividers'],
+  ['Drawer', 'Drawers'],
+  ['Dropdown', 'Dropdowns'],
   'EmptyState',
-  'Field',
-  'Filter',
+  ['Field', 'Fields'],
+  ['Filter', 'Filters'],
   'Footer',
-  'Form',
-  'Grid',
+  ['Form', 'Forms'],
+  ['Grid', 'Grids'],
   'Header',
-  'Hero',
-  'Icon',
-  'Image',
-  'Indicator',
-  'Input',
-  'Item',
-  'Label',
-  'Legend',
-  'Link',
-  'List',
-  'Logo',
-  'Menu',
-  'Message',
-  'Modal',
+  ['Hero', 'Heroes'],
+  ['Icon', 'Icons'],
+  ['Image', 'Images'],
+  ['Indicator', 'Indicators'],
+  ['Input', 'Inputs'],
+  ['Item', 'Items'],
+  ['Label', 'Labels'],
+  ['Legend', 'Legends'],
+  ['Link', 'Links'],
+  ['List', 'Lists'],
+  ['Logo', 'Logos'],
+  ['Menu', 'Menus'],
+  ['Message', 'Messages'],
+  ['Modal', 'Modals'],
   'Nav',
-  'Notice',
+  ['Notice', 'Notices'],
   'Pagination',
-  'Panel',
-  'Popover',
+  ['Panel', 'Panels'],
+  ['Popover', 'Popovers'],
   'Progress',
-  'Quote',
-  'Radio',
-  'Section',
-  'Select',
+  ['Quote', 'Quotes'],
+  ['Radio', 'Radios'],
+  ['Section', 'Sections'],
+  ['Select', 'Selects'],
   'Sidebar',
-  'Skeleton',
-  'Slider',
-  'Spinner',
-  'Stack',
-  'Stat',
-  'Stepper',
-  'Switch',
-  'Tab',
-  'Table',
-  'Tag',
+  ['Skeleton', 'Skeletons'],
+  ['Slider', 'Sliders'],
+  ['Spinner', 'Spinners'],
+  ['Stack', 'Stacks'],
+  ['Stat', 'Stats'],
+  ['Stepper', 'Steppers'],
+  ['Switch', 'Switches'],
+  ['Tab', 'Tabs'],
+  ['Table', 'Tables'],
+  ['Tag', 'Tags'],
   'Text',
-  'Textarea',
-  'Timeline',
-  'Toast',
-  'Toolbar',
-  'Tooltip',
-  'Widget',
+  ['Textarea', 'Textareas'],
+  ['Timeline', 'Timelines'],
+  ['Toast', 'Toasts'],
+  ['Toolbar', 'Toolbars'],
+  ['Tooltip', 'Tooltips'],
+  ['Widget', 'Widgets'],
 ]
 
 const variantOptions = [
@@ -197,6 +197,19 @@ const variantOptions = [
   'Wide',
 ]
 
+type TokenOption = string | [string, string]
+
+function getSingularValue(option: TokenOption): string {
+  return Array.isArray(option) ? option[0] : option
+}
+
+function getDisplayValue(singular: string, options: TokenOption[], plural: boolean): string {
+  if (!singular) return ''
+  const opt = options.find((o) => getSingularValue(o) === singular)
+  if (!opt || !Array.isArray(opt)) return singular
+  return plural ? opt[1] : opt[0]
+}
+
 type ValidationStatus = 'ok' | 'warning' | 'error'
 
 interface ValidationResult {
@@ -210,9 +223,11 @@ interface TokenOptionsSectionProps {
   note: string
   titleClassName: string
   emptyOptionLabel: string
-  options: string[]
+  options: TokenOption[]
   value: string
   onChange: (nextValue: string) => void
+  showPlural?: boolean
+  onPluralChange?: (value: boolean) => void
 }
 
 function TokenOptionsSection({
@@ -224,9 +239,11 @@ function TokenOptionsSection({
   options,
   value,
   onChange,
+  showPlural = false,
+  onPluralChange,
 }: TokenOptionsSectionProps) {
-  const getOptionId = (option: string) => {
-    const sanitized = option.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+  const getOptionId = (option: TokenOption) => {
+    const sanitized = getSingularValue(option).toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
     return `${groupName}-${sanitized}`
   }
@@ -239,9 +256,20 @@ function TokenOptionsSection({
 
   return (
     <fieldset className="border-0 p-0 m-0 transition-opacity duration-300">
-      <legend className="mb-3! flex items-center gap-1.5">
+      <legend className="mb-3! flex w-full items-center gap-1.5">
         <span className={`font-semibold ${titleClassName}`}>{title}</span>
         <span className="rounded-md bg-(--surface) px-2 py-0.5 text-xs font-medium">{note}</span>
+        {onPluralChange && (
+          <label className="ml-auto flex cursor-pointer select-none items-center gap-1.5 text-xs text-muted">
+            <input
+              type="checkbox"
+              checked={showPlural}
+              onChange={(e) => onPluralChange(e.target.checked)}
+              className="accent-(--foreground) cursor-pointer"
+            />
+            Plural
+          </label>
+        )}
       </legend>
       <ul className="list-none! m-0! p-0!">
         <li className="my-1!">
@@ -262,21 +290,23 @@ function TokenOptionsSection({
           </label>
         </li>
         {options.map((option) => {
+          const singular = getSingularValue(option)
+          const display = Array.isArray(option) ? (showPlural ? option[1] : option[0]) : option
           const optionId = getOptionId(option)
 
           return (
-            <li key={option} className="my-1!">
+            <li key={singular} className="my-1!">
               <input
                 id={optionId}
                 type="radio"
                 name={groupName}
-                value={option}
-                checked={value === option}
-                onChange={() => onChange(option)}
+                value={singular}
+                checked={value === singular}
+                onChange={() => onChange(singular)}
                 className="peer sr-only"
               />
               <label htmlFor={optionId} className={tokenLabelClassName}>
-                {option}
+                {display}
               </label>
             </li>
           )
@@ -333,7 +363,9 @@ function getValidationMessage(context: string, element: string, variant: string)
 export const NamingPlaygroundInteractive = () => {
   const [accordionValue, setAccordionValue] = useState('')
   const [context, setContext] = useState('')
+  const [contextPlural, setContextPlural] = useState(false)
   const [element, setElement] = useState('')
+  const [elementPlural, setElementPlural] = useState(false)
   const [variant, setVariant] = useState('')
 
   const optionsSections = [
@@ -347,6 +379,8 @@ export const NamingPlaygroundInteractive = () => {
       options: contextOptions,
       value: context,
       onChange: setContext,
+      showPlural: contextPlural,
+      onPluralChange: setContextPlural,
     },
     {
       key: 'element',
@@ -358,6 +392,8 @@ export const NamingPlaygroundInteractive = () => {
       options: elementOptions,
       value: element,
       onChange: setElement,
+      showPlural: elementPlural,
+      onPluralChange: setElementPlural,
     },
     {
       key: 'variant',
@@ -374,8 +410,8 @@ export const NamingPlaygroundInteractive = () => {
 
   const componentNameTokens = [context, element, variant].filter(Boolean)
   const tokenItems = [
-    { value: context, label: 'Context', colorClass: 'text-fg-red' },
-    { value: element, label: 'Element', colorClass: 'text-fg-blue' },
+    { value: getDisplayValue(context, contextOptions, contextPlural), label: 'Context', colorClass: 'text-fg-red' },
+    { value: getDisplayValue(element, elementOptions, elementPlural), label: 'Element', colorClass: 'text-fg-blue' },
     { value: variant, label: 'Variant', colorClass: 'text-fg-green' },
   ].filter((item) => item.value)
   const validation = useMemo(
@@ -461,6 +497,8 @@ export const NamingPlaygroundInteractive = () => {
                   options={section.options}
                   value={section.value}
                   onChange={section.onChange}
+                  showPlural={section.showPlural}
+                  onPluralChange={section.onPluralChange}
                 />
               ))}
             </div>
