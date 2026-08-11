@@ -238,7 +238,7 @@ function TokenOptionsSection({
   const emptyOptionId = `${groupName}-none`
 
   return (
-    <fieldset className="border-0 p-0 m-0">
+    <fieldset className="border-0 p-0 m-0 transition-opacity duration-300">
       <legend className="mb-3! flex items-center gap-1.5">
         <span className={`font-semibold ${titleClassName}`}>{title}</span>
         <span className="rounded-md bg-(--surface) px-2 py-0.5 text-xs font-medium">{note}</span>
@@ -379,7 +379,13 @@ export const NamingPlaygroundInteractive = () => {
   )
 
   return (
-    <Accordion.Root type="single" collapsible value={accordionValue} onValueChange={setAccordionValue} className="my-8">
+    <Accordion.Root
+      type="single"
+      collapsible
+      value={accordionValue}
+      onValueChange={setAccordionValue}
+      className="my-8"
+    >
       <Accordion.Item value="cev-examples" className="rounded-xl bg-(--surface-soft) px-4 sm:px-5">
         <Accordion.Header>
           <Accordion.Trigger className="group flex w-[calc(100%+var(--spacing)*5*2)] items-center justify-between gap-3 py-4 text-left -mx-5 px-4 cursor-pointer rounded-xl">
@@ -391,13 +397,15 @@ export const NamingPlaygroundInteractive = () => {
           </Accordion.Trigger>
         </Accordion.Header>
 
-        <Accordion.Content className={`${styles.AccordionContent} px-4 -mx-4`}>
+        <Accordion.Content className={`${styles.accordionContent} px-4 -mx-4`}>
           <div className="pb-5">
             <p className="-mt-2">
               Here is an interactive list with common examples for component names.
             </p>
 
-            <div className={`sticky ${accordionValue ? 'top-[calc(var(--header-height))]' : 'top-0'} z-20 flex justify-center flex-col mb-0 bg-(--background) rounded-lg text-center px-3 py-2 min-h-36`}>
+            <div
+              className={`sticky ${accordionValue ? 'top-[calc(var(--header-height))]' : 'top-0'} z-20 flex justify-center flex-col mb-0 bg-(--background) rounded-lg text-center px-3 py-2 min-h-36`}
+            >
               <div className="mb-2! flex flex-wrap items-center justify-center gap-2 text-4xl font-bold tracking-tight break-all">
                 {componentNameTokens.map((token) => (
                   <div key={token} className="inline-flex">
@@ -430,7 +438,7 @@ export const NamingPlaygroundInteractive = () => {
               </p>
             </div>
 
-            <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
+            <div className={`mt-5 grid grid-cols-1 gap-5 md:grid-cols-3 ${styles.tokenGrid}`}>
               {optionsSections.map((section) => (
                 <TokenOptionsSection
                   key={section.key}
