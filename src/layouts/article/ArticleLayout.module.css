@@ -99,13 +99,13 @@
     display: block;
     position: sticky;
     /* Adjusted for header height + shadow + visual align with heading */
-    top: calc(var(--header-height) + 85px);
+    top: calc(var(--header-height) + 2.5rem);
     align-self: start;
   }
 }
 
 .tocSticky {
-  max-height: calc(100vh - var(--header-height) - 2rem);
+  max-height: calc(100vh - var(--header-height) - 2.5rem);
   overflow-y: auto;
 }
 
