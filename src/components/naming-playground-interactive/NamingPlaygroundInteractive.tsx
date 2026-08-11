@@ -306,7 +306,7 @@ function getValidationMessage(context: string, element: string, variant: string)
     return {
       status: 'warning',
       message:
-        'Valid for global component, although Context is usually recommended for a clearer scope.',
+        'Valid for a global component, although Context is usually recommended for a clearer scope.',
     }
   }
 
@@ -320,7 +320,7 @@ function getValidationMessage(context: string, element: string, variant: string)
   if (context && !variant) {
     return {
       status: 'ok',
-      message: 'Great combination. It is clear, valid, and follows Context + Element.',
+      message: "Great combination. It is clear, valid, and in most cases it's all you need.",
     }
   }
 
@@ -373,6 +373,11 @@ export const NamingPlaygroundInteractive = () => {
   ]
 
   const componentNameTokens = [context, element, variant].filter(Boolean)
+  const tokenItems = [
+    { value: context, label: 'Context', colorClass: 'text-fg-red' },
+    { value: element, label: 'Element', colorClass: 'text-fg-blue' },
+    { value: variant, label: 'Variant', colorClass: 'text-fg-green' },
+  ].filter((item) => item.value)
   const validation = useMemo(
     () => getValidationMessage(context, element, variant),
     [context, element, variant],
@@ -406,10 +411,16 @@ export const NamingPlaygroundInteractive = () => {
             <div
               className={`sticky ${accordionValue ? 'top-[calc(var(--header-height))]' : 'top-0'} z-20 flex justify-center flex-col mb-0 bg-(--background) rounded-lg text-center px-3 py-2 min-h-36`}
             >
-              <div className="mb-2! flex flex-wrap items-center justify-center gap-2 text-4xl font-bold tracking-tight break-all">
-                {componentNameTokens.map((token) => (
-                  <div key={token} className="inline-flex">
-                    <span>{token}</span>
+              <div className="mb-2! flex flex-wrap items-center justify-center gap-1.5 text-4xl font-bold tracking-tight break-all">
+                {tokenItems.map((token) => (
+                  <div key={token.label} className="inline-flex flex-col items-center gap-0.5">
+                    <span className={`${token.colorClass}`}>{token.value}</span>
+                    <div
+                      className={`w-full border-l border-r border-(--muted) flex items-center h-1.5`}
+                    >
+                      <hr className={`w-full border-t border-(--muted)`} />
+                    </div>
+                    <span className={`text-sm text-muted font-medium`}>{token.label}</span>
                   </div>
                 ))}
               </div>
@@ -418,7 +429,7 @@ export const NamingPlaygroundInteractive = () => {
                   <p className="mb-2! text-sm">Click the options below to build a component name</p>
                 </div>
               ) : null}
-              <p className="text-sm text-muted my-1!">
+              <p className="text-sm my-1!">
                 {validation.status === 'ok' && (
                   <PiCheckCircleBold
                     aria-hidden="true"
