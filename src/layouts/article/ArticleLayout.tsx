@@ -48,8 +48,8 @@ export const ArticleLayout = ({ meta, children }: ArticleLayoutProps) => {
         </div>
 
         {hasHeadings && (
-          <aside className={styles.tocSidebar}>
-            <div className={`${styles.tocSticky} p-2 pt-0`}>
+          <aside className={`${styles.tocSidebar} z-20`}>
+            <div className={`${styles.tocSticky} px-2 pt-0 pb-6`}>
               <p id="article-toc-title" className={styles.tocTitle}>
                 {t('onThisPage')}
               </p>
