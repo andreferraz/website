@@ -1,7 +1,7 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
-import { useMemo, useState } from 'react'
+import { type ReactNode, useMemo, useState } from 'react'
 import { HiChevronDown } from 'react-icons/hi'
 import { PiCheckCircleBold, PiEmptyBold, PiProhibitBold, PiWarningCircleBold } from 'react-icons/pi'
 import styles from './NamingPlaygroundInteractive.module.css'
@@ -214,7 +214,7 @@ type ValidationStatus = 'ok' | 'warning' | 'error'
 
 interface ValidationResult {
   status: ValidationStatus
-  message: string
+  message: ReactNode
 }
 
 interface TokenOptionsSectionProps {
@@ -243,7 +243,9 @@ function TokenOptionsSection({
   onPluralChange,
 }: TokenOptionsSectionProps) {
   const getOptionId = (option: TokenOption) => {
-    const sanitized = getSingularValue(option).toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    const sanitized = getSingularValue(option)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
 
     return `${groupName}-${sanitized}`
   }
@@ -320,43 +322,67 @@ function getValidationMessage(context: string, element: string, variant: string)
   if (!element && !context && !variant) {
     return {
       status: 'error',
-      message: 'The name must consist of at least an Element.',
+      message: (
+        <>
+          The name must consist of at least an <code>Element</code>.
+        </>
+      ),
     }
   }
 
   if (!element) {
     return {
       status: 'error',
-      message:
-        'The name must have an Element in it. Pick a concrete UI piece like Card, List, Button, or Form.',
+      message: (
+        <>
+          The name must have an <code>Element</code> in it. Pick a concrete UI piece like{' '}
+          <code>Card</code>, <code>List</code>, <code>Button</code>, or <code>Form</code>.
+        </>
+      ),
     }
   }
 
   if (!context && !variant) {
     return {
       status: 'warning',
-      message:
-        'Valid for a global component, although Context is usually recommended for a clearer scope.',
+      message: (
+        <>
+          Valid for a global component, although <code>Context</code> is usually recommended for a
+          clearer scope.
+        </>
+      ),
     }
   }
 
   if (!context && variant) {
     return {
       status: 'error',
-      message: 'Variant without Context is discouraged to avoid breaking the naming convention.',
+      message: (
+        <>
+          <code>Variant</code> without <code>Context</code> is discouraged to avoid breaking the
+          naming convention.
+        </>
+      ),
     }
   }
 
   if (context && !variant) {
     return {
       status: 'ok',
-      message: "Great combination. It is clear, valid, and in most cases it's all you need.",
+      message: (
+        <>Great combination. It is clear, valid, and in most cases it&apos;s all you need.</>
+      ),
     }
   }
 
   return {
     status: 'ok',
-    message: 'Good combination. Variant is not required, but can be added for more specificity.',
+    message: (
+      <>
+        Good combination. <code>Variant</code> is not required, but can be added for more
+        specificity.
+      </>
+    ),
   }
 }
 
@@ -410,8 +436,16 @@ export const NamingPlaygroundInteractive = () => {
 
   const componentNameTokens = [context, element, variant].filter(Boolean)
   const tokenItems = [
-    { value: getDisplayValue(context, contextOptions, contextPlural), label: 'Context', colorClass: 'text-fg-red' },
-    { value: getDisplayValue(element, elementOptions, elementPlural), label: 'Element', colorClass: 'text-fg-blue' },
+    {
+      value: getDisplayValue(context, contextOptions, contextPlural),
+      label: 'Context',
+      colorClass: 'text-fg-red',
+    },
+    {
+      value: getDisplayValue(element, elementOptions, elementPlural),
+      label: 'Element',
+      colorClass: 'text-fg-blue',
+    },
     { value: variant, label: 'Variant', colorClass: 'text-fg-green' },
   ].filter((item) => item.value)
   const validation = useMemo(
