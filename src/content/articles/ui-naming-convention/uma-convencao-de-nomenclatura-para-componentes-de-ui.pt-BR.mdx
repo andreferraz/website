@@ -1,0 +1,155 @@
+import NamingPlaygroundInteractive from '@/components/naming-playground-interactive'
+
+Nomear coisas no desenvolvimento de software sempre foi um desafio. Mesmo hoje, com a IA assumindo boa parte dessa tarefa, um bom padrão de nomenclatura pode nos ajudar a manter mais consistência e clareza no código dos nossos projetos.
+
+Em 2021, eu publiquei um [artigo no Medium](https://andreferrazdev.medium.com/a-naming-convention-for-ui-components-77f4fb8797c) explicando o padrão de nomenclatura que minha equipe e eu estávamos usando. O artigo ganhou bastante atenção, então eu quis trazê-lo para cá também, mas dessa vez com regras revisadas, algumas atualizações, e mais exemplos.
+
+Esta é uma documentação atualizada do padrão de nomenclatura **<abbr title="Contexto, Elemento, Variante">CEV</abbr>**, uma convenção de nomenclatura **simples** e **intuitiva** para componentes de UI.
+
+## O padrão CEV
+
+CEV significa **<span className="text-fg-red">Contexto</span>**, **<span className="text-fg-blue">Elemento</span>** e **<span className="text-fg-green">Variante</span>**.
+
+Chamamos cada um deles de **tokens** do nome do componente (_não confunda com tokens de LLM_ 😉).
+
+| Token | Descrição | Exemplos |
+| --- | --- | --- |
+| **<span className="text-fg-red">Contexto</span>** | O domínio ou funcionalidade ao qual o componente pertence | `Auth`, `Cart`, `Article`, `App` |
+| **<span className="text-fg-blue">Elemento</span>** | A peça concreta de UI | `Button`, `Card`, `Input`, `Links` |
+| **<span className="text-fg-green">Variante</span>** | Um modificador opcional para componentes semelhantes | `Featured`, `Compact`, `Stacked`, `Inverted` |
+
+### Exemplos
+
+Veja abaixo uma pequena lista de exemplos para ilustrar melhor o padrão.
+
+| Componente | Observações |
+| --- | --- |
+| <span className="text-fg-red">Product</span> <span className="text-fg-blue">Card</span> | O caso mais comum: contexto e elemento no singular, sem variante. |
+| <span className="text-fg-red">Product</span> <span className="text-fg-blue">Card</span> <span className="text-fg-green">Compact</span> | Igual ao exemplo acima, mas com uma variante de tamanho/formato. |
+| <span className="text-fg-red">Members</span> <span className="text-fg-blue">List</span> | Contexto no plural com elemento no singular, sem variante. |
+| <span className="text-fg-red">Footer</span> <span className="text-fg-blue">Links</span> | Contexto no singular e elemento no plural, sem variante. |
+| <span className="text-fg-red">Text</span> <span className="text-fg-blue">Blocks</span> <span className="text-fg-green">Stacked</span> | Variante de layout que ajuda a entender a estrutura. |
+| <span className="text-fg-red">Flexible</span> <span className="text-fg-blue">Content</span> | Contexto mais abrangente. |
+
+<NamingPlaygroundInteractive />
+
+## Especificações
+
+Só com os exemplos acima você provavelmente já conseguiu ter uma boa noção do padrão. Mas, se quiser usá-lo, talvez precise de regras mais específicas para adotá-lo no seu time ou projetos.
+
+Veja abaixo mais detalhes sobre o uso de cada token.
+
+### <span className="text-fg-red">Contexto</span>
+
+O contexto pode ser o nome de um elemento pai ou da página à qual isso pertence, o tipo de conteúdo que será instanciado ou qualquer outra coisa que te ajude a entender qual é o escopo desse componente.
+
+**Pergunta respondida:**
+
+A que escopo ou comportamento este componente pertence ou está relacionado?
+
+**Formas comuns:**
+
+- Substantivo no singular: `Article`, `Product`, `Member`, `Site`, `Checkout`
+- Substantivo no plural (para elementos orientados a coleções, como `List`): `Articles`, `Products`, `Questions`, `Users`, `Comments`
+- Semelhante a um adjetivo quando denota comportamento: `Flexible`, `Collapsible`, `Modular`
+
+**Regras de nomenclatura:**
+
+- O contexto **<span className="uppercase">deve</span>** descrever o escopo do domínio de negócio ou do conteúdo.
+- O contexto **<span className="uppercase">pode</span>** descrever comportamento quando esse comportamento define o papel funcional do componente.
+- O contexto **<span className="uppercase">deve</span>** estar no plural quando o escopo do componente for orientado a uma coleção.
+- O contexto **<span className="uppercase">não deve</span>** representar apenas o estilo visual.
+
+### <span className="text-fg-blue">Elemento</span>
+
+O nome do elemento deve deixar claro o que esperar desse componente na UI.
+
+**Pergunta respondida**:
+
+Que tipo de elemento de UI é este?
+
+**Formas comuns:**
+
+- Substantivo no singular: `List`, `Card`, `Form`, `Section`, `Block`, `Carousel`, `Accordion`, `Menu`, `Field`
+- Substantivo no plural (quando representa um conjunto agrupado): `Tabs`, `Steps`, `Links`, `Fields`, `Buttons`
+
+**Regras de nomenclatura:**
+
+- O elemento **<span className="uppercase">deve</span>** descrever o papel ou a estrutura na UI.
+- O elemento **<span className="uppercase">deve</span>** ser específico o suficiente para facilitar a busca.
+- O elemento **<span className="uppercase">deve</span>** estar no plural quando representar um conjunto agrupado.
+- O elemento **<span className="uppercase">não deve</span>** ser um termo genérico como `Thing`, `Component` ou `Object`, a menos que esse seja um termo real do projeto.
+
+### <span className="text-fg-green">Variante</span>
+
+A variante é opcional e deve ser usada quando a variação for significativa o suficiente para justificar um componente separado, mas ainda assim você quiser mantê-la próxima das suas semelhantes.
+
+**Pergunta respondida**:
+
+Esta é uma variação relevante de um componente base?
+
+**Formas comuns:**
+
+- Adjetivo de tamanho: `Compact`, `Large`
+- Adjetivo de ênfase ou destaque: `Featured`, `Highlighted`
+- Adjetivo de layout ou orientação: `Stacked`, `Inverted`
+- Adjetivo de capacidade ou complexidade: `Advanced`, `Minimal`
+
+**Regras de nomenclatura:**
+
+- A variante **<span className="uppercase">pode</span>** ser usada quando um componente existente não for suficiente.
+- A variante **<span className="uppercase">deve</span>** vir depois do `Element`.
+- A variante **<span className="uppercase">não deve</span>** ser usada para detalhes temporários de implementação.
+- A variante **<span className="uppercase">não deve</span>** ser um substantivo, pois pode ser confundida com um elemento.
+
+## Casos especiais
+
+Embora as regras acima funcionem para a maioria dos casos, há casos onde talvez você prefira um pouco de flexibilidade aqui e ali. Com isso em mente, veja abaixo algumas situações comuns que pode considerar.
+
+Seguir ou não essas regras depende das preferências da sua equipe e do seu projeto.
+
+### Omitindo o <span className="text-fg-red">contexto</span>
+
+Em alguns casos, o componente pode ser óbvio (ou global) o bastante à ponto de só o <span className="text-fg-blue">elemento</span> ser o suficiente.
+
+**Exemplos**:
+
+- `Header`
+- `Footer`
+- `Sidebar`
+
+**Recomendação**:
+
+- **<span className="uppercase">permitido</span>** quando o elemento for usado uma única vez na aplicação e seu significado estiver claro.
+- **<span className="uppercase">desencorajado</span>** em _monorepos_ grandes, onde os nomes podem ficar pouco claros.
+
+As equipes podem preferir uma regra mais rígida que sempre exija <span className="text-fg-red">contexto</span> para **evitar ambiguidades**, sempre adicionando um contexto, como em `SiteHeader`, `AppFooter` ou `LayoutSidebar`.
+
+### Tokens com várias palavras
+
+Às vezes, uma palavra é abrangente demais. Nesses casos, um token com várias palavras pode tornar o nome do componente mais claro e fácil de encontrar.
+
+**Exemplos**:
+
+- `ArticleFaqAccordion`: `FaqAccordion` pode ser abrangente demais em uma base de código grande.
+- `OrderHistoryTable`: `HistoryTable` pode se tornar genérico demais fora de fluxos relacionados a pedidos.
+- `UserProfileForm`: `ProfileForm` pode entrar em conflito com fluxos de perfil de equipe, organização ou empresa.
+
+Tokens com várias palavras podem ser mais comuns no <span className="text-fg-red">contexto</span>, mas também podem aparecer no <span className="text-fg-blue">elemento</span> ou até mesmo na <span className="text-fg-green">variante</span>.
+
+Como alternativa, tokens com várias palavras podem ser totalmente evitados com o agrupamento ou aninhamento de componentes, se a estrutura do seu projeto permitir, como em `Article/FaqAccordion`, `Order/HistoryTable` ou `User/ProfileForm`.
+
+Decidir se deve usá-los depende da estrutura do seu projeto e das preferências da sua equipe.
+
+**Recomendação**:
+
+- **<span className="uppercase">permitido</span>** quando isso melhorar o significado e uma única palavra esconder informações importantes do domínio.
+- **<span className="uppercase">desencorajado</span>** quando uma única palavra for suficiente e as palavras extras não acrescentarem um contexto valioso.
+
+## Observações finais
+
+Um padrão de nomenclatura deve existir para ajudar, não para dificultar. Se uma regra acrescentar mais atrito do que valor ao seu contexto, adapte-a. O mais importante é que seu projeto (e talvez sua equipe) use uma convenção consistente e fácil de entender.
+
+Não existe uma solução única para convenções de nomenclatura. O objetivo do padrão CEV é tornar os componentes fáceis de **encontrar**, **organizar** e **entender** apenas pelo nome.
+
+Se você gostou deste padrão ou já o utiliza, entre em contato. Eu adoraria conhecer a sua história.

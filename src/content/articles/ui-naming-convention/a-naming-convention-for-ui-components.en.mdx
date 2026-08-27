@@ -1,8 +1,8 @@
 import NamingPlaygroundInteractive from '@/components/naming-playground-interactive'
 
-Naming things in software development always had its challenges. Even today with AI taking a lot of this responsibility, a good naming pattern can help us keeping consistency and clarity in our codebase.
+Naming things in software development has always had its challenges. Even today with AI taking a lot of this responsibility, a good naming pattern can help us maintain consistency and clarity in our codebase.
 
-In 2021, I published an [article on Medium](https://andreferrazdev.medium.com/a-naming-convention-for-ui-components-77f4fb8797c) explaining the naming pattern me and my team were using. That article got quite popular, so I wanted to bring it here as well, but now with revised rules and some updates.
+In 2021, I published an [article on Medium](https://andreferrazdev.medium.com/a-naming-convention-for-ui-components-77f4fb8797c) explaining the naming pattern that my team and I were using. That article got quite popular, so I wanted to bring it here as well, but now with revised rules, some updates, and more examples.
 
 This is an updated documentation for the **<abbr title="Context, Element, Variant">CEV</abbr>** naming pattern, a **simple** and **intuitive** naming convention for UI components.
 
@@ -22,26 +22,26 @@ We call each of these a **token** of the component's name (_do not confuse with 
 
 Here is a short list of examples to better illustrate it.
 
-| Component | Notes
+| Component | Notes |
 | --- | --- |
 | <span className="text-fg-red">Product</span> <span className="text-fg-blue">Card</span> | Most common case: singular context and element, no variant. |
 | <span className="text-fg-red">Product</span> <span className="text-fg-blue">Card</span> <span className="text-fg-green">Compact</span> | Same as the above, but with a size/format variant. |
 | <span className="text-fg-red">Members</span> <span className="text-fg-blue">List</span> | Plural context with singular element, no variant. |
 | <span className="text-fg-red">Footer</span> <span className="text-fg-blue">Links</span> | Singular context and plural element, no variant. |
 | <span className="text-fg-red">Text</span> <span className="text-fg-blue">Blocks</span> <span className="text-fg-green">Stacked</span> | Layout variant that helps understand the structure. |
-| <span className="text-fg-red">Flexible</span> <span className="text-fg-blue">Content</span> | More broad context. |
+| <span className="text-fg-red">Flexible</span> <span className="text-fg-blue">Content</span> | Broader context. |
 
 <NamingPlaygroundInteractive />
 
 ## Specifications
 
-Just with the examples above you may already have a good sense of the pattern. But if you want to use it, you may need some more specific rules to adopt it.
+Just with the examples above you may already have a good sense of the pattern. But if you want to use it, you may need some more specific rules to adopt it in your projects or team.
 
 Here is a breakdown for each token usage.
 
 ### <span className="text-fg-red">Context</span>
 
-The context can be the name of a parent element or page where this belongs, the type of content that will be instantiated, or anything that helps you understand what is the scope of this component.
+The context can be the name of a parent element or page where this belongs, the type of content that will be instantiated, or anything that helps you understand what the scope of this component is.
 
 **Question answered:**
 
@@ -51,7 +51,7 @@ What scope or behavior does this component belong to or respect?
 
 - Singular noun: `Article`, `Product`, `Member`, `Site`, `Checkout`
 - Plural noun (for collection-oriented elements): `Articles`, `Products`, `Questions`, `Users`, `Comments`
-- Occasional adjective-like context when it denotes behavior: `Flexible`, `Collapsable`, `Modular`
+- Occasional adjective-like context when it denotes behavior: `Flexible`, `Collapsible`, `Modular`
 
 **Naming rules:**
 
@@ -82,7 +82,7 @@ What type of UI element is it?
 
 ### <span className="text-fg-green">Variant</span>
 
-The variant is optional, and should be used when the variation is significant enough to be worth a separate component, but you still want it to be close to its siblings.
+The variant is optional and should be used when the variation is significant enough to be worth a separate component, but you still want it to be close to its siblings.
 
 **Question answered**:
 
@@ -106,7 +106,7 @@ Is this a meaningful variation of a base component?
 
 Although the rules above may work for most cases, I've been working with this pattern for time enough to know that we might want a bit of flexibility here and there.
 
-Whether to follow or not these depends on your team and project context.
+Whether or not to follow these depends on your team and project context.
 
 ### Omitting <span className="text-fg-red">context</span>
 
@@ -135,11 +135,11 @@ Sometimes one word is too broad. In those cases, a multi-word token can make the
 - `OrderHistoryTable`: `HistoryTable` can become too generic outside order-related features.
 - `UserProfileForm`: `ProfileForm` may conflict with team, organization, or company profile flows.
 
-Multi-word tokens may be more common in the <span className="text-fg-red">context</span>, but it can also be the <span className="text-fg-blue">element</span> or even the <span className="text-fg-green">variant</span>.
+Multi-word tokens may be more common in the <span className="text-fg-red">context</span>, but they can also be the <span className="text-fg-blue">element</span> or even the <span className="text-fg-green">variant</span>.
 
-Alternately, multi-word tokens can be fully avoided with grouping or nesting components if your project structure allows it, like `Article/FaqAccordion`, `Order/HistoryTable` or `User/ProfileForm`.
+Alternatively, multi-word tokens can be fully avoided with grouping or nesting components if your project structure allows it, like `Article/FaqAccordion`, `Order/HistoryTable` or `User/ProfileForm`.
 
-Deciding whether to use it or not depends on your project structure and team preferences.
+Deciding whether to use it depends on your project structure and team preferences.
 
 **Recommendation**:
 
@@ -150,6 +150,6 @@ Deciding whether to use it or not depends on your project structure and team pre
 
 A naming pattern should exist to help, not to make it harder. If a rule adds more friction than value in your context, adapt it. What matters the most is that your project (and maybe team) uses a consistent and understandable convention.
 
-There's no one-size-fits-all solution with naming conventions, the goal with the CEV pattern is to make components easy to **find**, **sort**, and **understand** from the name alone.
+There's no one-size-fits-all solution with naming conventions. The goal with the CEV pattern is to make components easy to **find**, **sort**, and **understand** from the name alone.
 
 If you like this pattern, or have been using it already, reach out. I would love to know your story.
