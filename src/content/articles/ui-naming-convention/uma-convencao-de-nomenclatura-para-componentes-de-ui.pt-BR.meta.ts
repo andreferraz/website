@@ -6,5 +6,5 @@ export const meta: ArticleMeta = {
   date: '2021-04-30',
   tags: [Tag.FRONTEND, Tag.ARCHITECTURE, Tag.COMPONENTS],
   excerpt:
-    'Dar nomes às coisas na programação é difícil. CEV é uma convenção de nomenclatura que traz clareza e consistência para sua biblioteca de componentes de UI.',
+    'Nomear coisas em programação pode ser difícil. Aqui eu apresento uma convenção de nomenclatura que ajuda a trazer clareza e consistência para os componentes de UI em seus projetos.',
 }

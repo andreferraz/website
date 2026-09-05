@@ -6,5 +6,5 @@ export const meta: ArticleMeta = {
   date: '2021-04-30',
   tags: [Tag.FRONTEND, Tag.ARCHITECTURE, Tag.COMPONENTS],
   excerpt:
-    'Naming things in programming is hard. CEV is a naming convention that brings clarity and consistency to your UI component library.',
+    'Naming things in programming can be hard sometimes. Here I present a naming convention that helps to bring more clarity and consistency to UI components in your projects.',
 }
