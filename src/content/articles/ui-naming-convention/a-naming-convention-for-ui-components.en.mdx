@@ -31,7 +31,48 @@ Here is a short list of examples to better illustrate it.
 | <span className="text-fg-red">Text</span> <span className="text-fg-blue">Blocks</span> <span className="text-fg-green">Stacked</span> | Layout variant that helps understand the structure. |
 | <span className="text-fg-red">Flexible</span> <span className="text-fg-blue">Content</span> | Broader context. |
 
-<NamingPlaygroundInteractive />
+<NamingPlaygroundInteractive
+	texts={{
+		accordionTrigger: 'Explore more examples',
+		intro: 'Here is an interactive list with common word examples for component names.',
+		buildPrompt: 'Click the options below to build a component name',
+		plural: 'Plural',
+		sections: {
+			context: { title: 'Context', note: 'Recommended', emptyOptionLabel: 'None' },
+			element: { title: 'Element', note: 'Required', emptyOptionLabel: 'Unset' },
+			variant: { title: 'Variant', note: 'Optional', emptyOptionLabel: 'None' },
+		},
+		tokenLabels: { context: 'Context', element: 'Element', variant: 'Variant' },
+		validation: {
+			empty: <>The name must consist of at least an <code>Element</code>.</>,
+			missingElement: (
+				<>
+					The name must have an <code>Element</code> in it. Pick a concrete UI piece like{' '}
+					<code>Card</code>, <code>List</code>, <code>Button</code>, or <code>Form</code>.
+				</>
+			),
+			global: (
+				<>
+					Valid for a global component, although <code>Context</code> is usually recommended for a
+					clearer scope.
+				</>
+			),
+			variantWithoutContext: (
+				<>
+					<code>Variant</code> without <code>Context</code> is discouraged to avoid breaking the
+					naming convention.
+				</>
+			),
+			contextOnly: <>Great combination. It is clear, valid, and in most cases it&apos;s all you need.</>,
+			withVariant: (
+				<>
+					Good combination. <code>Variant</code> is not required, but can be added for more
+					specificity.
+				</>
+			),
+		},
+	}}
+	/>
 
 ## Specifications
 

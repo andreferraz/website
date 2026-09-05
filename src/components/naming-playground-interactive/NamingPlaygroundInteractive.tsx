@@ -217,6 +217,33 @@ interface ValidationResult {
   message: ReactNode
 }
 
+export interface NamingPlaygroundInteractiveProps {
+  texts: {
+    accordionTrigger: string
+    intro: string
+    buildPrompt: string
+    plural: string
+    sections: {
+      context: { title: string; note: string; emptyOptionLabel: string }
+      element: { title: string; note: string; emptyOptionLabel: string }
+      variant: { title: string; note: string; emptyOptionLabel: string }
+    }
+    tokenLabels: {
+      context: string
+      element: string
+      variant: string
+    }
+    validation: {
+      empty: ReactNode
+      missingElement: ReactNode
+      global: ReactNode
+      variantWithoutContext: ReactNode
+      contextOnly: ReactNode
+      withVariant: ReactNode
+    }
+  }
+}
+
 interface TokenOptionsSectionProps {
   groupName: string
   title: string
@@ -228,6 +255,7 @@ interface TokenOptionsSectionProps {
   onChange: (nextValue: string) => void
   showPlural?: boolean
   onPluralChange?: (value: boolean) => void
+  pluralLabel: string
 }
 
 function TokenOptionsSection({
@@ -241,6 +269,7 @@ function TokenOptionsSection({
   onChange,
   showPlural = false,
   onPluralChange,
+  pluralLabel,
 }: TokenOptionsSectionProps) {
   const getOptionId = (option: TokenOption) => {
     const sanitized = getSingularValue(option)
@@ -269,7 +298,7 @@ function TokenOptionsSection({
               onChange={(e) => onPluralChange(e.target.checked)}
               className="accent-(--foreground) cursor-pointer"
             />
-            Plural
+            {pluralLabel}
           </label>
         )}
       </legend>
@@ -318,75 +347,54 @@ function TokenOptionsSection({
   )
 }
 
-function getValidationMessage(context: string, element: string, variant: string): ValidationResult {
+function getValidationMessage(
+  context: string,
+  element: string,
+  variant: string,
+  messages: NamingPlaygroundInteractiveProps['texts']['validation'],
+): ValidationResult {
   if (!element && !context && !variant) {
     return {
       status: 'error',
-      message: (
-        <>
-          The name must consist of at least an <code>Element</code>.
-        </>
-      ),
+      message: messages.empty,
     }
   }
 
   if (!element) {
     return {
       status: 'error',
-      message: (
-        <>
-          The name must have an <code>Element</code> in it. Pick a concrete UI piece like{' '}
-          <code>Card</code>, <code>List</code>, <code>Button</code>, or <code>Form</code>.
-        </>
-      ),
+      message: messages.missingElement,
     }
   }
 
   if (!context && !variant) {
     return {
       status: 'warning',
-      message: (
-        <>
-          Valid for a global component, although <code>Context</code> is usually recommended for a
-          clearer scope.
-        </>
-      ),
+      message: messages.global,
     }
   }
 
   if (!context && variant) {
     return {
       status: 'error',
-      message: (
-        <>
-          <code>Variant</code> without <code>Context</code> is discouraged to avoid breaking the
-          naming convention.
-        </>
-      ),
+      message: messages.variantWithoutContext,
     }
   }
 
   if (context && !variant) {
     return {
       status: 'ok',
-      message: (
-        <>Great combination. It is clear, valid, and in most cases it&apos;s all you need.</>
-      ),
+      message: messages.contextOnly,
     }
   }
 
   return {
     status: 'ok',
-    message: (
-      <>
-        Good combination. <code>Variant</code> is not required, but can be added for more
-        specificity.
-      </>
-    ),
+    message: messages.withVariant,
   }
 }
 
-export const NamingPlaygroundInteractive = () => {
+export const NamingPlaygroundInteractive = ({ texts }: NamingPlaygroundInteractiveProps) => {
   const [accordionValue, setAccordionValue] = useState('')
   const [context, setContext] = useState('')
   const [contextPlural, setContextPlural] = useState(false)
@@ -398,10 +406,10 @@ export const NamingPlaygroundInteractive = () => {
     {
       key: 'context',
       groupName: 'token-context',
-      title: 'Context',
-      note: 'Recommended',
+      title: texts.sections.context.title,
+      note: texts.sections.context.note,
       titleClassName: 'text-fg-red',
-      emptyOptionLabel: 'None',
+      emptyOptionLabel: texts.sections.context.emptyOptionLabel,
       options: contextOptions,
       value: context,
       onChange: setContext,
@@ -411,10 +419,10 @@ export const NamingPlaygroundInteractive = () => {
     {
       key: 'element',
       groupName: 'token-element',
-      title: 'Element',
-      note: 'Required',
+      title: texts.sections.element.title,
+      note: texts.sections.element.note,
       titleClassName: 'text-fg-blue',
-      emptyOptionLabel: 'Unset',
+      emptyOptionLabel: texts.sections.element.emptyOptionLabel,
       options: elementOptions,
       value: element,
       onChange: setElement,
@@ -424,10 +432,10 @@ export const NamingPlaygroundInteractive = () => {
     {
       key: 'variant',
       groupName: 'token-variant',
-      title: 'Variant',
-      note: 'Optional',
+      title: texts.sections.variant.title,
+      note: texts.sections.variant.note,
       titleClassName: 'text-fg-green',
-      emptyOptionLabel: 'None',
+      emptyOptionLabel: texts.sections.variant.emptyOptionLabel,
       options: variantOptions,
       value: variant,
       onChange: setVariant,
@@ -438,19 +446,19 @@ export const NamingPlaygroundInteractive = () => {
   const tokenItems = [
     {
       value: getDisplayValue(context, contextOptions, contextPlural),
-      label: 'Context',
+      label: texts.tokenLabels.context,
       colorClass: 'text-fg-red',
     },
     {
       value: getDisplayValue(element, elementOptions, elementPlural),
-      label: 'Element',
+      label: texts.tokenLabels.element,
       colorClass: 'text-fg-blue',
     },
-    { value: variant, label: 'Variant', colorClass: 'text-fg-green' },
+    { value: variant, label: texts.tokenLabels.variant, colorClass: 'text-fg-green' },
   ].filter((item) => item.value)
   const validation = useMemo(
-    () => getValidationMessage(context, element, variant),
-    [context, element, variant],
+    () => getValidationMessage(context, element, variant, texts.validation),
+    [context, element, variant, texts.validation],
   )
 
   return (
@@ -464,7 +472,7 @@ export const NamingPlaygroundInteractive = () => {
       <Accordion.Item value="cev-examples" className="rounded-xl bg-(--surface-soft) px-4 sm:px-5">
         <Accordion.Header>
           <Accordion.Trigger className="group flex w-[calc(100%+var(--spacing)*5*2)] items-center justify-between gap-3 py-4 text-left -mx-5 px-4 cursor-pointer rounded-xl">
-            <span className="text-base font-semibold">Explore more examples</span>
+            <span className="text-base font-semibold">{texts.accordionTrigger}</span>
             <HiChevronDown
               aria-hidden="true"
               className="size-5 text-muted transition-transform duration-200 group-data-[state=open]:rotate-180"
@@ -474,9 +482,7 @@ export const NamingPlaygroundInteractive = () => {
 
         <Accordion.Content className={`${styles.accordionContent} px-4 -mx-4`}>
           <div className="pb-5">
-            <p className="-mt-2">
-              Here is an interactive list with common examples for component names.
-            </p>
+            <p className="-mt-2">{texts.intro}</p>
 
             <div
               className={`sticky ${accordionValue ? 'top-[calc(var(--header-height))]' : 'top-0'} z-20 flex justify-center flex-col mb-0 bg-(--background) rounded-lg text-center px-3 py-2 min-h-36`}
@@ -496,7 +502,7 @@ export const NamingPlaygroundInteractive = () => {
               </div>
               {!componentNameTokens.length ? (
                 <div>
-                  <p className="mb-2! text-sm">Click the options below to build a component name</p>
+                  <p className="mb-2! text-sm">{texts.buildPrompt}</p>
                 </div>
               ) : null}
               <p className="text-sm my-1!">
@@ -533,6 +539,7 @@ export const NamingPlaygroundInteractive = () => {
                   onChange={section.onChange}
                   showPlural={section.showPlural}
                   onPluralChange={section.onPluralChange}
+                  pluralLabel={texts.plural}
                 />
               ))}
             </div>
