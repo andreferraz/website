@@ -31,7 +31,46 @@ Veja abaixo uma pequena lista de exemplos para ilustrar melhor o padrão.
 | <span className="text-fg-red">Text</span> <span className="text-fg-blue">Blocks</span> <span className="text-fg-green">Stacked</span> | Variante de layout que ajuda a entender a estrutura. |
 | <span className="text-fg-red">Flexible</span> <span className="text-fg-blue">Content</span> | Contexto mais abrangente. |
 
-<NamingPlaygroundInteractive />
+<NamingPlaygroundInteractive
+	texts={{
+		accordionTrigger: 'Explore mais exemplos',
+		intro: 'Aqui temos uma lista interativa com exemplos comuns de palavras para nomes de componentes.',
+		buildPrompt: 'Clique nas opções abaixo para criar o nome de um componente',
+		plural: 'Plural',
+		sections: {
+			context: { title: 'Contexto', note: 'Recomendado', emptyOptionLabel: 'Nenhum' },
+			element: { title: 'Elemento', note: 'Obrigatório', emptyOptionLabel: 'Não definido' },
+			variant: { title: 'Variante', note: 'Opcional', emptyOptionLabel: 'Nenhuma' },
+		},
+		tokenLabels: { context: 'Contexto', element: 'Elemento', variant: 'Variante' },
+		validation: {
+			empty: <>O nome deve consistir em pelo menos um <code>Elemento</code>.</>,
+			missingElement: (
+				<>
+					O nome deve conter um <code>Elemento</code>. Escolha uma peça concreta de UI, como{' '}
+					<code>Card</code>, <code>List</code>, <code>Button</code> ou <code>Form</code>.
+				</>
+			),
+			global: (
+				<>
+					Válido para um componente global, embora seja geralmente recomendado adicionar um <code>Contexto</code> pra um escopo mais claro.
+				</>
+			),
+			variantWithoutContext: (
+				<>
+					<code>Variante</code> sem <code>Contexto</code> não é recomendado pois quebra a convenção da nomenclatura e pode gerar confusão.
+				</>
+			),
+			contextOnly: <>Boa combinação. É clara, válida e, na maioria dos casos, tudo o que você precisa.</>,
+			withVariant: (
+				<>
+					Boa combinação. <code>Variante</code> não é obrigatória, mas pode ser adicionada para mais
+					especificidade.
+				</>
+			),
+		},
+	}}
+	/>
 
 ## Especificações
 
@@ -148,8 +187,8 @@ Decidir se deve usá-los depende da estrutura do seu projeto e das preferências
 
 ## Observações finais
 
-Um padrão de nomenclatura deve existir para ajudar, não para dificultar. Se uma regra acrescentar mais atrito do que valor ao seu contexto, adapte-a. O mais importante é que seu projeto (e talvez sua equipe) use uma convenção consistente e fácil de entender.
+Um padrão de nomenclatura deve existir para ajudar, e não para dificultar. Se alguma regra acrescentar mais atrito do que valor ao seu contexto, adapte-a. O mais importante é que o seu projeto (e talvez sua equipe) use uma convenção consistente e fácil de entender.
 
 Não existe uma solução única para convenções de nomenclatura. O objetivo do padrão CEV é tornar os componentes fáceis de **encontrar**, **organizar** e **entender** apenas pelo nome.
 
-Se você gostou deste padrão ou já o utiliza, entre em contato. Eu adoraria conhecer a sua história.
+Se você gostou deste padrão, ou já o utiliza, entre em contato, eu adoraria conhecer a sua história.
