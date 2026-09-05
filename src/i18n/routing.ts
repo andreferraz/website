@@ -20,6 +20,7 @@ export const routing = defineRouting({
   defaultLocale: locales.find((i) => i.default)?.locale || 'en',
   localePrefix: 'as-needed',
   pathnames: {
+    '/': '/',
     '/articles': {
       en: '/articles',
       'pt-BR': '/artigos',
