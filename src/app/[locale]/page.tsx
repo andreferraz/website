@@ -9,7 +9,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <Page>
-      <HomeLayout />
+      <HomeLayout locale={locale} />
     </Page>
   )
 }
