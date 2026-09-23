@@ -18,10 +18,10 @@
   },
   "introSection": {
     "title": {
-      "greeting": "Hello, ",
+      "greeting": "Hello, 👋",
       "introduction": "my name is "
     },
-    "brief": "I'm a full-stack web developer, with experience building world-class digital experiences for multinational brands, and passionate about game development."
+    "brief": "I'm a full-stack web developer, with experience building world-class digital solutions for multinational brands, and passionate about games, automation, and great user interfaces."
   },
   "brandsList": {
     "title": "Projects",
